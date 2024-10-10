@@ -45,5 +45,4 @@ interface Fetch {
 	 * @return array
 	 */
 	public function handle_error();
-
 }

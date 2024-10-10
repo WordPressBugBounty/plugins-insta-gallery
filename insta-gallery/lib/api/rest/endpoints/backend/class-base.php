@@ -15,5 +15,4 @@ abstract class Base extends Endpoints {
 		}
 		return true;
 	}
-
 }

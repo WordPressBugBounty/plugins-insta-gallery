@@ -2,7 +2,7 @@
 
 namespace QuadLayers\IGG\Controllers;
 
-use QuadLayers\IGG\Helpers as Helpers;
+use QuadLayers\IGG\Helpers;
 use QuadLayers\IGG\Models\Feeds as Models_Feeds;
 use QuadLayers\IGG\Models\Settings as Models_Settings;
 use QuadLayers\IGG\Frontend\Load as Frontend;
@@ -63,10 +63,10 @@ class Gutenberg {
 			array(
 				'attributes'      => $this->get_attributes(),
 				'render_callback' => array( $this, 'render_callback' ),
-				'style'           => [ 'qligg-swiper', 'qligg-frontend', 'qligg-backend' ],
-				'script'          => [ 'qligg-swiper', 'masonry' ],
-				'editor_style'    => [ 'qligg-swiper', 'qligg-frontend', 'qligg-backend' ],
-				'editor_script'   => [ 'qligg-swiper', 'masonry' ],
+				'style'           => array( 'qligg-swiper', 'qligg-frontend', 'qligg-backend' ),
+				'script'          => array( 'qligg-swiper', 'masonry' ),
+				'editor_style'    => array( 'qligg-swiper', 'qligg-frontend', 'qligg-backend' ),
+				'editor_script'   => array( 'qligg-swiper', 'masonry' ),
 			)
 		);
 	}

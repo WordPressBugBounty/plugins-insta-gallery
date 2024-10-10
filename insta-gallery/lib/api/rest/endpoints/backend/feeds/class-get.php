@@ -43,7 +43,7 @@ class Get extends Base {
 	public static function get_rest_args() {
 		return array(
 			'feed_id' => array(
-				'validate_callback' => function( $param, $request, $key ) {
+				'validate_callback' => function ( $param, $request, $key ) {
 					return is_numeric( $param );
 				},
 			),

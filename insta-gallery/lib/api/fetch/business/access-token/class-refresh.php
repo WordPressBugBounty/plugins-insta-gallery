@@ -82,5 +82,4 @@ class Refresh extends Base {
 
 		return $url;
 	}
-
 }

@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'quadlayers/insta-gallery',
-        'pretty_version' => 'v4.5.8',
-        'version' => '4.5.8.0',
-        'reference' => 'd4f218910f764ac27e0cee5e3d0219a06c918b81',
+        'pretty_version' => 'v4.5.9',
+        'version' => '4.5.9.0',
+        'reference' => '78c720346597c815fcb1a5a03cae108f32c61437',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'automattic/jetpack-assets' => array(
-            'pretty_version' => 'v2.3.8',
-            'version' => '2.3.8.0',
-            'reference' => '3ddaff78c82ed7663b61961356585061dbb3410a',
+            'pretty_version' => 'v2.3.9',
+            'version' => '2.3.9.0',
+            'reference' => '1d5d516775d86299e4c99f9c2f115c817fe63b99',
             'type' => 'jetpack-library',
             'install_path' => __DIR__ . '/../../jetpack_vendor/automattic/jetpack-assets',
             'aliases' => array(),
@@ -38,18 +38,20 @@
             'dev_requirement' => false,
         ),
         'franmastromarino/wp-orm' => array(
-            'pretty_version' => 'dev-dev-refactor',
-            'version' => 'dev-dev-refactor',
-            'reference' => '7c5a62368473dca16c667e942ba812ec3f6e30e7',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'dfec8095b65a507e19ff377d976c596ba13e4f27',
             'type' => 'library',
             'install_path' => __DIR__ . '/../franmastromarino/wp-orm',
-            'aliases' => array(),
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
             'dev_requirement' => false,
         ),
         'quadlayers/insta-gallery' => array(
-            'pretty_version' => 'v4.5.8',
-            'version' => '4.5.8.0',
-            'reference' => 'd4f218910f764ac27e0cee5e3d0219a06c918b81',
+            'pretty_version' => 'v4.5.9',
+            'version' => '4.5.9.0',
+            'reference' => '78c720346597c815fcb1a5a03cae108f32c61437',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

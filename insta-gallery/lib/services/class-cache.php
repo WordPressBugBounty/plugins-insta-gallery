@@ -198,7 +198,6 @@ class Cache {
 		} else {
 			delete_option( $cache_option_key );
 		}
-
 	}
 
 	/**

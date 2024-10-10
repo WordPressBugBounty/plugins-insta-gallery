@@ -2,7 +2,7 @@
 
 namespace QuadLayers\IGG\Models;
 
-use QuadLayers\IGG\Entity\Feed as Feed;
+use QuadLayers\IGG\Entity\Feed;
 use QuadLayers\WP_Orm\Builder\CollectionRepositoryBuilder;
 
 /**

@@ -87,5 +87,4 @@ class Get extends Base {
 
 		return $url;
 	}
-
 }

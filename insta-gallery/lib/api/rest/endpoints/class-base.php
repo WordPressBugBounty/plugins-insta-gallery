@@ -29,7 +29,7 @@ abstract class Base implements Route_Interface {
 	}
 
 	public static function get_rest_route() {
-	  return static::$route_path;
+		return static::$route_path;
 	}
 
 	public static function get_name() {
@@ -76,6 +76,5 @@ abstract class Base implements Route_Interface {
 		$rest_path = self::get_rest_path();
 
 		return get_rest_url( $blog_id, $rest_path );
-
 	}
 }

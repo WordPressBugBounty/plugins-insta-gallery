@@ -33,7 +33,7 @@ final class Plugin {
 		// Filter to add 50 days interval to cron_schedules.
 		add_filter(
 			'cron_schedules',
-			function() {
+			function () {
 				$schedules['fifty_days'] = array(
 					'interval' => DAY_IN_SECONDS * 50,
 					'display'  => esc_html__( 'Every fifty days', 'insta-gallery' ),
@@ -45,7 +45,7 @@ final class Plugin {
 		// Action to auto renew account access_token, if it can be done automatically. Send an email to inform admin about access_token expiration.
 		add_action(
 			'qligg_cron_account',
-			function( $id ) {
+			function ( $id ) {
 				$account             = Models_Accounts::instance()->get( $id );
 				$old_expiration_date = $account['access_token_expiration_date'];
 
@@ -93,7 +93,6 @@ final class Plugin {
 		}
 		return self::$instance;
 	}
-
 }
 
 Plugin::instance();

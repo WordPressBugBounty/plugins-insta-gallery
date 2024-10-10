@@ -113,5 +113,4 @@ class Get extends Base {
 		}
 		return false;
 	}
-
 }

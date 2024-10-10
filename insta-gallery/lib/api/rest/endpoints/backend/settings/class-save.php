@@ -36,7 +36,6 @@ class Save extends Base {
 			);
 			return $this->handle_response( $response );
 		}
-
 	}
 
 	public static function get_rest_args() {

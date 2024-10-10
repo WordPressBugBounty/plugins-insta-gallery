@@ -3,7 +3,7 @@
 namespace QuadLayers\IGG\Models;
 
 use QuadLayers\WP_Orm\Builder\CollectionRepositoryBuilder;
-use QuadLayers\IGG\Entity\Account as Account;
+use QuadLayers\IGG\Entity\Account;
 use QuadLayers\IGG\Api\Fetch\Business\Access_Token\Refresh as Api_Fetch_Business_Refresh_Access_Token;
 use QuadLayers\IGG\Api\Fetch\Personal\Access_Token\Refresh as Api_Fetch_Personal_Refresh_Access_Token;
 
@@ -47,7 +47,6 @@ class Accounts {
 		}
 
 		return $entity->getProperties();
-
 	}
 
 	public function delete( string $id ) {

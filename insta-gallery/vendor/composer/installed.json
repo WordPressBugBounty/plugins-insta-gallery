@@ -2,17 +2,17 @@
     "packages": [
         {
             "name": "automattic/jetpack-assets",
-            "version": "v2.3.8",
-            "version_normalized": "2.3.8.0",
+            "version": "v2.3.9",
+            "version_normalized": "2.3.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Automattic/jetpack-assets.git",
-                "reference": "3ddaff78c82ed7663b61961356585061dbb3410a"
+                "reference": "1d5d516775d86299e4c99f9c2f115c817fe63b99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Automattic/jetpack-assets/zipball/3ddaff78c82ed7663b61961356585061dbb3410a",
-                "reference": "3ddaff78c82ed7663b61961356585061dbb3410a",
+                "url": "https://api.github.com/repos/Automattic/jetpack-assets/zipball/1d5d516775d86299e4c99f9c2f115c817fe63b99",
+                "reference": "1d5d516775d86299e4c99f9c2f115c817fe63b99",
                 "shasum": ""
             },
             "require": {
@@ -28,7 +28,7 @@
             "suggest": {
                 "automattic/jetpack-autoloader": "Allow for better interoperability with other plugins that use this package."
             },
-            "time": "2024-09-10T11:21:54+00:00",
+            "time": "2024-10-07T19:01:35+00:00",
             "type": "jetpack-library",
             "extra": {
                 "autotagger": true,
@@ -56,7 +56,7 @@
             ],
             "description": "Asset management utilities for Jetpack ecosystem packages",
             "support": {
-                "source": "https://github.com/Automattic/jetpack-assets/tree/v2.3.8"
+                "source": "https://github.com/Automattic/jetpack-assets/tree/v2.3.9"
             },
             "install-path": "../../jetpack_vendor/automattic/jetpack-assets"
         },
@@ -176,17 +176,17 @@
         },
         {
             "name": "franmastromarino/wp-orm",
-            "version": "dev-dev-refactor",
-            "version_normalized": "dev-dev-refactor",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/franmastromarino/wp-options-orm.git",
-                "reference": "7c5a62368473dca16c667e942ba812ec3f6e30e7"
+                "reference": "dfec8095b65a507e19ff377d976c596ba13e4f27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/franmastromarino/wp-options-orm/zipball/7c5a62368473dca16c667e942ba812ec3f6e30e7",
-                "reference": "7c5a62368473dca16c667e942ba812ec3f6e30e7",
+                "url": "https://api.github.com/repos/franmastromarino/wp-options-orm/zipball/dfec8095b65a507e19ff377d976c596ba13e4f27",
+                "reference": "dfec8095b65a507e19ff377d976c596ba13e4f27",
                 "shasum": ""
             },
             "require": {
@@ -203,7 +203,8 @@
                 "squizlabs/php_codesniffer": "*",
                 "wp-coding-standards/wpcs": "^2.3.0"
             },
-            "time": "2024-09-09T16:04:03+00:00",
+            "time": "2024-09-18T14:23:52+00:00",
+            "default-branch": true,
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -232,7 +233,7 @@
             ],
             "support": {
                 "issues": "https://github.com/franmastromarino/wp-options-orm/issues",
-                "source": "https://github.com/franmastromarino/wp-options-orm/tree/dev-refactor"
+                "source": "https://github.com/franmastromarino/wp-options-orm/tree/dev1.2.0"
             },
             "install-path": "../franmastromarino/wp-orm"
         },

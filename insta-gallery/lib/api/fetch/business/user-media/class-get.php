@@ -2,7 +2,7 @@
 namespace QuadLayers\IGG\Api\Fetch\Business\User_Media;
 
 use QuadLayers\IGG\Api\Fetch\Business\Base;
-use QuadLayers\IGG\Helpers as Helpers;
+use QuadLayers\IGG\Helpers;
 
 /**
  * Api_Fetch_Business_User_Media
@@ -38,12 +38,12 @@ class Get extends Base {
 			switch ( $item['media_type'] ) {
 				case 'IMAGE':
 					if ( isset( $item['media_url'] ) ) {
-							return [ $item['media_url'], 'IMAGE' ];
+							return array( $item['media_url'], 'IMAGE' );
 					}
 					break;
 				case 'VIDEO':
 					if ( isset( $item['media_url'] ) ) {
-							return [ $item['media_url'], 'VIDEO' ];
+							return array( $item['media_url'], 'VIDEO' );
 					}
 					break;
 				case 'CAROUSEL_ALBUM':
@@ -52,19 +52,19 @@ class Get extends Base {
 						$children = array_values(
 							array_filter(
 								$item['children']['data'],
-								function( $child ) {
+								function ( $child ) {
 									if ( isset( $child['media_url'] ) ) {
-										return [ $child['media_url'], $child['media_type'] ];
+										return array( $child['media_url'], $child['media_type'] );
 									}
 								}
 							)
 						);
 						if ( isset( $children[0]['media_url'] ) ) {
-							return [ $children[0]['media_url'], $children[0]['media_type'] ];
+							return array( $children[0]['media_url'], $children[0]['media_type'] );
 						}
 					}
 					if ( isset( $item['children']['data'][0]['media_url'] ) ) {
-						return [ $item['children']['data'][0]['media_url'], $item['children']['data'][0]['media_type'] ];
+						return array( $item['children']['data'][0]['media_url'], $item['children']['data'][0]['media_type'] );
 					}
 					return null;
 					break;
@@ -106,7 +106,7 @@ class Get extends Base {
 
 		$filter_items = Helpers::array_reduce(
 			$items,
-			function( $carry, $key, $item ) use ( $hide_items_with_copyright, $hide_reels ) {
+			function ( $carry, $key, $item ) use ( $hide_items_with_copyright, $hide_reels ) {
 
 				list( $media_file_url, $media_file_type ) = $this->get_item_media( $item, $hide_items_with_copyright );
 
@@ -232,5 +232,4 @@ class Get extends Base {
 
 		return $url;
 	}
-
 }

@@ -89,5 +89,4 @@ class QLIGG_Widget extends WP_Widget {
 		$instance['feed_id'] = trim( strip_tags( $new_instance['feed_id'] ) );
 		return $instance;
 	}
-
 }

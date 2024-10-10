@@ -112,5 +112,4 @@ class User_Profile extends Base {
 	public function get_rest_permission() {
 		return true;
 	}
-
 }

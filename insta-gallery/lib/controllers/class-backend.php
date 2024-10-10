@@ -2,7 +2,7 @@
 
 namespace QuadLayers\IGG\Controllers;
 
-use QuadLayers\IGG\Helpers as Helpers;
+use QuadLayers\IGG\Helpers;
 use QuadLayers\IGG\Models\Feeds as Models_Feeds;
 use QuadLayers\IGG\Models\Accounts as Models_Accounts;
 use QuadLayers\IGG\Models\Settings as Models_Settings;
@@ -206,7 +206,6 @@ class Backend {
 		wp_enqueue_script( 'qligg-swiper' );
 		wp_enqueue_style( 'qligg-swiper' );
 		wp_enqueue_style( 'qligg-frontend' );
-
 	}
 
 	public static function init_add_account() {
@@ -246,7 +245,6 @@ class Backend {
 					window.location.replace("<?php echo QLIGG_ACCOUNT_URL; ?>");
 				</script>
 			<?php
-
 	}
 
 	public static function add_premium_js() {

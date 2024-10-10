@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_filter(
 	'init',
-	function() {
+	function () {
 
 		/**
 		 * Compatibility with the old version
@@ -18,7 +18,7 @@ add_filter(
 		}
 
 		$_REQUEST['accounts'] = array_map(
-			function( $value ) {
+			function ( $value ) {
 
 				if ( isset( $value['token_type'] ) ) {
 					$value['access_token_type'] = $value['token_type'];
@@ -38,7 +38,7 @@ add_filter(
  */
 add_filter(
 	'option_insta_gallery_accounts',
-	function( $accounts ) {
+	function ( $accounts ) {
 
 		if ( ! is_array( $accounts ) ) {
 			return array();
@@ -74,7 +74,7 @@ add_filter(
  */
 add_filter(
 	'option_insta_gallery_feeds',
-	function( $feeds ) {
+	function ( $feeds ) {
 
 		foreach ( $feeds as $i => $feed ) {
 			$is_old = isset( $feed['username'] );
@@ -113,7 +113,7 @@ add_filter(
 
 add_action(
 	'init',
-	function() {
+	function () {
 
 		if ( ! is_admin() ) {
 			return;
@@ -141,7 +141,6 @@ add_action(
 				wp_safe_redirect( admin_url( 'admin.php?page=qligg_backend&tab=settings' ) );
 				// exit;
 		}
-
 	}
 );
 
@@ -211,7 +210,7 @@ add_filter(
  */
 add_action(
 	'widgets_init',
-	function() {
+	function () {
 		require_once 'widget.php';
 		register_widget( 'QLIGG_Widget' );
 	}

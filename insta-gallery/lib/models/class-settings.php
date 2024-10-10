@@ -3,7 +3,7 @@
 namespace QuadLayers\IGG\Models;
 
 use QuadLayers\WP_Orm\Builder\SingleRepositoryBuilder;
-use QuadLayers\IGG\Entity\Setting as Setting;
+use QuadLayers\IGG\Entity\Setting;
 
 
 /**

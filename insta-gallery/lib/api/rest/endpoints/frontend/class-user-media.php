@@ -159,5 +159,4 @@ class User_Media extends Base {
 	public function get_rest_permission() {
 		return true;
 	}
-
 }

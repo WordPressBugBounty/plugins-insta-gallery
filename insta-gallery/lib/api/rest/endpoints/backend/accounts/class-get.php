@@ -45,7 +45,7 @@ class Get extends Base {
 		return array(
 			'id' => array(
 				'required'          => false,
-				'validate_callback' => function( $param, $request, $key ) {
+				'validate_callback' => function ( $param, $request, $key ) {
 					return is_numeric( $param );
 				},
 			),

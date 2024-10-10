@@ -74,7 +74,7 @@ class Delete extends Base {
 		return array(
 			'feed_settings' => array(
 				'required'          => true,
-				'validate_callback' => function( $param, $request, $key ) {
+				'validate_callback' => function ( $param, $request, $key ) {
 					return is_array( json_decode( wp_json_encode( $param ), true ) );
 				},
 			),
@@ -84,5 +84,4 @@ class Delete extends Base {
 	public static function get_rest_method() {
 		return \WP_REST_Server::DELETABLE;
 	}
-
 }

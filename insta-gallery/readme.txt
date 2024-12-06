@@ -4,8 +4,8 @@ Donate link: https://quadlayers.com/products/instagram-feed-gallery/
 Tags: Instagram, Instagram feed, Instagram gallery, Instagram photos, Instagram widget
 Requires at least: 4.7
 Requires PHP: 5.6
-Tested up to: 6.6
-Stable tag: 4.5.9
+Tested up to: 6.7
+Stable tag: 4.6.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -100,7 +100,13 @@ There may be other plugins (like fancybox, elementor) that also use image links 
 
 == Changelog ==
 
-= 4.5.8 =
+= 4.6.1 =
+* Instagram API compatibility
+
+= 4.6.0 =
+* WordPress compatibility
+
+= 4.5.9 =
 * Feat code format
 
 = 4.5.8 =

@@ -64,7 +64,7 @@ class Accounts {
 
 	public function create( array $account_data ) {
 
-		// Case Add Personal Account button.
+		// Case Add Basic Account button.
 		if ( isset( $account_data['id'], $account_data['access_token'], $account_data['expires_in'], $account_data['access_token_type'] ) ) {
 
 			$entity = $this->repository->create(

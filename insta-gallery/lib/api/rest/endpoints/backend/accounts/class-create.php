@@ -16,12 +16,11 @@ class Create extends Base {
 		try {
 
 			$body = json_decode( $request->get_body(), true );
-
-			if ( empty( $body->access_token ) ) {
+			if ( empty( $body['access_token'] ) ) {
 				throw new \Exception( esc_html__( 'access_token not set.', 'insta-gallery' ), 412 );
 			}
 
-			if ( empty( $body->id ) ) {
+			if ( empty( $body['id'] ) ) {
 				throw new \Exception( esc_html__( 'id not set.', 'insta-gallery' ), 412 );
 			}
 

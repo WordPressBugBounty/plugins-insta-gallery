@@ -40,10 +40,10 @@ final class Helpers {
 	public static function get_personal_access_token_link() {
 		$nonce                 = wp_create_nonce( 'qligg_add_account' );
 		$state                 = admin_url( 'admin.php?qligg_nonce=' . $nonce );
-		$scope                 = 'user_profile,user_media';
+		$scope                 = 'instagram_business_basic';
 		$personal_client_id    = self::$personal_client_id;
 		$personal_redirect_url = self::$personal_redirect_url;
-		return "https://www.instagram.com/oauth/authorize?app_id={$personal_client_id}&redirect_uri={$personal_redirect_url}&response_type=code&scope={$scope}&state={$state}";
+		return "https://www.instagram.com/oauth/authorize?client_id={$personal_client_id}&redirect_uri={$personal_redirect_url}&response_type=code&scope={$scope}&state={$state}";
 	}
 
 	/**

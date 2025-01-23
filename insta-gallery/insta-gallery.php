@@ -4,7 +4,7 @@
  * Plugin Name:             Social Feed Gallery
  * Plugin URI:              https://quadlayers.com/products/instagram-feed-gallery/
  * Description:             Display beautiful and responsive galleries on your website from your Instagram feed account.
- * Version:                 4.6.1
+ * Version:                 4.6.2
  * Text Domain:             insta-gallery
  * Author:                  QuadLayers
  * Author URI:              https://quadlayers.com
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'QLIGG_PLUGIN_NAME', 'Social Feed Gallery' );
-define( 'QLIGG_PLUGIN_VERSION', '4.6.1' );
+define( 'QLIGG_PLUGIN_VERSION', '4.6.2' );
 define( 'QLIGG_PLUGIN_FILE', __FILE__ );
 define( 'QLIGG_PLUGIN_DIR', __DIR__ . DIRECTORY_SEPARATOR );
 define( 'QLIGG_DOMAIN', 'qligg' );
@@ -37,12 +37,12 @@ define( 'QLIGG_DEVELOPER', false );
 define( 'QLIGG_ACCOUNT_URL', admin_url( 'admin.php?page=qligg_backend&tab=accounts' ) );
 
 /**
- * Load composer autoload
- */
+* Load composer autoload
+*/
 require_once __DIR__ . '/vendor/autoload.php';
 /**
- * Load compatibility
- */
+* Load compatibility
+*/
 require_once __DIR__ . '/compatibility/php.php';
 require_once __DIR__ . '/compatibility/old.php';
 require_once __DIR__ . '/compatibility/widget.php';
@@ -50,14 +50,14 @@ require_once __DIR__ . '/compatibility/class-backend.php';
 require_once __DIR__ . '/compatibility/class-frontend.php';
 require_once __DIR__ . '/compatibility/class-gutenberg.php';
 /**
- * Load vendor_packages packages
- */
+* Load vendor_packages packages
+*/
 require_once __DIR__ . '/vendor_packages/wp-i18n-map.php';
 require_once __DIR__ . '/vendor_packages/wp-dashboard-widget-news.php';
 require_once __DIR__ . '/vendor_packages/wp-plugin-table-links.php';
 require_once __DIR__ . '/vendor_packages/wp-notice-plugin-promote.php';
 require_once __DIR__ . '/vendor_packages/wp-plugin-install-tab.php';
 /**
- * Load plugin classes
- */
+* Load plugin classes
+*/
 require_once __DIR__ . '/lib/class-plugin.php';

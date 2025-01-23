@@ -42,15 +42,44 @@ class Accounts {
 			return;
 		}
 
-		if ( $this->is_access_token_renewed( $entity->getProperties() ) ) {
-			$entity = $this->repository->find( $id );
+		$is_access_token_about_to_expire = $this->is_access_token_expired( $entity->getProperties() );
+
+		/**
+		 * Check if account is about to expire
+		 */
+		if ( ! $is_access_token_about_to_expire ) {
+			return $entity->getProperties();
 		}
 
-		return $entity->getProperties();
+		if ( ! $this->is_access_token_renewed( $entity->getProperties() ) ) {
+			return $entity->getProperties();
+
+		}
+
+		$args = array(
+			$id,
+		);
+
+		if ( wp_next_scheduled( 'qligg_cron_account', $args ) ) {
+			wp_clear_scheduled_hook( 'qligg_cron_account', $args );
+		}
+
+		wp_schedule_event(
+			time(),
+			'fifty_days',
+			'qligg_cron_account',
+			$args
+		);
+		return $this->repository->find( $id );
 	}
 
 	public function delete( string $id ) {
-		return $this->repository->delete( $id );
+		$status = $this->repository->delete( $id );
+		if ( $status ) {
+			$args = array( $id );
+			wp_clear_scheduled_hook( 'qligg_cron_account', $args );
+		}
+		return $status;
 	}
 
 	public function update( string $id, array $account ) {
@@ -58,6 +87,9 @@ class Accounts {
 		$entity = $this->repository->update( $id, $account );
 
 		if ( $entity ) {
+			$args = array(
+				$id,
+			);
 			return $entity->getProperties();
 		}
 	}
@@ -71,7 +103,7 @@ class Accounts {
 				array(
 					'id'                           => $account_data['id'],
 					'access_token'                 => $this->clean_token( $account_data['access_token'] ),
-					'access_token_renew_atemps'    => 0,
+					'access_token_renew_attempts'  => 0,
 					'access_token_expiration_date' => $this->calculate_expiration_date( $account_data['expires_in'] ),
 					'access_token_expires_in'      => $account_data['expires_in'],
 					'access_token_type'            => $this->get_token_type( $account_data ),
@@ -82,6 +114,17 @@ class Accounts {
 				throw new \Exception( esc_html__( 'Error creating account.', 'insta-gallery' ), 400 );
 			}
 
+			$args = array(
+				$account_data['id'],
+			);
+			if ( ! wp_next_scheduled( 'qligg_cron_account', $args ) ) {
+				wp_schedule_event(
+					time(),
+					'fifty_days',
+					'qligg_cron_account',
+					$args
+				);
+			}
 			return $entity->getProperties();
 
 		}
@@ -100,7 +143,7 @@ class Accounts {
 			array(
 				'id'                           => $account_data['id'],
 				'access_token'                 => $this->clean_token( $response['access_token'] ),
-				'access_token_renew_atemps'    => 0,
+				'access_token_renew_attempts'  => 0,
 				'access_token_expiration_date' => $this->calculate_expiration_date( $response['expires_in'] ),
 				'access_token_expires_in'      => $response['expires_in'],
 				'access_token_type'            => $this->get_token_type( $response ),
@@ -111,6 +154,18 @@ class Accounts {
 			throw new \Exception( esc_html__( 'Error creating account.', 'insta-gallery' ), 400 );
 		}
 
+		$args = array(
+			$account_data['id'],
+		);
+		if ( ! wp_next_scheduled( 'qligg_cron_account', $args ) ) {
+
+			wp_schedule_event(
+				time(),
+				'fifty_days',
+				'qligg_cron_account',
+				$args
+			);
+		}
 		return $entity->getProperties();
 	}
 
@@ -205,15 +260,6 @@ class Accounts {
 	 * @return array|false
 	 */
 	public function is_access_token_renewed( $account ) {
-
-		$is_access_token_about_to_expire = $this->is_access_token_expired( $account );
-
-		/**
-		 * Check if account is about to expire
-		 */
-		if ( ! $is_access_token_about_to_expire ) {
-			return true;
-		}
 
 		if ( $this->access_token_renew_attemps_exceded( $account ) ) {
 			return false;

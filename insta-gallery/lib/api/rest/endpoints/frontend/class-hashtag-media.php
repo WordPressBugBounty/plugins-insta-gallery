@@ -41,8 +41,7 @@ class Hashtag_Media extends Base {
 		$this->media_cache_engine = new Cache( 6, true, $cache_key );
 
 		// Get cached hashtag media data.
-		$media_complete_prefix = "{$this->media_cache_key}_{$feed_md5}_{$pagination}";
-
+		$media_complete_prefix = "{$this->media_cache_key}_{$feed_md5}_{$after}_{$pagination}";
 		$response = $this->media_cache_engine->get( $media_complete_prefix );
 
 		// Check if $response has data, if it have return it.
@@ -110,9 +109,9 @@ class Hashtag_Media extends Base {
 				'required'          => false,
 			),
 			'after'                     => array(
-				'default'           => 0,
+				'default'           => '',
 				'sanitize_callback' => function ( $after ) {
-					return intval( $after );
+					return sanitize_text_field( $after );
 				},
 				'required'          => false,
 			),

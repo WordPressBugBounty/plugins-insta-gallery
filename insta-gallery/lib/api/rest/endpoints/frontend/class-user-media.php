@@ -72,9 +72,15 @@ class User_Media extends Base {
 			}
 
 			if ( empty( $response['data'] ) ) {
+				if ( $hide_reels === true ) {
+					return array(
+						'code'    => 404,
+						'message' => esc_html( __( 'This feed has no elements. Reels are currently hidden in this feed ', 'insta-gallery' ) ),
+					);
+				}
 				return array(
 					'code'    => 404,
-					'message' => esc_html( __( 'Feed has not elements.', 'insta-gallery' ) ),
+					'message' => esc_html( __( 'This feed has no elements.', 'insta-gallery' ) ),
 				);
 			}
 
@@ -96,9 +102,15 @@ class User_Media extends Base {
 		}
 
 		if ( empty( $response['data'] ) ) {
+			if ( $hide_reels === true ) {
+				return array(
+					'code'    => 404,
+					'message' => esc_html( __( 'This feed has no elements. Reels are currently hidden in this feed ', 'insta-gallery' ) ),
+				);
+			}
 			return array(
 				'code'    => 404,
-				'message' => esc_html( __( 'Feed has not elements.', 'insta-gallery' ) ),
+				'message' => esc_html( __( 'This feed has no elements.', 'insta-gallery' ) ),
 			);
 		}
 

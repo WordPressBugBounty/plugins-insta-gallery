@@ -16,7 +16,7 @@ final class Plugin {
 		/**
 		 * Load plugin textdomain.
 		 */
-		load_plugin_textdomain( 'insta-gallery', false, QLIGG_PLUGIN_DIR . '/languages/' );
+		add_action( 'init', array( $this, 'load_textdomain' ) );
 		/**
 		 * Load api classes.
 		 */
@@ -51,8 +51,12 @@ final class Plugin {
 		);
 	}
 
+	public function load_textdomain() {
+		load_plugin_textdomain( 'insta-gallery', false, QLIGG_PLUGIN_DIR . '/languages/' );
+	}
+
 	public function send_expiration_mail( $id ) {
-		$account = Models_Accounts::instance()->get( $id );
+		$account             = Models_Accounts::instance()->get( $id );
 		$old_expiration_date = $account['access_token_expiration_date'];
 
 		$account_renewed = Models_Accounts::instance()->get( $id );

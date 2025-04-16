@@ -13,10 +13,14 @@ use QuadLayers\IGG\Api\Rest\Endpoints\Backend\Feeds\Clear_Cache as Api_Rest_Feed
 
 use QuadLayers\IGG\Api\Rest\Endpoints\Backend\Settings\Get as Api_Rest_Settings_Get;
 use QuadLayers\IGG\Api\Rest\Endpoints\Backend\Settings\Save as Api_Rest_Settings_Save;
+use QuadLayers\IGG\Api\Rest\Endpoints\Backend\Hashtags\Get as Api_Rest_Hashtags_Get;
 
 use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\User_Profile as Api_Rest_User_Profile;
 use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\User_Media as Api_Rest_User_Media;
+use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\User_Stories as Api_Rest_User_Stories;
+use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\Media_Comments as Api_Rest_Media_Comments;
 use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\Hashtag_Media as Api_Rest_Hashtag_Media;
+use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\Tagged_Media as Api_Rest_Tagged_Media;
 use QuadLayers\IGG\Api\Rest\Endpoints\Route as Route_Interface;
 
 class Routes_Library {
@@ -62,10 +66,15 @@ class Routes_Library {
 		// Settings
 		new Api_Rest_Settings_Get();
 		new Api_Rest_Settings_Save();
+		// Hashtags
+		new Api_Rest_Hashtags_Get();
 		// Frontend
 		new Api_Rest_User_Profile();
 		new Api_Rest_User_Media();
+		new Api_Rest_User_Stories();
+		new Api_Rest_Media_Comments();
 		new Api_Rest_Hashtag_Media();
+		new Api_Rest_Tagged_Media();
 	}
 
 	public static function instance() {

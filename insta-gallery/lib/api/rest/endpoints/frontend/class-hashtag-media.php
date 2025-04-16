@@ -5,6 +5,7 @@ use QuadLayers\IGG\Api\Rest\Endpoints\Base;
 use QuadLayers\IGG\Models\Accounts as Models_Accounts;
 use QuadLayers\IGG\Api\Fetch\Business\Hashtag_Media\Get as Api_Fetch_Business_Hashtag_Media;
 use QuadLayers\IGG\Services\Cache;
+use QuadLayers\IGG\Services\Hashtag_Tracker;
 
 class Hashtag_Media extends Base {
 
@@ -24,6 +25,19 @@ class Hashtag_Media extends Base {
 		$tag                       = $request->get_param( 'tag' );
 		$order_by                  = $request->get_param( 'order_by' );
 
+		// Check if we can query this hashtag (within the 30 hashtag limit)
+		if ( ! Hashtag_Tracker::can_query_hashtag( $tag ) ) {
+			return $this->handle_response(
+				array(
+					'code'    => 429,
+					'message' => sprintf(
+						esc_html__( 'Instagram API limitation: You have reached the maximum of 30 unique hashtags in a 7-day period. Please try again later or use a previously searched hashtag. Remaining searches: %d', 'insta-gallery' ),
+						Hashtag_Tracker::get_remaining_hashtags()
+					),
+				)
+			);
+		}
+
 		$feed_md5 = md5(
 			wp_json_encode(
 				array(
@@ -42,7 +56,7 @@ class Hashtag_Media extends Base {
 
 		// Get cached hashtag media data.
 		$media_complete_prefix = "{$this->media_cache_key}_{$feed_md5}_{$after}_{$pagination}";
-		$response = $this->media_cache_engine->get( $media_complete_prefix );
+		$response              = $this->media_cache_engine->get( $media_complete_prefix );
 
 		// Check if $response has data, if it have return it.
 		if ( ! QLIGG_DEVELOPER && ! empty( $response['response'] ) ) {
@@ -72,6 +86,9 @@ class Hashtag_Media extends Base {
 				)
 			);
 		}
+
+		// Track this hashtag search - only track if we're actually making the API call
+		Hashtag_Tracker::track_hashtag( $tag );
 
 		// Query to Api_Fetch_Business_Hashtag_Media.
 		// Get hashtag media data.

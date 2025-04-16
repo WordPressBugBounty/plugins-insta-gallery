@@ -52,17 +52,6 @@ class Feeds {
 		return $feed;
 	}
 
-	/* CRUD */
-
-	/**
-	 * Function to get default args
-	 *
-	 * @return array
-	 */
-	public function get_args() {
-		return ( new Feed() )->getDefaults();
-	}
-
 	/**
 	 * Function to get feed by id
 	 *
@@ -71,7 +60,31 @@ class Feeds {
 	public function get( $id ) {
 		$entity = $this->repository->find( $id );
 		if ( $entity ) {
-			return $entity->getProperties();
+			$feed = $entity->getProperties();
+
+			// Ensure responsive settings exist for backward compatibility
+			if ( ! isset( $feed['responsive'] ) ) {
+				$feed['responsive'] = array(
+					'desktop'     => array(
+						'columns' => isset( $feed['columns'] ) ? $feed['columns'] : 3,
+						'spacing' => isset( $feed['spacing'] ) ? $feed['spacing'] : 10,
+					),
+					'tablet'      => array(
+						'columns' => 2,
+						'spacing' => 8,
+					),
+					'mobile'      => array(
+						'columns' => 1,
+						'spacing' => 6,
+					),
+					'breakpoints' => array(
+						'tablet' => 768,
+						'mobile' => 480,
+					),
+				);
+			}
+
+			return $feed;
 		}
 	}
 
@@ -88,6 +101,28 @@ class Feeds {
 		}
 
 		$feed_data['tag'] = $this->sanitize_instagram_feed( $feed_data['tag'] );
+
+		// Make sure responsive is set for new feeds
+		if ( ! isset( $feed_data['responsive'] ) ) {
+			$feed_data['responsive'] = array(
+				'desktop'     => array(
+					'columns' => isset( $feed_data['columns'] ) ? $feed_data['columns'] : 3,
+					'spacing' => isset( $feed_data['spacing'] ) ? $feed_data['spacing'] : 10,
+				),
+				'tablet'      => array(
+					'columns' => 2,
+					'spacing' => 8,
+				),
+				'mobile'      => array(
+					'columns' => 1,
+					'spacing' => 6,
+				),
+				'breakpoints' => array(
+					'tablet' => 768,
+					'mobile' => 480,
+				),
+			);
+		}
 
 		$entity = $this->repository->create( $feed_data );
 
@@ -117,7 +152,7 @@ class Feeds {
 	 * @param int $id Feed id to be deleted.
 	 * @return boolean
 	 */
-	public function delete( $id = null ) {
+	public function delete( $id ) {
 		return $this->repository->delete( $id );
 	}
 
@@ -131,11 +166,35 @@ class Feeds {
 		if ( ! $entities ) {
 			return;
 		}
-		$accounts = array();
+		$feeds = array();
 		foreach ( $entities as $entity ) {
-			$accounts[] = $entity->getProperties();
+			$feed = $entity->getProperties();
+
+			// Ensure responsive settings exist for backward compatibility
+			if ( ! isset( $feed['responsive'] ) ) {
+				$feed['responsive'] = array(
+					'desktop'     => array(
+						'columns' => isset( $feed['columns'] ) ? $feed['columns'] : 3,
+						'spacing' => isset( $feed['spacing'] ) ? $feed['spacing'] : 10,
+					),
+					'tablet'      => array(
+						'columns' => 2,
+						'spacing' => 8,
+					),
+					'mobile'      => array(
+						'columns' => 1,
+						'spacing' => 6,
+					),
+					'breakpoints' => array(
+						'tablet' => 768,
+						'mobile' => 480,
+					),
+				);
+			}
+
+			$feeds[] = $feed;
 		}
-		return $accounts;
+		return $feeds;
 	}
 
 	/**
@@ -144,9 +203,24 @@ class Feeds {
 	 * @return boolean
 	 */
 	public function delete_all() {
-		return $this->repository->deleteAll();
+		return $this->repository->truncate();
 	}
 
+	/**
+	 * Function to get default feed arguments
+	 *
+	 * @return array
+	 */
+	public function get_args() {
+		$feed = new Feed();
+		return $feed->getProperties();
+	}
+
+	/**
+	 * Get instance
+	 *
+	 * @return Feeds
+	 */
 	public static function instance() {
 		if ( ! isset( self::$instance ) ) {
 			self::$instance = new self();

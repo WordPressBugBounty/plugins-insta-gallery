@@ -48,11 +48,15 @@ class Clear_Cache extends Base {
 
 			$feed_md5 = md5( wp_json_encode( $feed_min_data ) );
 
-			$cache_key = "feed_{$feed_md5}";
+			// Clear feed cache
+			$feed_cache_key    = "feed_{$feed_md5}";
+			$feed_cache_engine = new Cache( 6, true, $feed_cache_key );
+			$feed_cache_engine->delete( $feed_cache_engine );
 
-			$cache_engine = new Cache( 6, true, $cache_key );
-
-			$cache_engine->delete( $cache_engine );
+			// Clear comments cache for all media in this account
+			$comments_cache_key    = 'comments_';
+			$comments_cache_engine = new Cache( 1, true, $comments_cache_key );
+			$comments_cache_engine->delete();
 
 			return $this->handle_response( true );
 

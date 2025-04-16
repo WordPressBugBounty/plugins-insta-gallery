@@ -3,16 +3,15 @@ namespace QuadLayers\IGG\Api\Rest\Endpoints\Frontend;
 
 use QuadLayers\IGG\Api\Rest\Endpoints\Base;
 use QuadLayers\IGG\Models\Accounts as Models_Accounts;
-use QuadLayers\IGG\Api\Fetch\Personal\User_Media\Get as Api_Fetch_Personal_User_Media;
-use QuadLayers\IGG\Api\Fetch\Business\User_Media\Get as Api_Fetch_Business_User_Media;
+use QuadLayers\IGG\Api\Fetch\Business\Tagged\Get as Api_Fetch_Business_Tagged;
 use QuadLayers\IGG\Services\Cache;
 
-class User_Media extends Base {
+class Tagged_Media extends Base {
 
-	protected static $route_path = 'frontend/user-media';
+	protected static $route_path = 'frontend/tagged-media';
 
 	protected $media_cache_engine;
-	protected $media_cache_key = 'feed';
+	protected $media_cache_key = 'tagged';
 
 	public function callback( \WP_REST_Request $request ) {
 
@@ -38,10 +37,10 @@ class User_Media extends Base {
 
 		$this->media_cache_engine = new Cache( 6, true, $media_complete_prefix );
 
-		// Get cached user media data.
+		// Get cached tagged media data.
 		$response = $this->media_cache_engine->get( $media_complete_prefix );
 
-		// Check if $response has data, if it have return it.
+		// Check if $response has data, if it has, return it.
 		if ( ! QLIGG_DEVELOPER && ! empty( $response['response'] ) ) {
 			return $response['response'];
 		}
@@ -53,47 +52,25 @@ class User_Media extends Base {
 			return $this->handle_response(
 				array(
 					'code'    => 412,
-					'message' => sprintf( esc_html__( 'Account id %s not found to fetch user media.', 'insta-gallery' ), $account_id ),
+					'message' => sprintf( esc_html__( 'Account id %s not found to fetch tagged media.', 'insta-gallery' ), $account_id ),
 				)
 			);
 		}
 
 		$access_token = $account['access_token'];
 
-		// Query to Api_Fetch_Personal_User_Media if access_token_type is 'PERSONAL'.
-		if ( $account['access_token_type'] == 'PERSONAL' ) {
-			// Get user media data.
-			$response = ( new Api_Fetch_Personal_User_Media() )->get_data( $access_token, $limit, $after, $hide_items_with_copyright, $hide_reels );
-
-			// Check if response is an error and return it.
-			if ( isset( $response['message'] ) && isset( $response['code'] ) ) {
-				return $this->handle_response( $response );
-			}
-
-			if ( empty( $response['data'] ) ) {
-				if ( $hide_reels === true ) {
-					return array(
-						'code'    => 404,
-						'message' => esc_html( __( 'This feed has no elements. Reels are currently hidden in this feed ', 'insta-gallery' ) ),
-					);
-				}
-				return array(
-					'code'    => 404,
-					'message' => esc_html( __( 'This feed has no elements.', 'insta-gallery' ) ),
-				);
-			}
-
-			// Update user media data cache and return it.
-			if ( ! QLIGG_DEVELOPER ) {
-				$this->media_cache_engine->update( $media_complete_prefix, $response );
-			}
-
-			return $this->handle_response( $response );
+		// Check if access_token_type is 'BUSINESS', else return error.
+		if ( $account['access_token_type'] !== 'BUSINESS' ) {
+			return $this->handle_response(
+				array(
+					'code'    => 403,
+					'message' => esc_html__( 'The account must be business to show tagged media.', 'insta-gallery' ),
+				)
+			);
 		}
 
-		// Query to Api_Fetch_Business_User_Media.
-		// Get user media data.
-		$response = ( new Api_Fetch_Business_User_Media() )->get_data( $access_token, $account_id, $limit, $after, $hide_items_with_copyright, $hide_reels );
+		// Get tagged media data.
+		$response = ( new Api_Fetch_Business_Tagged() )->get_data( $access_token, $account_id, $limit, $after, $hide_items_with_copyright, $hide_reels );
 
 		// Check if response is an error and return it.
 		if ( isset( $response['message'], $response['code'] ) ) {
@@ -104,16 +81,16 @@ class User_Media extends Base {
 			if ( $hide_reels === true ) {
 				return array(
 					'code'    => 404,
-					'message' => esc_html( __( 'This feed has no elements. Reels are currently hidden in this feed ', 'insta-gallery' ) ),
+					'message' => esc_html__( 'This feed has no elements. Reels are currently hidden in this feed.', 'insta-gallery' ),
 				);
 			}
 			return array(
 				'code'    => 404,
-				'message' => esc_html( __( 'This feed has no elements.', 'insta-gallery' ) ),
+				'message' => esc_html__( 'No tagged media found for this account.', 'insta-gallery' ),
 			);
 		}
 
-		// Update user media data cache and return it.
+		// Update tagged media data cache and return it.
 		if ( ! QLIGG_DEVELOPER ) {
 			$this->media_cache_engine->update( $media_complete_prefix, $response );
 		}

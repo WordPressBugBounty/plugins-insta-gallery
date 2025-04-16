@@ -3,6 +3,7 @@
 namespace QuadLayers\IGG\Controllers;
 
 use QuadLayers\IGG\Helpers;
+use QuadLayers\IGG\Entity\Feed;
 use QuadLayers\IGG\Models\Feeds as Models_Feeds;
 use QuadLayers\IGG\Models\Accounts as Models_Accounts;
 use QuadLayers\IGG\Models\Settings as Models_Settings;
@@ -13,6 +14,9 @@ use QuadLayers\IGG\Api\Rest\Endpoints\Backend\Settings\Get as API_Rest_Setting_G
 
 use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\User_Profile as Api_Rest_User_Profile;
 use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\User_Media as Api_Rest_User_Media;
+use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\User_Stories as Api_Rest_User_Stories;
+use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\Media_Comments as Api_Rest_Media_Comments;
+use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\Tagged_Media as Api_Rest_Tagged_Media;
 use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\Hashtag_Media as Api_Rest_Hashtag_Media;
 
 
@@ -118,8 +122,8 @@ class Backend {
 			'qligg-store',
 			'qligg_store',
 			array(
-				'WP_VERSION'        => $wp_version,
-				'QLIGG_REST_ROUTES' => array(
+				'WP_VERSION'          => $wp_version,
+				'QLIGG_REST_ROUTES'   => array(
 					'accounts' => API_Rest_Accounts_Get::get_rest_path(),
 					'feeds'    => API_Rest_Feeds_Get::get_rest_path(),
 					'settings' => API_Rest_Setting_Get::get_rest_path(),
@@ -181,6 +185,9 @@ class Backend {
 				'restRoutePaths' => array(
 					'username'    => Api_Rest_User_Media::get_rest_url(),
 					'tag'         => Api_Rest_Hashtag_Media::get_rest_url(),
+					'tagged'      => Api_Rest_Tagged_Media::get_rest_url(),
+					'stories'     => Api_Rest_User_Stories::get_rest_url(),
+					'comments'    => Api_Rest_Media_Comments::get_rest_url(),
 					'userprofile' => Api_Rest_User_Profile::get_rest_url(),
 				),
 			)

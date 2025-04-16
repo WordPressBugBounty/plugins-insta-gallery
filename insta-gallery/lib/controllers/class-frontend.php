@@ -7,7 +7,10 @@ use QuadLayers\IGG\Models\Settings as Models_Settings;
 
 use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\User_Profile as Api_Rest_User_Profile;
 use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\User_Media as Api_Rest_User_Media;
+use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\User_Stories as Api_Rest_User_Stories;
+use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\Media_Comments as Api_Rest_Media_Comments;
 use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\Hashtag_Media as Api_Rest_Hashtag_Media;
+use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\Tagged_Media as Api_Rest_Tagged_Media;
 
 /**
  * Frontend Class
@@ -42,10 +45,14 @@ class Frontend {
 			'qligg-frontend',
 			'qligg_frontend',
 			array(
-				'settings'       => Models_Settings::instance()->get(),
-				'restRoutePaths' => array(
+				'settings'        => Models_Settings::instance()->get(),
+				'QLIGG_DEVELOPER' => defined( 'QLIGG_DEVELOPER' ) ? QLIGG_DEVELOPER : false,
+				'restRoutePaths'  => array(
 					'username'    => Api_Rest_User_Media::get_rest_url(),
 					'tag'         => Api_Rest_Hashtag_Media::get_rest_url(),
+					'tagged'      => Api_Rest_Tagged_Media::get_rest_url(),
+					'stories'     => Api_Rest_User_Stories::get_rest_url(),
+					'comments'    => Api_Rest_Media_Comments::get_rest_url(),
 					'userprofile' => Api_Rest_User_Profile::get_rest_url(),
 				),
 			)

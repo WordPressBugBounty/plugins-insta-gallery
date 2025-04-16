@@ -9,8 +9,10 @@ use QuadLayers\IGG\Frontend\Load as Frontend;
 
 use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\User_Profile as Api_Rest_User_Profile;
 use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\User_Media as Api_Rest_User_Media;
+use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\User_Stories as Api_Rest_User_Stories;
+use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\Media_Comments as Api_Rest_Media_Comments;
+use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\Tagged_Media as Api_Rest_Tagged_Media;
 use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\Hashtag_Media as Api_Rest_Hashtag_Media;
-
 class Gutenberg {
 
 	protected static $instance;
@@ -18,13 +20,30 @@ class Gutenberg {
 	private function __construct() {
 		add_action( 'enqueue_block_editor_assets', array( $this, 'register_scripts' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_scripts' ) );
+		add_action( 'enqueue_block_assets', array( $this, 'register_scripts' ) );
+		add_action( 'enqueue_block_assets', array( $this, 'enqueue_frontend_styles' ) );
 		add_action( 'init', array( $this, 'register_block' ) );
+	}
+	
+	public function enqueue_frontend_styles() {
+		wp_enqueue_style( 'qligg-swiper' );
+		wp_enqueue_style( 'qligg-frontend' );
 	}
 
 	public function register_scripts() {
 		$gutenberg = include QLIGG_PLUGIN_DIR . 'build/gutenberg/js/index.asset.php';
-		wp_register_style( 'qligg-gutenberg-editor', plugins_url( '/build/gutenberg/css/editor.css', QLIGG_PLUGIN_FILE ), array(), QLIGG_PLUGIN_VERSION );
-		wp_register_script( 'qligg-gutenberg', plugins_url( '/build/gutenberg/js/index.js', QLIGG_PLUGIN_FILE ), $gutenberg['dependencies'], $gutenberg['version'], true );
+		$frontend = include QLIGG_PLUGIN_DIR . 'build/frontend/js/index.asset.php';
+
+		// Register frontend styles first to ensure they're available
+		wp_register_style( 'qligg-frontend', plugins_url( '/build/frontend/css/style.css', QLIGG_PLUGIN_FILE ), array(), QLIGG_PLUGIN_VERSION );
+		wp_register_style( 'qligg-swiper', plugins_url( '/assets/frontend/swiper/swiper.min.css', QLIGG_PLUGIN_FILE ), null, QLIGG_PLUGIN_VERSION );
+		wp_register_script( 'qligg-swiper', plugins_url( '/assets/frontend/swiper/swiper.min.js', QLIGG_PLUGIN_FILE ), array( 'jquery' ), QLIGG_PLUGIN_VERSION, true );
+
+		// Register gutenberg specific styles and scripts
+		wp_register_style( 'qligg-gutenberg-editor', plugins_url( '/build/gutenberg/css/editor.css', QLIGG_PLUGIN_FILE ), array('qligg-frontend', 'qligg-swiper'), QLIGG_PLUGIN_VERSION );
+		wp_register_script( 'qligg-frontend', plugins_url( '/build/frontend/js/index.js', QLIGG_PLUGIN_FILE ), $frontend['dependencies'], $frontend['version'], true );
+		wp_register_script( 'qligg-gutenberg', plugins_url( '/build/gutenberg/js/index.js', QLIGG_PLUGIN_FILE ), array_merge($gutenberg['dependencies'], array('qligg-frontend')), $gutenberg['version'], true );
+		
 		wp_localize_script(
 			'qligg-gutenberg',
 			'qligg_gutenberg',
@@ -39,13 +58,16 @@ class Gutenberg {
 		 * Frontend is loaded in the gutenberg editor script directly
 		 */
 		wp_localize_script(
-			'qligg-gutenberg',
+			'qligg-frontend',
 			'qligg_frontend',
 			array(
 				'settings'       => Models_Settings::instance()->get(),
 				'restRoutePaths' => array(
 					'username'    => Api_Rest_User_Media::get_rest_url(),
 					'tag'         => Api_Rest_Hashtag_Media::get_rest_url(),
+					'tagged'      => Api_Rest_Tagged_Media::get_rest_url(),
+					'stories'     => Api_Rest_User_Stories::get_rest_url(),
+					'comments'    => Api_Rest_Media_Comments::get_rest_url(),
 					'userprofile' => Api_Rest_User_Profile::get_rest_url(),
 				),
 			)
@@ -63,10 +85,10 @@ class Gutenberg {
 			array(
 				'attributes'      => $this->get_attributes(),
 				'render_callback' => array( $this, 'render_callback' ),
-				'style'           => array( 'qligg-swiper', 'qligg-frontend', 'qligg-backend' ),
-				'script'          => array( 'qligg-swiper', 'masonry' ),
-				'editor_style'    => array( 'qligg-swiper', 'qligg-frontend', 'qligg-backend' ),
-				'editor_script'   => array( 'qligg-swiper', 'masonry' ),
+				'style'           => array( 'qligg-swiper', 'qligg-frontend' ),
+				'script'          => array( 'qligg-swiper', 'masonry', 'qligg-frontend' ),
+				'editor_style'    => array( 'qligg-swiper', 'qligg-frontend', 'qligg-gutenberg-editor' ),
+				'editor_script'   => array( 'qligg-swiper', 'masonry', 'qligg-frontend', 'qligg-gutenberg' ),
 			)
 		);
 	}

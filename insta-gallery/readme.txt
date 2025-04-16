@@ -5,7 +5,7 @@ Tags: Instagram, Instagram feed, Instagram gallery, Instagram photos, Instagram 
 Requires at least: 4.7
 Requires PHP: 5.6
 Tested up to: 6.8
-Stable tag: 4.6.6
+Stable tag: 4.7.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -17,7 +17,9 @@ Formerly known as "Instagram Feed", this is the best plugin for displaying Insta
 
 Social Feed Gallery is the most **user-friendly Instagram plugin for WordPress**. Designed to simplify integration and reduce the time it takes to keep your site updated, this plugin ensures you stay on track with the fast-paced world of social media.
 
-With a range of customization options and an easy-to-use interface, Social Feed Gallery is the perfect solution for displaying your Instagram feed on your WordPress site.
+With full support for Instagram reels, tagged posts, comments, and even business account features like stories, Social Feed Gallery goes beyond a basic Instagram feed.
+
+Thanks to a wide range of customization options, mobile responsiveness, and an easy-to-use interface, it's the perfect solution for showcasing your **Instagram content** in a stylish gallery or carousel layout.
 
 == Presentation ==
 
@@ -28,11 +30,15 @@ With its easy-to-use interface and multiple customization options, Social Feed G
 == Highlights ==
 
 * **User-friendly**: Simple setup and configuration for displaying your Instagram feed.
-* **Versatile**: Choose from gallery or carousel layouts and customize the appearance of your feed.
-* **Automatic updates**: Keep your site updated with the latest content from your Instagram account.
+* **Versatile Instagram layouts**: Choose from gallery, carousel, masonry, and highlight modes to fit your design.
+* **Supports Instagram Stories** (Premium): Display business account stories directly on your site.
+* **Tagged feed support** (Premium): Show images where your Instagram account has been tagged.
+* **Instagram comments and like counts**: Add social proof with visible interaction stats inside the feed.
+* **Automatic updates**: Keep your site updated with the latest Instagram content.
 * **Optimized API usage**: Features caching to minimize requests and reduce loading time.
-* **Customizable lightbox**: Display your content with a customizable lightbox on your website.
-* **Responsive design**: Your feed will look great on any device, from desktop to mobile.
+* **Customizable lightbox**: Display your Instagram content with a customizable lightbox experience.
+* **Responsive design**: Perfect mobile and tablet controls for every Instagram feed.
+* **Style options**: Customize icon colors, borders, and masks for a unique Instagram presentation.
 
 == Formerly Instagram Feed Gallery ==
 
@@ -100,691 +106,697 @@ There may be other plugins (like fancybox, elementor) that also use image links 
 
 == Changelog ==
 
+= 4.7.0 =
+* Feat: New premium Instagram Stories feed for business Instagram accounts
+* Feat: New premium Instagram Tagged feed to display photos where your Instagram account is tagged
+* Feat: New premium Instagram responsive controls for mobile and tablet Instagram displays
+* Feat: Instagram comments display in Instagram feed modal for business Instagram accounts
+* Feat: Instagram icon color customization for likes and comments in Instagram feed mask overlay
+* Feat: Refactored Instagram feed styles and Instagram image resize options
+* Fix: Better handling of Instagram media ID validation
+* Fix: Improved error handling for Instagram API requests
+* Fix: Enhanced Instagram hashtag tracking system
+
 = 4.6.6 =
 * WordPress compatibility
 
 = 4.6.5 =
-* Fix textdomain error
+* Fix: Instagram textdomain error
 
 = 4.6.4 =
-* Fix Instagram feed limit
+* Fix: Instagram feed limit
 
 = 4.6.3 =
-* Fix Instagram hashtag feed load more
+* Fix: Instagram hashtag feed load more
 
 = 4.6.2 =
-* Instagram token renewal notification
+* Feat: Instagram token renewal notification
 
 = 4.6.1 =
-* Instagram API compatibility
+* Fix: Instagram API compatibility
 
 = 4.6.0 =
-* WordPress compatibility
+* Fix: WordPress compatibility
 
 = 4.5.9 =
-* Feat code format
+* Feat: Instagram code format
 
 = 4.5.8 =
-* Fix Divi compatibility
+* Fix: Instagram Divi compatibility
 
 = 4.5.7 =
-* Update orm version
+* Fix: Update Instagram ORM version
 
 = 4.5.6 =
-* Update orm version
+* Fix: Update Instagram ORM version
 
 = 4.5.5 =
-* Fix Instagram Gutenberg block
+* Fix: Instagram Gutenberg block
 
 = 4.5.4 =
-* Fix update dependencies
+* Fix: Instagram update dependencies
 
 = 4.5.3 =
-* Fix Hide Instagram reels from feed
-* Fix Manually update Instagram token account
+* Fix: Hide Instagram reels from feed
+* Fix: Manually update Instagram token account
 
 = 4.5.2 =
-* Refactor
-* Fix Gutenberg block render
+* Feat: Instagram refactoring
+* Fix: Instagram Gutenberg block render
 
 = 4.5.1 =
-* Fix token renewal process
+* Fix: Instagram token renewal process
 
 = 4.5.0 =
-* Refactor
+* Feat: Instagram refactoring
 
 = 4.4.3 =
-* Fix Improve Instagram token generation process
+* Fix: Improve Instagram token generation process
 
 = 4.4.2 =
-* Fix Instagram feed carousel spacing
+* Fix: Instagram feed carousel spacing
 
 = 4.4.1 =
-* WordPress compatibility
+* Fix: WordPress compatibility
 
 = 4.4.0 =
-* Fix Mod Security blocking rest routes
-* Fix Instagram feed carousel layout
+* Fix: Mod Security blocking Instagram rest routes
+* Fix: Instagram feed carousel layout
 
 = 4.3.9 =
-* Fix Instagram Feed carousel centered images
+* Fix: Instagram Feed carousel centered images
 
 = 4.3.8 =
-* Fix Facebook & Instagram API compatibility issue
+* Fix: Facebook & Instagram API compatibility issue
 
 = 4.3.7 =
-* Fix compatibility with WordPress 5.x
-* Change preview icon
+* Fix: Compatibility with WordPress 5.x
+* Fix: Instagram preview icon
 
 = 4.3.6 =
-* Update packages
+* Fix: Instagram packages update
 
 = 4.3.5 =
-* WordPress compatibility
+* Fix: WordPress compatibility
 
 = 4.3.4 =
-* Fix missing translations
+* Fix: Instagram missing translations
 
 = 4.3.3 =
-* Instagram API permissions
+* Fix: Instagram API permissions
 
 = 4.3.2 =
-* Instagram Feed modal preview
+* Feat: Instagram Feed modal preview
 
 = 4.2.7 =
-* Fix modal z-index 
+* Fix: Instagram modal z-index 
 
 = 4.2.6 =
-* Fix missing translations
+* Fix: Instagram missing translations
 
 = 4.2.5 =
-* Fix carousel video thumbnails
+* Fix: Instagram carousel video thumbnails
 
 = 4.2.4 =
-* Fix load more issues
+* Fix: Instagram load more issues
 
 = 4.2.3 =
-* WordPress compatibility
+* Fix: WordPress compatibility
 
 = 4.2.2 =
-* New Instagram admin menu capability
+* Feat: Instagram admin menu capability
 
 = 4.2.1 =
-* Update readme.txt
+* Fix: Update readme.txt
 
 = 4.2.0 =
-* Instagram modal token 
+* Feat: Instagram modal token 
 
 = 4.1.9 =
-* Update portfolio link
-
-= 4.1.6 =
-* WordPress compatibility
+* Fix: Update Instagram portfolio link
 
 = 4.1.7 =
-* Instagram Feed modal align text 
-* Instagram Feed modal font size 
+* Fix: Instagram Feed modal align text 
+* Fix: Instagram Feed modal font size 
 
 = 4.1.6 =
-* Instagram Access Token max length removed 
-* Instagram Feeds undefined
-* Instagram Feeds fetch timeout increased
-* Fix php erros
+* Fix: Instagram Access Token max length removed 
+* Fix: Instagram Feeds undefined
+* Fix: Instagram Feeds fetch timeout increased
+* Fix: Instagram PHP errors
 
 = 4.1.5 =
-* Update Instagram Feed translations
+* Fix: Update Instagram Feed translations
 
 = 4.1.4 =
-* Instagram feed shortcode
+* Feat: Instagram feed shortcode
 
 = 4.1.3 =
-* Access Token Debugger link
+* Feat: Instagram Access Token Debugger link
 
 = 4.1.2 =
-* Fix php errors
+* Fix: Instagram PHP errors
 
 = 4.1.1 =
-* Instagram link to feed item
+* Fix: Instagram link to feed item
 
 = 4.1.0 =
-* Fix php erros
+* Fix: Instagram PHP errors
 
 = 4.0.9 =
-* Fix Instagram Hashtag feed link
-* Fix Instagram Hashtag top media order
-* Fix Instagram copyright images placeholder
+* Fix: Instagram Hashtag feed link
+* Fix: Instagram Hashtag top media order
+* Fix: Instagram copyright images placeholder
 
 = 4.0.8 =
-* Fix Elementor carousel compatibility
+* Fix: Instagram Elementor carousel compatibility
 
 = 4.0.7 =
-* Fix Instagram reels preview image in video
-* Fix Instagram hashtag feeds
+* Fix: Instagram reels preview image in video
+* Fix: Instagram hashtag feeds
 
 = 4.0.6 =
-* Fix Instagram personal account token
-* Fix Instagram feed carousel layout
+* Fix: Instagram personal account token
+* Fix: Instagram feed carousel layout
 
 = 4.0.5 =
-* Composer packages update
+* Fix: Instagram composer packages update
 
 = 4.0.4 =
-* Fix Instagram Feed business account
+* Fix: Instagram Feed business account
 
 = 4.0.3 =
-* Fix Instagram Feed widget
+* Fix: Instagram Feed widget
 
 = 4.0.2 =
-* Fix delete account by id
+* Fix: Instagram delete account by id
 
 = 4.0.1 =
-* Fix modal height
+* Fix: Instagram modal height
 
 = 4.0.0 =
-* Refactor
+* Feat: Instagram refactoring
 
 = 3.4.8 =
-* Fix. Wordpress compatibility
+* Fix: WordPress compatibility
 
 = 3.4.7 =
-* Fix. Instagram Feed lazy load
+* Fix: Instagram Feed lazy load
 
 = 3.4.6 =
-* Fix. Instagram Feed modal settings
+* Fix: Instagram Feed modal settings
 
 = 3.4.5 =
-* New. Refactor
-
-= 3.4.5 =
-* Fix. Instagram Feed missing media or thumbnail
+* Feat: Instagram refactoring
+* Fix: Instagram Feed missing media or thumbnail
 
 = 3.4.4 =
-* Fix. Instagram Feed one video
+* Fix: Instagram Feed one video
 
 = 3.4.3 =
-* New. Instagram Feed role
-* Fix. Instagram Feed videos
+* Feat: Instagram Feed role
+* Fix: Instagram Feed videos
 
 = 3.4.2 =
-* Fix. Instagram Feed Gutenberg block error
-* Fix. Instagram Feed Masonry
+* Fix: Instagram Feed Gutenberg block error
+* Fix: Instagram Feed Masonry
 
 = 3.4.1 =
-* Fix. Display Instagram video thumbnail in feed
+* Fix: Instagram video thumbnail in feed
 
 = 3.4.0 =
-* Fix. Display Instagram video thumbnail in feed
+* Fix: Instagram video thumbnail in feed
 
 = 3.3.9 =
-* Fix. Wordpress compatibility
+* Fix: WordPress compatibility
 
 = 3.3.8 =
-* Fix. Facebook App Permissions
+* Fix: Instagram Facebook App Permissions
 
 = 3.3.7 =
-* Fix. Wordpress compatibility
+* Fix: WordPress compatibility
 
 = 3.3.6 =
-* Fix. Wordpress compatibility
+* Fix: WordPress compatibility
 
 = 3.3.5 =
-* Fix. Wordpress compatibility
+* Fix: WordPress compatibility
 
 = 3.3.4 =
-* Fix. QuadLayers dashboard widget
+* Fix: Instagram QuadLayers dashboard widget
 
 = 3.3.2 =
-* Fix. Wordpress compatibility
+* Fix: WordPress compatibility
 
 = 3.3.1 =
-* Fix. Wordpress compatibility
+* Fix: WordPress compatibility
 
 = 3.3.0 =
-* Fix. Wordpress compatibility
+* Fix: WordPress compatibility
 
 = 3.2.9 =
-* Fix. QuadLayers widget cache
+* Fix: Instagram QuadLayers widget cache
 
 = 3.2.8 =
-* Fix. Wordpress compatibility
+* Fix: WordPress compatibility
 
 = 3.2.7 =
-* Fix. Wordpress compatibility
+* Fix: WordPress compatibility
 
 = 3.2.6 =
-* New. Telegram add to suggestions tab
+* Feat: Instagram Telegram add to suggestions tab
 
 = 3.2.5 =
-* New. QuadLayers dashboard widget
+* Feat: Instagram QuadLayers dashboard widget
 
 = 3.2.4 =
-* Fix. Wordpress compatibility
+* Fix: WordPress compatibility
 
 = 3.2.3 =
-* Fix. Wordpress compatibility
+* Fix: WordPress compatibility
 
 = 3.2.2 =
-* Fix. Wordpress compatibility
+* Fix: WordPress compatibility
 
 = 3.2.1 =
-* Fix. Wordpress compatibility
+* Fix: WordPress compatibility
 
 = 3.2.0 =
-* Fix. Instagram video source
+* Fix: Instagram video source
 
 = 3.1.9 =
-* Fix. Instagram account feed video
-* Fix. firefox masonry
+* Fix: Instagram account feed video
+* Fix: Instagram firefox masonry
 
 = 3.1.8 =
-* Fix. username fix in profile button
+* Fix: Instagram username fix in profile button
 
 = 3.1.7 =
-* Fix. missing carousel and media image
+* Fix: Instagram missing carousel and media image
 
 = 3.1.6 =
-* Fix. undefined username fix 
-* Fix. register block category 
+* Fix: Instagram undefined username fix 
+* Fix: Instagram register block category 
 
 = 3.1.5 =
-* New. instagram gutenberg block
+* Feat: Instagram Gutenberg block
 
 = 3.1.4 =
-* New. instagram gutenberg block
+* Feat: Instagram Gutenberg block
 
 = 3.1.3 =
-* New. instagram gutenberg block
+* Feat: Instagram Gutenberg block
 
 = 3.1.2 =
-* Fix. save feed button
+* Fix: Instagram save feed button
 
 = 3.1.1 =
-* Fix. instagram token fail notification 
+* Fix: Instagram token fail notification 
 
 = 3.1.0 =
-* Fix. premium compatibility
+* Fix: Instagram premium compatibility
 
 = 3.0.9 =
-* Fix. instagram token auto renewal
+* Fix: Instagram token auto renewal
 
 = 3.0.8 =
-* Fix. instagram carousel lazy load
+* Fix: Instagram carousel lazy load
 
 = 3.0.7 =
-* Fix. instagram masonry
+* Fix: Instagram masonry
 
 = 3.0.6 =
-* Fix. carousel media files
+* Fix: Instagram carousel media files
 
 = 3.0.5 =
-* Fix. 404 media files
+* Fix: Instagram 404 media files
 
 = 3.0.4 =
-* Fix. small CSS fixes
+* Fix: Instagram small CSS fixes
 
 = 3.0.3 =
-* Fix. small CSS fixes
+* Fix: Instagram small CSS fixes
 
 = 3.0.2 =
-* Fix. small CSS fixes
+* Fix: Instagram small CSS fixes
 
 = 3.0.1 =
-* Fix. small CSS fixes
+* Fix: Instagram small CSS fixes
 
 = 3.0.0 =
-* Fix. WordPress 5.5 compatibility
+* Fix: WordPress 5.5 compatibility
 
 = 2.9.9 =
-* Fix. instagram feed carousel
+* Fix: Instagram feed carousel
 
 = 2.9.8 =
-* Fix. instagram feed gallery widget
+* Fix: Instagram feed gallery widget
 
 = 2.9.7 =
-* Fix. instagram feed gallery widget
+* Fix: Instagram feed gallery widget
 
 = 2.9.6 =
-* Fix. instagram feed gallery pro compatibility
+* Fix: Instagram feed gallery pro compatibility
 
 = 2.9.5 =
-* Fix. missing field in commit
+* Fix: Instagram missing field in commit
 
 = 2.9.4 =
-* Fix. premium compatibility
-* New. Instagram tag feed order by
+* Fix: Instagram premium compatibility
+* Feat: Instagram tag feed order by
 
 = 2.9.3 =
-* Fix. premium compatibility
+* Fix: Instagram premium compatibility
 
 = 2.9.2 =
-* Fix. premium compatibility
+* Fix: Instagram premium compatibility
 
 = 2.9.1 =
-* Fix. profile avatar
+* Fix: Instagram profile avatar
 
 = 2.9.0 =
-* Fix. Instagram API business
+* Fix: Instagram API business integration
 
 = 2.8.4 =
-* Fix. Instagram tag feed
+* Fix: Instagram tag feed
 
-= 2.8.3=
-* Fix. Instagram business account
+= 2.8.3 =
+* Fix: Instagram business account
 
 = 2.8.1 =
-* Fix. small CSS fixes
+* Fix: Instagram small CSS fixes
 
 = 2.8.0 =
-* Fix. new Instagram API compatibility
+* Fix: Instagram new API compatibility
 
 = 2.7.0 =
-* Fix. Instagram refactoring
+* Feat: Instagram refactoring
 
 = 2.6.6 =
-* Fix. Instagram photo enhance
+* Fix: Instagram photo enhancement
 
 = 2.6.5 =
-* Fix. Instagram gallery actions
+* Fix: Instagram gallery actions
 
 = 2.6.4 =
-* Fix. small CSS fixes
+* Fix: Instagram small CSS fixes
 
 = 2.6.3 =
-* Fix. small CSS fixes
+* Fix: Instagram small CSS fixes
 
 = 2.6.2 =
-* Fix. small CSS fixes
+* Fix: Instagram small CSS fixes
 
 = 2.6.1 =
-* Fix. small CSS fixes
+* Fix: Instagram small CSS fixes
 
 = 2.6.0 =
-* Fix. small CSS fixes
+* Fix: Instagram small CSS fixes
 
 = 2.5.9 =
-* Fix. save new feed override last feed settings
+* Fix: Instagram save new feed override last feed settings
 
 = 2.5.8 =
-* Fix. remove rating request non admin users
+* Fix: Instagram remove rating request non admin users
 
 = 2.5.7 =
-* Fix. Instagram Feed Gallery magnific popup styles override 
+* Fix: Instagram Feed Gallery magnific popup styles override 
 
 = 2.5.6 =
-* Fix. Instagram Feed Gallery carousel class removed from massonry
+* Fix: Instagram Feed Gallery carousel class removed from masonry
 
 = 2.5.5 =
-* Fix. Instagram Feed Gallery removed error_log
+* Fix: Instagram Feed Gallery removed error_log
 
 = 2.5.4 =
-* Fix. Instagram Feed Gallery card date
+* Fix: Instagram Feed Gallery card date
 
 = 2.5.3 =
-* Improvement. Instagram Account disconnect alert
-* Improvement. Instagram Feeds clear feeds cache button
+* Feat: Instagram Account disconnect alert
+* Feat: Instagram Feeds clear feeds cache button
 
 = 2.5.2 =
-* Fix. Instagram Feed Gallery admin menu capability
+* Fix: Instagram Feed Gallery admin menu capability
 
 = 2.5.1 =
-* Fix. Instagram Feed Gallery renamed in admin menu
-* Fix. Instagram Feed Gallery RTL to support for admin badge
+* Fix: Instagram Feed Gallery renamed in admin menu
+* Fix: Instagram Feed Gallery RTL support for admin badge
 
 = 2.5.0 =
-* Fix. Instagram Feed Gallery CSS optimized
-* Fix. Instagram Feed Gallery new option to reset feed cache
+* Fix: Instagram Feed Gallery CSS optimized
+* Feat: Instagram Feed Gallery new option to reset feed cache
 
 = 2.4.9 =
-* Fix. Instagram Feed Gallery readme update
+* Fix: Instagram Feed Gallery readme update
 
 = 2.4.8 =
-* Fix. nonce validation added to qligg_dismiss_notice  ajax action
-* Fix. nonce validation added to qligg_form_item_delete ajax action
-* Fix. current_user_can validation added to all ajax actions 
-* Fix. scape data output in admin backend added
+* Fix: Instagram nonce validation added to qligg_dismiss_notice ajax action
+* Fix: Instagram nonce validation added to qligg_form_item_delete ajax action
+* Fix: Instagram current_user_can validation added to all ajax actions 
+* Fix: Instagram escape data output in admin backend added
 
 = 2.4.7 =
-* New. WP Instagram Feed Gallery renamed
+* Feat: Instagram Feed Gallery renamed
 
 = 2.4.6 =
-* New. removed assets and author to resolve Instagram trademark infringement
-* Fix. "Invalid scope field(s): public_content"
+* Feat: Instagram removed assets and author to resolve Instagram trademark infringement
+* Fix: Instagram "Invalid scope field(s): public_content"
 
 = 2.4.5 =
-* Fix. remove rating alert
+* Fix: Instagram remove rating alert
 
 = 2.4.4 =
-* Improvement. Instagram Feed Gallery bad spelling
-* Improvement. Instagram Feed Gallery demo url
+* Fix: Instagram Feed Gallery bad spelling
+* Fix: Instagram Feed Gallery demo url
 
 = 2.4.3 =
-* Fix. Instagram Feed Gallery renamed
+* Fix: Instagram Feed Gallery renamed
 
 = 2.4.2 =
-* Improvement. Instagram Token validation alerts
+* Fix: Instagram Token validation alerts
 
 = 2.4.1 =
-* Fix. small CSS fixes
-* Improvement. Instagram Premium compatibility
+* Fix: Instagram small CSS fixes
+* Fix: Instagram Premium compatibility
 
 = 2.4.0 =
-* Fix. multiple hooks for developers
-* Improvement. Instagram Premium compatibility
+* Fix: Instagram multiple hooks for developers
+* Fix: Instagram Premium compatibility
 
 = 2.3.3 =
-* Fix. Instagram Icon text decoration none
+* Fix: Instagram Icon text decoration none
 
 = 2.3.2 =
-* Fix. Instagram Feed compatibility
-* Fix. Instagram Carousel Firefox issue
-* New. Instagram Carousel pagination option
-* Improvement. Instagram Tag Feed caption
-* Improvement. Instagram Tag Feed types
-* Improvement. Instagram Tag Feed consistency
-* Improvement. Instagram Feed core consistency
-* Improvement. Instagram Feed JS consistency
-* Improvement. Instagram Feed CSS speed
-* Improvement. Instagram Feed API consistency
-* Premium. Instagram User Feed load more button
-* Premium. Instagram User Feed load more button colors
-* Premium. Instagram User Feed popup caption and likes options
-* Premium. Instagram Tag Feed load more button
-* Premium. Instagram Tag Feed load more button colors
-* Premium. Instagram Tag Feed popup caption and likes options
+* Fix: Instagram Feed compatibility
+* Fix: Instagram Carousel Firefox issue
+* Feat: Instagram Carousel pagination option
+* Fix: Instagram Tag Feed caption
+* Fix: Instagram Tag Feed types
+* Fix: Instagram Tag Feed consistency
+* Fix: Instagram Feed core consistency
+* Fix: Instagram Feed JS consistency
+* Fix: Instagram Feed CSS speed
+* Fix: Instagram Feed API consistency
+* Feat: Instagram User Feed load more button (Premium)
+* Feat: Instagram User Feed load more button colors (Premium)
+* Feat: Instagram User Feed popup caption and likes options (Premium)
+* Feat: Instagram Tag Feed load more button (Premium)
+* Feat: Instagram Tag Feed load more button colors (Premium)
+* Feat: Instagram Tag Feed popup caption and likes options (Premium)
 
 = 2.3.1 =
-* Fix. Reload on Instagram token removal
-* Fix. Show Instagram token even if user profile id is empty
-* Fix. Undefined Instagram username
+* Fix: Instagram reload on token removal
+* Fix: Instagram show token even if user profile id is empty
+* Fix: Instagram undefined username
 
 = 2.3.0 =
-* Improvement. Instagram token generation simplified
-* Improvement. Instagram Feed Gallery settings consistency 
-* Improvement. Instagram Carousel settings consistency 
-* Improvement. Instagram Feed Gallery CSS consistency
-* Improvement. Instagram Carousel CSS consistency
-* Improvement. Instagram Feed Gallery JS simplified
-* Improvement. Instagram Carousel JS simplified
-* Improvement. Instagram backend improvement
-* Improvement. Instagram localization fixed
+* Feat: Instagram token generation simplified
+* Fix: Instagram Feed Gallery settings consistency 
+* Fix: Instagram Carousel settings consistency 
+* Fix: Instagram Feed Gallery CSS consistency
+* Fix: Instagram Carousel CSS consistency
+* Fix: Instagram Feed Gallery JS simplified
+* Fix: Instagram Carousel JS simplified
+* Fix: Instagram backend improvement
+* Fix: Instagram localization fixed
 
 = 2.2.2 =
-* Improvement. Instagram token and gallery transients consistency
+* Fix: Instagram token and gallery transients consistency
 
 = 2.2.1 =
-* Improvement. Instagram Feed Gallery un-install improvement
+* Fix: Instagram Feed Gallery uninstall improvement
 
 = 2.2.0 =
-* Noce. Instagram Feed Gallery author change notice
+* Fix: Instagram Feed Gallery author change notice
 
 = 2.1.9 =
-* Fix. Minor code changes
+* Fix: Instagram minor code changes
 
 = 2.1.8 =
-* Fix. Double popup issue with elementor plugin
-* Fix. Instagram Feed Gallery Swiper carousel library updated
-* Fix. minor text changes
+* Fix: Instagram double popup issue with elementor plugin
+* Fix: Instagram Feed Gallery Swiper carousel library updated
+* Fix: Instagram minor text changes
 
 = 2.1.7 =
-* Fix. Code bug
+* Fix: Instagram code bug
 
 = 2.1.6 =
-* Fix. connection issue on new access token update
+* Fix: Instagram connection issue on new access token update
 
 = 2.1.5 =
-* Fix. Instagram carousel image links
-* Fix. Instagram gallery image alignment
+* Fix: Instagram carousel image links
+* Fix: Instagram gallery image alignment
 
 = 2.1.4 =
-* Fix. Instagram thumbnail images sizes updated
+* Fix: Instagram thumbnail images sizes updated
 
 = 2.1.3 =
-* Fix. Code bug
+* Fix: Instagram code bug
 
 = 2.1.2 =
-* Fix. Security fixes
+* Fix: Instagram security fixes
 
 = 2.1.1 =
-* Fix. Major update with lots-of changes
-* Fix. Instagram API support added
-* Fix. Access Token is required to display profile media
-* Fix. Instagram pictures limit increased
+* Feat: Instagram major update with lots of changes
+* Feat: Instagram API support added
+* Fix: Instagram Access Token is required to display profile media
+* Fix: Instagram pictures limit increased
 
 = 1.6.6 =
-* Fix. Code bug
+* Fix: Instagram code bug
 
 = 1.6.5 =
-* Fix. JS files issue with WP5 solved 
+* Fix: Instagram JS files issue with WP5 solved 
 
 = 1.6.4 =
-* Fix. speed improvements and small changes
+* Fix: Instagram speed improvements and small changes
 
 = 1.6.3 =
-* Fix. Instagram Carousel autoplay time option
-* Fix. Imstagram Carousel dotted nav removed
-* Fix. Instagram Carousel removed zoom image on hover
+* Fix: Instagram Carousel autoplay time option
+* Fix: Instagram Carousel dotted nav removed
+* Fix: Instagram Carousel removed zoom image on hover
 
 = 1.6.2 =
-* Fix. Elementor confliction fixed
-* Fix. code optimized
-* Fix. IE 8,9 Carousel support dropped
+* Fix: Instagram Elementor confliction fixed
+* Fix: Instagram code optimized
+* Fix: Instagram IE 8,9 Carousel support dropped
 
 = 1.6.1 =
-* Fix. Spanish Translation added
-* Fix. Tags picture limit removed
-* Fix. Caption option removed
-* Fix. Post link added in popup
+* Feat: Instagram Spanish Translation added
+* Fix: Instagram Tags picture limit removed
+* Fix: Instagram Caption option removed
+* Feat: Instagram Post link added in popup
 
 = 1.5.11 =
-* Fix. Code bug
+* Fix: Instagram code bug
 
 = 1.5.10 =
-* Fix. added option to change carousel arrow color
+* Feat: Instagram added option to change carousel arrow color
 
 = 1.5.9 =
-* Fix. CSS issue fixed
+* Fix: Instagram CSS issue fixed
 
 = 1.5.8 =
-* Fix. some API code fixes
+* Fix: Instagram API code fixes
 
 = 1.5.7 =
-* Fix. user media API update
+* Fix: Instagram user media API update
 
 = 1.5.6 =
-* Fix. option to hide images caption
-* Fix. open Instagram page on image click
+* Feat: Instagram option to hide images caption
+* Feat: Instagram open page on image click
 
 = 1.5.5 =
-* Fix. Carousel autoplay toggle
-* Fix. Dash icons removed
-* Fix. Assets minified
+* Feat: Instagram Carousel autoplay toggle
+* Fix: Instagram Dash icons removed
+* Fix: Instagram Assets minified
 
 = 1.5.4 =
-* Fix. API update for Tags fixed
+* Fix: Instagram API update for Tags fixed
 
 = 1.5.3 =
-* Fix. added FIX for localization code issue
+* Fix: Instagram added FIX for localization code issue
 
 = 1.5.2 =
-* Fix. prepared for localization
+* Fix: Instagram prepared for localization
 
 = 1.5.1 =
-* Fix. Gallery widget added
-* Fix. Transients support added
-* Fix. Template customization added
-* Fix. code updated for better performance
+* Feat: Instagram Gallery widget added
+* Feat: Instagram Transients support added
+* Feat: Instagram Template customization added
+* Fix: Instagram code updated for better performance
 
 = 1.4.6 =
-* Fix. Instagram API error quick FIX added
+* Fix: Instagram API error quick FIX added
 
 = 1.4.5 =
-* Fix. Instagram button color options added
-* Fix. two gallery pics in a row in mobile
-* Fix. browser online check status removed
-* Fix. fetch items via WP built-in option
+* Feat: Instagram button color options added
+* Fix: Instagram two gallery pics in a row in mobile
+* Fix: Instagram browser online check status removed
+* Fix: Instagram fetch items via WP built-in option
 
 = 1.4.4 =
-* Fix. Carousel spacing bug fixed
-* Fix. some CSS updates
+* Fix: Instagram Carousel spacing bug fixed
+* Fix: Instagram CSS updates
 
 = 1.4.3 =
-* Fix. Carousel popup bug fixed
-* Fix. added version to assets
+* Fix: Instagram Carousel popup bug fixed
+* Fix: Instagram added version to assets
 
 = 1.4.2 =
-* Fix. Gallery image sizes fixed to square display
-* Fix. some CSS fixes
+* Fix: Instagram Gallery image sizes fixed to square display
+* Fix: Instagram CSS fixes
 
 = 1.4.1 =
-* Fix. Carousel image sizes fixed to square display
-* Fix. added caching of images to speedup loading
-* Fix. display type Slider removed
-* Fix. old-shortcode warning message removed
+* Fix: Instagram Carousel image sizes fixed to square display
+* Feat: Instagram added caching of images to speedup loading
+* Fix: Instagram display type Slider removed
+* Fix: Instagram old-shortcode warning message removed
 
 = 1.3.7 =
-* Fix. Instagram profile link/button added in Carousel view
-* Fix. wp_nonce removed because of conflicts with cache plugins
+* Feat: Instagram profile link/button added in Carousel view
+* Fix: Instagram wp_nonce removed because of conflicts with cache plugins
 
 = 1.3.6 =
-* Fix. Instagram profile link/button added in gallery view
-* Fix. added option to choose custom hover color
+* Feat: Instagram profile link/button added in gallery view
+* Feat: Instagram added option to choose custom hover color
 
 = 1.3.5 =
-* Fix. cURL warning issue fixed
+* Fix: Instagram cURL warning issue fixed
 
 = 1.3.4 =
-* Fix. cURL warning added
+* Fix: Instagram cURL warning added
 
 = 1.3.3 =
-* Fix. ajax gallery loading
-* Fix. speed optimised
-* Fix. clean setting on un-install
+* Feat: Instagram ajax gallery loading
+* Fix: Instagram speed optimised
+* Fix: Instagram clean setting on uninstall
 
 = 1.3.2 =
-* Fix. display likes and comments
-* Fix. old shortcode support ended
-* Fix. deprecated Slider view option
+* Feat: Instagram display likes and comments
+* Fix: Instagram old shortcode support ended
+* Fix: Instagram deprecated Slider view option
 
 = 1.3.1 =
-* Fix. Carousel view feature added
-* Fix. non-english tag/account supported
+* Feat: Instagram Carousel view feature added
+* Fix: Instagram non-english tag/account supported
 
 = 1.2.4 =
-* Fix. IE images issue fixed
+* Fix: Instagram IE images issue fixed
 
 = 1.2.3 =
-* Fix. Admin Panel UI updated
-* Fix. added #tag support
-* Fix. shortcode updated
+* Fix: Instagram Admin Panel UI updated
+* Feat: Instagram added #tag support
+* Fix: Instagram shortcode updated
 
 = 1.1.3 =
-* Fix. some issues fixed
-* Fix. css added to head for removing SEO and HTML validation issues
-* Fix. demo pictures added to backend
+* Fix: Instagram various issues fixed
+* Fix: Instagram CSS added to head for removing SEO and HTML validation issues
+* Feat: Instagram demo pictures added to backend
 
 = 1.1.2 =
-* Fix. some issues fixed
-* Fix. small modification in plugin backend
+* Fix: Instagram various issues fixed
+* Fix: Instagram small modification in plugin backend
 
 = 1.1.1 =
-* Fix. Initial Release
+* Feat: Instagram initial release

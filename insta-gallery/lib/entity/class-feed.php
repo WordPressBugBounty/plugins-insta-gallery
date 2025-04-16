@@ -8,13 +8,31 @@ class Feed extends CollectionEntity {
 	public $id                = 0;
 	public $account_id        = '';
 	public $source            = 'username';
-	public $tag               = 'WordPress';
+	public $tag               = 'wordpress'; //phpcs:ignore
 	public $order_by          = 'top_media';
 	public $layout            = 'gallery';
 	public $limit             = 12;
-	public $columns           = 3;
+	public $columns           = 3;  // Deprecated
+	public $spacing           = 10; // Deprecated
 	public $lazy              = false;
-	public $spacing           = 10;
+	public $responsive        = array(
+		'desktop'     => array(
+			'columns' => 3,
+			'spacing' => 10,
+		),
+		'tablet'      => array(
+			'columns' => 2,
+			'spacing' => 8,
+		),
+		'mobile'      => array(
+			'columns' => 1,
+			'spacing' => 6,
+		),
+		'breakpoints' => array(
+			'tablet' => 768,
+			'mobile' => 480,
+		),
+	);
 	public $highlight         = array(
 		'tag'      => '',
 		'id'       => '',
@@ -50,6 +68,7 @@ class Feed extends CollectionEntity {
 	public $mask              = array(
 		'display'        => true,
 		'background'     => '#000000',
+		'icon_color'     => '#ffffff',
 		'likes_count'    => true,
 		'comments_count' => true,
 	);
@@ -58,7 +77,7 @@ class Feed extends CollectionEntity {
 		'radius'           => 1,
 		'font_size'        => 12,
 		'background'       => '#ffffff',
-		'background_hover' => '#ffffff',
+		'background_hover' => '',
 		'text_color'       => '#000000',
 		'padding'          => 5,
 		'likes_count'      => true,
@@ -82,6 +101,7 @@ class Feed extends CollectionEntity {
 		'media_description' => true,
 		'likes_count'       => true,
 		'comments_count'    => true,
+		'comments_list'     => false,
 		'text_align'        => 'left',
 		'modal_align'       => 'right',
 		'text_length'       => 10000,

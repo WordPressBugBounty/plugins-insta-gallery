@@ -7,10 +7,12 @@ class Scripts
 
     public static $instance;
     public static $plugins;
+    public static $options;
 
     private function __construct(array $plugins)
     {
         self::$plugins = $plugins;
+        self::$options = Load::$options;
         add_action('admin_enqueue_scripts', [self::class, 'load']);
     }
 
@@ -35,14 +37,23 @@ class Scripts
     
         wp_enqueue_style('wp-components');
         wp_enqueue_script('quadlayers-plugin-feedback', plugins_url('../build/js/index.js', __FILE__), $feedback['dependencies'], '1.0.0', true);
+        
+        // Prepare plugin options for frontend
+        $plugin_data = [];
+        foreach (self::$plugins as $plugin) {
+            $plugin_data[$plugin] = [
+                'plugin' => $plugin,
+                'options' => isset(self::$options[$plugin]) ? self::$options[$plugin] : []
+            ];
+        }
     
         wp_localize_script(
             'quadlayers-plugin-feedback', 
             'quadlayersPluginFeedback', 
             [
-                    'nonce'     => wp_create_nonce('quadlayers_send_feedback_nonce'),
-                    'plugins'   => self::$plugins
-                ]
+                'nonce'     => wp_create_nonce('quadlayers_send_feedback_nonce'),
+                'plugins'   => $plugin_data
+            ]
         );
     }
 }

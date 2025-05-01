@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'quadlayers/insta-gallery',
-        'pretty_version' => 'v4.7.4',
-        'version' => '4.7.4.0',
-        'reference' => '1d8482d3bdd3074b836209caa65cfc838a718f5a',
+        'pretty_version' => 'v4.7.5',
+        'version' => '4.7.5.0',
+        'reference' => 'ee8e23437d3ef82384da21a926ad715d9d0edc93',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -60,7 +60,7 @@
         'franmastromarino/wp-plugin-feedback' => array(
             'pretty_version' => 'dev-feat/QLD-189-2',
             'version' => 'dev-feat/QLD-189-2',
-            'reference' => '5601235c34dd416a9f80176f05bb7247e994237c',
+            'reference' => 'fe3fa014a99f70efdf5c51d2b62d8701f72b4df5',
             'type' => 'project',
             'install_path' => __DIR__ . '/../franmastromarino/wp-plugin-feedback',
             'aliases' => array(),
@@ -91,9 +91,9 @@
             ),
         ),
         'quadlayers/insta-gallery' => array(
-            'pretty_version' => 'v4.7.4',
-            'version' => '4.7.4.0',
-            'reference' => '1d8482d3bdd3074b836209caa65cfc838a718f5a',
+            'pretty_version' => 'v4.7.5',
+            'version' => '4.7.5.0',
+            'reference' => 'ee8e23437d3ef82384da21a926ad715d9d0edc93',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

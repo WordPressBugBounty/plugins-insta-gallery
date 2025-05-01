@@ -44,7 +44,7 @@ class Load
     public static function scripts(): void
     {
         // Enqueue the scripts for the deactivation survey
-        Scripts::instance(self::$plugins);
+        Scripts::instance(self::$plugins, self::$options);
     }
 
     public static function ajax(): void

@@ -9,17 +9,17 @@ class Scripts
     public static $plugins;
     public static $options;
 
-    private function __construct(array $plugins)
+    private function __construct(array $plugins = [], array $options = [])
     {
         self::$plugins = $plugins;
-        self::$options = Load::$options;
+        self::$options = $options;
         add_action('admin_enqueue_scripts', [self::class, 'load']);
     }
 
-    public static function instance(array $plugins)
+    public static function instance(array $plugins, array $options = [])
     {
         if (is_null(self::$instance)) {
-            self::$instance = new self($plugins);
+            self::$instance = new self($plugins, $options);
         }
         return self::$instance;
     }

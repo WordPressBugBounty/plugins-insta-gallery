@@ -313,12 +313,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/franmastromarino/wp-plugin-feedback.git",
-                "reference": "5601235c34dd416a9f80176f05bb7247e994237c"
+                "reference": "fe3fa014a99f70efdf5c51d2b62d8701f72b4df5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/franmastromarino/wp-plugin-feedback/zipball/5601235c34dd416a9f80176f05bb7247e994237c",
-                "reference": "5601235c34dd416a9f80176f05bb7247e994237c",
+                "url": "https://api.github.com/repos/franmastromarino/wp-plugin-feedback/zipball/fe3fa014a99f70efdf5c51d2b62d8701f72b4df5",
+                "reference": "fe3fa014a99f70efdf5c51d2b62d8701f72b4df5",
                 "shasum": ""
             },
             "require": {
@@ -329,7 +329,7 @@
                 "phpunit/phpunit": "^9.6",
                 "squizlabs/php_codesniffer": "*"
             },
-            "time": "2025-04-30T13:37:14+00:00",
+            "time": "2025-05-01T06:41:58+00:00",
             "type": "project",
             "installation-source": "dist",
             "autoload": {

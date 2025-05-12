@@ -17,7 +17,7 @@ class Delete extends Base {
 	public function callback( \WP_REST_Request $request ) {
 
 		try {
-			$account_id = trim( $request->get_param( 'id' ) );
+			$account_id = $request->get_param( 'id' ) ? trim( $request->get_param( 'id' ) ) : '';
 
 			$response = Models_Accounts::instance()->delete( $account_id );
 

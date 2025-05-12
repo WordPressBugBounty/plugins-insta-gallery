@@ -15,7 +15,7 @@ class Get extends Base {
 
 		try {
 
-			$account_id = trim( $request->get_param( 'id' ) );
+			$account_id = $request->get_param( 'id' ) ? trim( $request->get_param( 'id' ) ) : '';
 
 			if ( ! $account_id ) {
 

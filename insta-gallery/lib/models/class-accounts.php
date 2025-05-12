@@ -70,7 +70,10 @@ class Accounts {
 			'qligg_cron_account',
 			$args
 		);
-		return $this->repository->find( $id );
+		
+		$new_account = $this->repository->find( $id );
+
+		return $new_account->getProperties();
 	}
 
 	public function delete( string $id ) {

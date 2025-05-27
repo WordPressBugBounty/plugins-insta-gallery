@@ -184,6 +184,8 @@ return array(
     'QuadLayers\\IGG\\Api\\Rest\\Endpoints\\Route' => $baseDir . '/lib/api/rest/endpoints/interface-route.php',
     'QuadLayers\\IGG\\Api\\Rest\\Routes_Library' => $baseDir . '/lib/api/rest/class-routes-library.php',
     'QuadLayers\\IGG\\Controllers\\Backend' => $baseDir . '/lib/controllers/class-backend.php',
+    'QuadLayers\\IGG\\Controllers\\Elementor' => $baseDir . '/lib/controllers/class-elementor.php',
+    'QuadLayers\\IGG\\Controllers\\Elementor_Widget' => $baseDir . '/lib/controllers/class-elementor-widget.php',
     'QuadLayers\\IGG\\Controllers\\Frontend' => $baseDir . '/lib/controllers/class-frontend.php',
     'QuadLayers\\IGG\\Controllers\\Gutenberg' => $baseDir . '/lib/controllers/class-gutenberg.php',
     'QuadLayers\\IGG\\Entity\\Account' => $baseDir . '/lib/entity/class-account.php',

@@ -70,7 +70,7 @@ class Accounts {
 			'qligg_cron_account',
 			$args
 		);
-		
+
 		$new_account = $this->repository->find( $id );
 
 		return $new_account->getProperties();

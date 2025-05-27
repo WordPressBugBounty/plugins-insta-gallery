@@ -24,7 +24,7 @@ class Gutenberg {
 		add_action( 'enqueue_block_assets', array( $this, 'enqueue_frontend_styles' ) );
 		add_action( 'init', array( $this, 'register_block' ) );
 	}
-	
+
 	public function enqueue_frontend_styles() {
 		wp_enqueue_style( 'qligg-swiper' );
 		wp_enqueue_style( 'qligg-frontend' );
@@ -32,18 +32,12 @@ class Gutenberg {
 
 	public function register_scripts() {
 		$gutenberg = include QLIGG_PLUGIN_DIR . 'build/gutenberg/js/index.asset.php';
-		$frontend = include QLIGG_PLUGIN_DIR . 'build/frontend/js/index.asset.php';
 
-		// Register frontend styles first to ensure they're available
-		wp_register_style( 'qligg-frontend', plugins_url( '/build/frontend/css/style.css', QLIGG_PLUGIN_FILE ), array(), QLIGG_PLUGIN_VERSION );
-		wp_register_style( 'qligg-swiper', plugins_url( '/assets/frontend/swiper/swiper.min.css', QLIGG_PLUGIN_FILE ), null, QLIGG_PLUGIN_VERSION );
-		wp_register_script( 'qligg-swiper', plugins_url( '/assets/frontend/swiper/swiper.min.js', QLIGG_PLUGIN_FILE ), array( 'jquery' ), QLIGG_PLUGIN_VERSION, true );
+		Frontend::instance()->register_scripts();
 
-		// Register gutenberg specific styles and scripts
-		wp_register_style( 'qligg-gutenberg-editor', plugins_url( '/build/gutenberg/css/editor.css', QLIGG_PLUGIN_FILE ), array('qligg-frontend', 'qligg-swiper'), QLIGG_PLUGIN_VERSION );
-		wp_register_script( 'qligg-frontend', plugins_url( '/build/frontend/js/index.js', QLIGG_PLUGIN_FILE ), $frontend['dependencies'], $frontend['version'], true );
-		wp_register_script( 'qligg-gutenberg', plugins_url( '/build/gutenberg/js/index.js', QLIGG_PLUGIN_FILE ), array_merge($gutenberg['dependencies'], array('qligg-frontend')), $gutenberg['version'], true );
-		
+		wp_register_style( 'qligg-gutenberg-editor', plugins_url( '/build/gutenberg/css/editor.css', QLIGG_PLUGIN_FILE ), array( 'qligg-frontend', 'qligg-swiper' ), QLIGG_PLUGIN_VERSION );
+		wp_register_script( 'qligg-gutenberg', plugins_url( '/build/gutenberg/js/index.js', QLIGG_PLUGIN_FILE ), array_merge( $gutenberg['dependencies'], array( 'qligg-frontend' ) ), $gutenberg['version'], true );
+
 		wp_localize_script(
 			'qligg-gutenberg',
 			'qligg_gutenberg',

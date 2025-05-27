@@ -58,7 +58,7 @@ class User_Stories extends Base {
 			return $this->handle_response(
 				array(
 					'code'    => 400,
-					'message' => esc_html__( 'Stories are only available for Business accounts.', 'insta-gallery' ),
+					'message' => esc_html__( 'Stories are only available for Professional accounts.', 'insta-gallery' ),
 				)
 			);
 		}

@@ -3,7 +3,6 @@
 namespace QuadLayers\IGG\Controllers;
 
 use QuadLayers\IGG\Helpers;
-use QuadLayers\IGG\Entity\Feed;
 use QuadLayers\IGG\Models\Feeds as Models_Feeds;
 use QuadLayers\IGG\Models\Accounts as Models_Accounts;
 use QuadLayers\IGG\Models\Settings as Models_Settings;
@@ -29,8 +28,8 @@ class Backend {
 	protected static $menu_slug = 'qligg_backend';
 
 	private function __construct() {
-		add_action( 'admin_enqueue_scripts', array( $this, 'register_scripts' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'register_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_scripts' ) );
 		add_action( 'init', array( __CLASS__, 'init_add_account' ) );
 		add_action( 'admin_menu', array( $this, 'add_menu' ) );
 		add_action( 'admin_init', array( $this, 'add_capability' ) );
@@ -103,7 +102,7 @@ class Backend {
 		$role->add_cap( 'qligg_manage_feeds', true );
 	}
 
-	public function register_scripts() {
+	public static function register_scripts() {
 
 		global $wp_version;
 
@@ -122,8 +121,8 @@ class Backend {
 			'qligg-store',
 			'qligg_store',
 			array(
-				'WP_VERSION'          => $wp_version,
-				'QLIGG_REST_ROUTES'   => array(
+				'WP_VERSION'        => $wp_version,
+				'QLIGG_REST_ROUTES' => array(
 					'accounts' => API_Rest_Accounts_Get::get_rest_path(),
 					'feeds'    => API_Rest_Feeds_Get::get_rest_path(),
 					'settings' => API_Rest_Setting_Get::get_rest_path(),
@@ -194,7 +193,7 @@ class Backend {
 		);
 	}
 
-	public function enqueue_scripts() {
+	public static function enqueue_scripts() {
 
 		if ( ! isset( $_GET['page'] ) || $_GET['page'] !== self::get_menu_slug() ) {
 			return;

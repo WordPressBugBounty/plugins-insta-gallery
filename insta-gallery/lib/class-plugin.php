@@ -3,6 +3,7 @@
 namespace QuadLayers\IGG;
 
 use QuadLayers\IGG\Controllers\Backend;
+use QuadLayers\IGG\Controllers\Elementor;
 use QuadLayers\IGG\Controllers\Frontend;
 use QuadLayers\IGG\Controllers\Gutenberg;
 use QuadLayers\IGG\Models\Accounts as Models_Accounts;
@@ -27,6 +28,7 @@ final class Plugin {
 		Frontend::instance();
 		Backend::instance();
 		Gutenberg::instance();
+		Elementor::instance();
 
 		do_action( 'qligg_init' );
 
@@ -71,7 +73,7 @@ final class Plugin {
 		$admin_email = $this->get_admin_email();
 
 		$subject = esc_html__( 'Your Instagram account token status update', 'insta-gallery' );
-		$message = wp_kses_post( "Hi! We would like to inform you that the business account token(Facebook/Meta/Instagram) you are using in Social Feed Gallery is about to expire.\nThe data access expiration period is 90 days and depends on when the user was last active. When this 90-day period expires, the user can still access the application (that is, they are still authenticated), but the application cannot access their data. To regain access, the app must ask the user to reauthorize the app's permissions.", 'insta-gallery' );
+		$message = wp_kses_post( "Hi! We would like to inform you that the professional account token(Facebook/Meta/Instagram) you are using in Social Feed Gallery is about to expire.\nThe data access expiration period is 90 days and depends on when the user was last active. When this 90-day period expires, the user can still access the application (that is, they are still authenticated), but the application cannot access their data. To regain access, the app must ask the user to reauthorize the app's permissions.", 'insta-gallery' );
 
 		// Check if token was successfully renewed by comparing expiration dates
 		if ( $new_expiration > $old_expiration_date ) {

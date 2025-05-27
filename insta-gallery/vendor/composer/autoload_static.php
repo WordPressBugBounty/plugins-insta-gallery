@@ -255,6 +255,8 @@ class ComposerStaticInit408d2a7def9db641f594278232936168
         'QuadLayers\\IGG\\Api\\Rest\\Endpoints\\Route' => __DIR__ . '/../..' . '/lib/api/rest/endpoints/interface-route.php',
         'QuadLayers\\IGG\\Api\\Rest\\Routes_Library' => __DIR__ . '/../..' . '/lib/api/rest/class-routes-library.php',
         'QuadLayers\\IGG\\Controllers\\Backend' => __DIR__ . '/../..' . '/lib/controllers/class-backend.php',
+        'QuadLayers\\IGG\\Controllers\\Elementor' => __DIR__ . '/../..' . '/lib/controllers/class-elementor.php',
+        'QuadLayers\\IGG\\Controllers\\Elementor_Widget' => __DIR__ . '/../..' . '/lib/controllers/class-elementor-widget.php',
         'QuadLayers\\IGG\\Controllers\\Frontend' => __DIR__ . '/../..' . '/lib/controllers/class-frontend.php',
         'QuadLayers\\IGG\\Controllers\\Gutenberg' => __DIR__ . '/../..' . '/lib/controllers/class-gutenberg.php',
         'QuadLayers\\IGG\\Entity\\Account' => __DIR__ . '/../..' . '/lib/entity/class-account.php',

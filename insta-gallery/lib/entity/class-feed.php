@@ -47,7 +47,6 @@ class Feed extends CollectionEntity {
 	);
 	public $profile           = array(
 		'display'      => false,
-		'auto'         => false,
 		'username'     => '',
 		'nickname'     => '',
 		'website'      => '',

@@ -64,7 +64,7 @@ class Tagged_Media extends Base {
 			return $this->handle_response(
 				array(
 					'code'    => 403,
-					'message' => esc_html__( 'The account must be business to show tagged media.', 'insta-gallery' ),
+					'message' => esc_html__( 'The account must be professional to show tagged media.', 'insta-gallery' ),
 				)
 			);
 		}

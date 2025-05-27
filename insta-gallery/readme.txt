@@ -1,11 +1,11 @@
 === Social Feed Gallery ===
 Contributors: quadlayers
 Donate link: https://quadlayers.com/products/instagram-feed-gallery/
-Tags: Instagram, Instagram feed, Instagram gallery, Instagram photos, Instagram widget
+Tags: Instagram, Instagram feed, Instagram gallery, Instagram Elementor, Instagram widget
 Requires at least: 4.7
 Requires PHP: 5.6
 Tested up to: 6.8
-Stable tag: 4.7.7
+Stable tag: 4.7.8
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -15,7 +15,9 @@ Formerly known as "Instagram Feed", this is the best plugin for displaying Insta
 
 [Premium](https://quadlayers.com/products/instagram-feed-gallery/) | [Demo](https://quadlayers.com/demo/instagram-feed-gallery/) | [Documentation](https://quadlayers.com/documentation/instagram-feed-gallery/) | [Community](https://www.facebook.com/groups/quadlayers/)
 
-Social Feed Gallery is the most **user-friendly Instagram plugin for WordPress**. Designed to simplify integration and reduce the time it takes to keep your site updated, this plugin ensures you stay on track with the fast-paced world of social media.
+Social Feed Gallery is the most **user-friendly Instagram plugin for WordPress**.  
+It now ships with a native **Elementor block** that lets you drag & drop any of your feeds into pages or templates without shortcodes, giving you full visual control inside the Elementor editor.  
+This makes Social Feed Gallery the perfect solution for any **Instagram feed gallery** or carousel.
 
 With full support for Instagram reels, tagged posts, comments, and even business account features like stories, Social Feed Gallery goes beyond a basic Instagram feed.
 
@@ -23,7 +25,9 @@ Thanks to a wide range of customization options, mobile responsiveness, and an e
 
 == Presentation ==
 
-Social Feed Gallery is the ultimate plugin to integrate your **Instagram feed** seamlessly into your WordPress site. Customize the layout with gallery or carousel options and choose from a range of design features to create the perfect display for your website.
+Social Feed Gallery is the ultimate plugin to integrate your **Instagram feed** seamlessly into your WordPress site. Whether you work with the Block Editor, shortcodes, or **Elementor**, you can place feeds in seconds.
+
+Customize the layout with gallery or carousel options and choose from a range of design features to create the perfect display for your website.
 
 With its easy-to-use interface and multiple customization options, Social Feed Gallery makes it simple to keep your site updated with the latest content from your Instagram account.
 
@@ -31,6 +35,8 @@ With its easy-to-use interface and multiple customization options, Social Feed G
 
 * **User-friendly**: Simple setup and configuration for displaying your Instagram feed.
 * **Versatile Instagram layouts**: Choose from gallery, carousel, masonry, and highlight modes to fit your design.
+* **Gutenberg block included**: Insert and style your feeds visually inside the Gutenberg editor (Free).
+* **Elementor block included**: Insert and style your feeds visually inside the Elementor editor (Free).
 * **Supports Instagram Stories** (Premium): Display business account stories directly on your site.
 * **Tagged feed support** (Premium): Show images where your Instagram account has been tagged.
 * **Instagram comments and like counts**: Add social proof with visible interaction stats inside the feed.
@@ -65,6 +71,10 @@ Check out the [Documentation](https://quadlayers.com/documentation/instagram-fee
 
 == Frequently Asked Questions ==
 
+= Does the plugin include an Elementor widget/block? =
+
+Yes. As of version 4.7.8 the plugin ships with a native Elementor block so you can drag & drop feeds without shortcodes.
+
 = Can I display pictures from Instagram Tag? =
 
 Yes, you can.
@@ -77,7 +87,7 @@ Yes, you can.
 
 You have to update your Instagram access token to display user media.
 
-=How to add Instagram Gallery to a widget? =
+= How to add Instagram Gallery to a widget? =
 
 Go to your admin dashboard, add a new Instagram gallery, then go to widgets, add Instagram Gallery Widget, and select the Gallery item from the dropdown list.
 
@@ -98,13 +108,25 @@ There may be other plugins (like fancybox, elementor) that also use image links 
 
 == Screenshots ==
 
-1. Social Feed Gallery PRO / Account
-2. Social Feed Gallery PRO / Feeds
-3. Social Feed Gallery PRO / Feeds / Layouts
-4. Social Feed Gallery PRO / Load more button
-5. Social Feed Gallery PRO / Masonry layout
+1. Instagram Feed – Instagram feed **account** settings  
+2. Instagram Feed – Instagram feed **list of feeds**  
+3. Instagram Feed – Instagram feed **layouts** (gallery, carousel, masonry)
+4. Instagram Feed – Instagram feed **“Load more” button**  
+5. Instagram Feed – **Gallery layout** for Instagram feed gallery  
+6. Instagram Feed – **Masonry layout** for Instagram feed gallery  
+7. Instagram Feed – **Feed item modal** with likes, comments and navigation arrows  
+8. Instagram Feed – **Gutenberg block** for adding an Instagram feed  
+9. Instagram Feed – **Elementor widget** (drag-and-drop) displaying an Instagram feed  
+   
 
 == Changelog ==
+
+= 4.7.8 =
+* Feat: Added native Elementor Instagram block/widget
+* Feat: Show likes count in modal is now free
+* Feat: Show comments count in modal is now free
+* Feat: Show description in modal is now free
+* Fixed: Display user profile in Instagram item modal
 
 = 4.7.7 =
 * Fix: php errors

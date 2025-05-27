@@ -82,7 +82,7 @@ class Hashtag_Media extends Base {
 			return $this->handle_response(
 				array(
 					'code'    => 403,
-					'message' => esc_html__( 'The account must be business to show a hashtag feed.', 'insta-gallery' ),
+					'message' => esc_html__( 'The account must be professional to show a hashtag feed.', 'insta-gallery' ),
 				)
 			);
 		}

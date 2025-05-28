@@ -5,7 +5,7 @@ Tags: Instagram, Instagram feed, Instagram gallery, Instagram Elementor, Instagr
 Requires at least: 4.7
 Requires PHP: 5.6
 Tested up to: 6.8
-Stable tag: 4.7.8
+Stable tag: 4.7.9
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -73,27 +73,67 @@ Check out the [Documentation](https://quadlayers.com/documentation/instagram-fee
 
 = Does the plugin include an Elementor widget/block? =
 
-Yes. As of version 4.7.8 the plugin ships with a native Elementor block so you can drag & drop feeds without shortcodes.
+Yes. As of version 4.7.8 the plugin ships with a native Elementor block so you can drag & drop feeds without shortcodes, giving you full visual control inside the Elementor editor.
 
-= Can I display pictures from Instagram Tag? =
+= Does the plugin include a Gutenberg block? =
 
-Yes, you can.
+Yes. The plugin includes a native Gutenberg block that allows you to insert and style your Instagram feeds visually inside the Block Editor without using shortcodes.
 
-= Can I display pictures in Instagram Widget? =
+= What's the difference between Personal and Professional Instagram accounts? =
 
-Yes, you can.
+Personal accounts can display basic user media and profile information. Professional accounts unlock premium features like Instagram Stories, hashtag feeds, tagged media feeds, and comments display.
+
+= Can I display Instagram hashtag feeds? =
+
+Yes, but only with Professional Instagram accounts. You can track up to 30 unique hashtags within a 7-day period due to Instagram API limitations.
+
+= Can I display Instagram Stories? =
+
+Yes, Instagram Stories are supported as a premium feature for Professional Instagram accounts only. Stories are cached for 1 hour and automatically updated.
+
+= Can I show posts where my account is tagged? =
+
+Yes, tagged media feeds are available as a premium feature for Professional Instagram accounts. This displays photos and videos where your Instagram account has been tagged by others.
 
 = Why are my pictures not showing on the page? =
 
-You have to update your Instagram access token to display user media.
+This usually happens when your Instagram access token has expired or is invalid. Go to Social Feed Gallery > Accounts in your admin dashboard and regenerate your access token by clicking "Add new account" button.
 
-= How to add Instagram Gallery to a widget? =
+= How many images can I display in my feed? =
 
-Go to your admin dashboard, add a new Instagram gallery, then go to widgets, add Instagram Gallery Widget, and select the Gallery item from the dropdown list.
+You can set any number for the image limit. The default is 12 images, but you can increase this in your feed settings. Keep in mind that more images may affect page loading speed.
 
-= Why are there two popups on image click? =
+= Can I hide Instagram Reels from my feed? =
 
-There may be other plugins (like fancybox, elementor) that also use image links to open popups. Try disabling the popup images option in the setting panel of this plugin, which will allow other plugins to work.
+Yes, there's an option in the feed settings to hide Instagram Reels if you only want to display photos and regular videos.
+
+= Why are there two popups when I click on images? =
+
+This happens when you have other plugins (like Fancybox, Elementor lightbox, or gallery plugins) that also handle image clicks. You can disable the popup option in Social Feed Gallery settings to let other plugins handle the lightbox.
+
+= What layouts are available? =
+
+Free version includes Gallery and Carousel layouts. Premium version adds Masonry (Pinterest-style) and Highlight layouts. All layouts are fully responsive and customizable.
+
+= Can I customize the colors and styling? =
+
+Yes, you can customize icon colors for likes/comments, button colors, spacing, borders, and more. Premium version includes additional styling options like boxed mode and advanced responsive controls.
+
+= How often does the plugin update my Instagram content? =
+
+The plugin uses smart caching to optimize performance: user media is cached for 6 hours, while Instagram Stories are cached for 1 hour. You can manually clear the cache anytime from the feed settings.
+
+= Does the plugin work with cache plugins? =
+
+Yes, the plugin is compatible with popular caching plugins like WP Rocket, W3 Total Cache, and WP Super Cache. The Instagram content has its own caching system independent of page caching.
+
+= Can I use multiple Instagram accounts? =
+
+Multiple Instagram accounts are supported in the premium version. The free version supports one Instagram account. But you can create multiple feeds with one account ;).
+
+= What are the Instagram API limitations I should know about? =
+
+Instagram limits hashtag queries to 30 unique hashtags per 7 days for Professional accounts. The plugin includes a hashtag tracking system to help you stay within these limits. Personal accounts have more restrictions and can only access basic user media.
 
 == Installation ==
 
@@ -119,7 +159,15 @@ There may be other plugins (like fancybox, elementor) that also use image links 
 9. Instagram Feed – **Elementor widget** (drag-and-drop) displaying an Instagram feed  
    
 
+== Upgrade Notice ==
+
+= 4.7.8 =
+Major update: Now includes native Elementor Instagram block/widget. Show likes, comments and descriptions in modal are now free features. Display user profile in Instagram item modal has been fixed.
+
 == Changelog ==
+
+= 4.7.9 =
+* Fix: Update readme.txt
 
 = 4.7.8 =
 * Feat: Added native Elementor Instagram block/widget

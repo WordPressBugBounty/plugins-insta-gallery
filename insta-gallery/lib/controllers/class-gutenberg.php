@@ -18,16 +18,8 @@ class Gutenberg {
 	protected static $instance;
 
 	private function __construct() {
-		add_action( 'enqueue_block_editor_assets', array( $this, 'register_scripts' ) );
-		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_scripts' ) );
-		add_action( 'enqueue_block_assets', array( $this, 'register_scripts' ) );
-		add_action( 'enqueue_block_assets', array( $this, 'enqueue_frontend_styles' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'register_scripts' ) );
 		add_action( 'init', array( $this, 'register_block' ) );
-	}
-
-	public function enqueue_frontend_styles() {
-		wp_enqueue_style( 'qligg-swiper' );
-		wp_enqueue_style( 'qligg-frontend' );
 	}
 
 	public function register_scripts() {
@@ -79,8 +71,6 @@ class Gutenberg {
 			array(
 				'attributes'      => $this->get_attributes(),
 				'render_callback' => array( $this, 'render_callback' ),
-				'style'           => array( 'qligg-swiper', 'qligg-frontend' ),
-				'script'          => array( 'qligg-swiper', 'masonry', 'qligg-frontend' ),
 				'editor_style'    => array( 'qligg-swiper', 'qligg-frontend', 'qligg-gutenberg-editor' ),
 				'editor_script'   => array( 'qligg-swiper', 'masonry', 'qligg-frontend', 'qligg-gutenberg' ),
 			)

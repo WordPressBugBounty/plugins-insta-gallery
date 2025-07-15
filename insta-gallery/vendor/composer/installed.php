@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'quadlayers/insta-gallery',
-        'pretty_version' => 'v4.8.0',
-        'version' => '4.8.0.0',
-        'reference' => 'f8f497e334609a56a295a14b447c24a340073c4e',
+        'pretty_version' => 'v4.8.1',
+        'version' => '4.8.1.0',
+        'reference' => '8a55a4b761742a5b7962fdfc79bb821b1a07e3e3',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'automattic/jetpack-assets' => array(
-            'pretty_version' => 'v4.0.27',
-            'version' => '4.0.27.0',
-            'reference' => '0614f51b8931951b2480aec4a594b9e469131e51',
+            'pretty_version' => 'v4.1.2',
+            'version' => '4.1.2.0',
+            'reference' => 'd2bf76b645f338d25e11f7922206946c34dd5c76',
             'type' => 'jetpack-library',
             'install_path' => __DIR__ . '/../../jetpack_vendor/automattic/jetpack-assets',
             'aliases' => array(),
@@ -38,9 +38,9 @@
             'dev_requirement' => false,
         ),
         'automattic/jetpack-status' => array(
-            'pretty_version' => 'v5.2.0',
-            'version' => '5.2.0.0',
-            'reference' => 'cda111cae43417842d69302389b1b19728617007',
+            'pretty_version' => 'v5.4.0',
+            'version' => '5.4.0.0',
+            'reference' => '0309fd5622bfa6a8ff8f8331b9b53f4087ab4f5e',
             'type' => 'jetpack-library',
             'install_path' => __DIR__ . '/../../jetpack_vendor/automattic/jetpack-status',
             'aliases' => array(),
@@ -91,9 +91,9 @@
             ),
         ),
         'quadlayers/insta-gallery' => array(
-            'pretty_version' => 'v4.8.0',
-            'version' => '4.8.0.0',
-            'reference' => 'f8f497e334609a56a295a14b447c24a340073c4e',
+            'pretty_version' => 'v4.8.1',
+            'version' => '4.8.1.0',
+            'reference' => '8a55a4b761742a5b7962fdfc79bb821b1a07e3e3',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

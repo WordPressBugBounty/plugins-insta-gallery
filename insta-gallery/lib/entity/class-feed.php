@@ -85,7 +85,6 @@ class Feed extends CollectionEntity {
 		'text_align'       => 'left',
 	);
 	public $carousel          = array(
-		'slidespv'          => 5,
 		'centered_slides'   => false,
 		'autoplay'          => false,
 		'autoplay_interval' => 3000,

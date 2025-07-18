@@ -1744,7 +1744,6 @@ class Elementor_Widget extends Widget_Base {
 		);
 
 		$feed['carousel'] = array(
-			'slidespv'          => $settings['carousel_slidespv']['size'] ?? 5,
 			'centered_slides'   => ! empty( $settings['carousel_centered_slides'] ),
 			'autoplay'          => ! empty( $settings['carousel_autoplay'] ),
 			'autoplay_interval' => $settings['carousel_autoplay_interval']['size'] ?? 3000,

@@ -12,14 +12,37 @@ class Elementor {
 	protected static $instance;
 
 	private function __construct() {
+
+		add_action( 'elementor/frontend/after_enqueue_styles', array( $this, 'fix_loop_widget' ), 999 );
+
 		if ( ! did_action( 'elementor/loaded' ) ) {
 			return;
 		}
+
 		add_action( 'elementor/editor/after_enqueue_scripts', array( 'QuadLayers\IGG\Controllers\Backend', 'add_premium_css' ), 10 );
 		add_action( 'elementor/editor/after_enqueue_scripts', array( 'QuadLayers\IGG\Controllers\Backend', 'register_scripts' ), 10 );
 		add_action( 'elementor/editor/after_enqueue_scripts', array( $this, 'register_scripts' ), 10 );
 		add_action( 'elementor/editor/footer', array( __CLASS__, 'add_premium_js' ), 10 );
 		add_action( 'elementor/widgets/register', array( $this, 'register_widgets' ) );
+	}
+
+	public function fix_loop_widget() {
+
+		wp_add_inline_style(
+			'widget-loop-carousel',
+			'
+			.elementor-widget-loop-carousel.elementor-widget-loop-carousel .swiper-pagination-bullets {
+				height: max-content;
+				left: calc(var(--dots-horizontal-position) + var(--dots-horizontal-offset));
+				top: calc(var(--dots-vertical-position) + var(--dots-vertical-offset));
+				transform: translate(
+					calc(var(--dots-horizontal-transform) * var(--horizontal-transform-modifier)),
+					var(--dots-vertical-transform)
+				);
+				width: max-content;
+			}
+		'
+		);
 	}
 
 	/**

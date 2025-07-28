@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'quadlayers/insta-gallery',
-        'pretty_version' => 'v4.8.5',
-        'version' => '4.8.5.0',
-        'reference' => '337ae2ccedaf950b5468c60da6268b702f6dc4ef',
+        'pretty_version' => 'v4.8.6',
+        'version' => '4.8.6.0',
+        'reference' => 'c9d1b0ecfddd200c358895c919a84b0d66638855',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'automattic/jetpack-assets' => array(
-            'pretty_version' => 'v4.2.0',
-            'version' => '4.2.0.0',
-            'reference' => 'ff434617e47901bd376a4ba77c0c09b4953ca700',
+            'pretty_version' => 'v4.3.0',
+            'version' => '4.3.0.0',
+            'reference' => 'b23d203dbd35b6bd53b805ce6ecb83adae171ff8',
             'type' => 'jetpack-library',
             'install_path' => __DIR__ . '/../../jetpack_vendor/automattic/jetpack-assets',
             'aliases' => array(),
@@ -49,7 +49,7 @@
         'franmastromarino/wp-orm' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'dfec8095b65a507e19ff377d976c596ba13e4f27',
+            'reference' => '9adc495228f2e8a761e0e1cee724423570821310',
             'type' => 'library',
             'install_path' => __DIR__ . '/../franmastromarino/wp-orm',
             'aliases' => array(
@@ -91,9 +91,9 @@
             ),
         ),
         'quadlayers/insta-gallery' => array(
-            'pretty_version' => 'v4.8.5',
-            'version' => '4.8.5.0',
-            'reference' => '337ae2ccedaf950b5468c60da6268b702f6dc4ef',
+            'pretty_version' => 'v4.8.6',
+            'version' => '4.8.6.0',
+            'reference' => 'c9d1b0ecfddd200c358895c919a84b0d66638855',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

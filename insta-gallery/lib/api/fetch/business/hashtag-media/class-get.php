@@ -138,6 +138,7 @@ class Get extends Base {
 							'url'  => $media_file_url,
 							'type' => $media_file_type,
 						),
+						'user_type'         => 'BUSINESS',
 						'media_type'        => isset( $item['media_type'] ) ? $item['media_type'] : '',
 						'id'                => isset( $item['id'] ) ? $item['id'] : '',
 						'share_url'         => isset( $item['permalink'] ) ? $item['permalink'] : '',

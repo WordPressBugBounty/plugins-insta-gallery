@@ -70,7 +70,7 @@ class Elementor {
 					'confirm'       => __( 'Confirm', 'insta-gallery' ),
 					'cancel'        => __( 'Cancel', 'insta-gallery' ),
 				),
-				'url'  => 'https://quadlayers.com/products/instagram-feed-gallery/?utm_source=wordpress&utm_medium=qligg_admin&utm_campaign=elementor',
+				'url'  => 'https://quadlayers.com/products/instagram-feed-gallery/?utm_source=qligg_plugin&utm_medium=admin_elementor&utm_campaign=premium_upgrade&utm_content=premium_link',
 			)
 		);
 	}

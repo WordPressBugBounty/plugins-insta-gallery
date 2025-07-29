@@ -15,15 +15,15 @@ if ( class_exists( 'QuadLayers\\WP_Notice_Plugin_Promote\\Load' ) ) {
 		 */
 		define( 'QLIGG_PROMOTE_PREMIUM_SELL_SLUG', 'insta-gallery-pro' );
 		define( 'QLIGG_PROMOTE_PREMIUM_SELL_NAME', 'Social Feed Gallery PRO' );
-		define( 'QLIGG_PROMOTE_PREMIUM_INSTALL_URL', 'https://quadlayers.com/products/instagram-feed-gallery/?utm_source=qligg_admin' );
-		define( 'QLIGG_PROMOTE_PREMIUM_SELL_URL', QLIGG_PREMIUM_SELL_URL );
+		define( 'QLIGG_PROMOTE_PREMIUM_INSTALL_URL', 'https://quadlayers.com/products/instagram-feed-gallery/?utm_source=qligg_plugin&utm_medium=dashboard_notice&utm_campaign=premium_upgrade&utm_content=premium_install_button' );
+		define( 'QLIGG_PROMOTE_PREMIUM_SELL_URL', 'https://quadlayers.com/products/instagram-feed-gallery/?utm_source=qligg_plugin&utm_medium=dashboard_notice&utm_campaign=premium_upgrade&utm_content=premium_link' );
 		/**
 		 * Notice cross sell 1
 		 */
 		define( 'QLIGG_PROMOTE_CROSS_INSTALL_1_SLUG', 'ai-copilot' );
 		define( 'QLIGG_PROMOTE_CROSS_INSTALL_1_NAME', 'AI Copilot' );
 		define( 'QLIGG_PROMOTE_CROSS_INSTALL_1_DESCRIPTION', esc_html__( 'Boost your productivity in WordPress content creation with AI-driven tools, automated content generation, and enhanced editor utilities.', 'insta-gallery' ) );
-		define( 'QLIGG_PROMOTE_CROSS_INSTALL_1_URL', 'https://quadlayers.com/products/ai-copilot/?utm_source=qligg_admin' );
+		define( 'QLIGG_PROMOTE_CROSS_INSTALL_1_URL', 'https://quadlayers.com/products/ai-copilot/?utm_source=qligg_plugin&utm_medium=dashboard_notice&utm_campaign=cross_sell&utm_content=ai_copilot_link' );
 		define( 'QLIGG_PROMOTE_CROSS_INSTALL_1_LOGO_SRC', plugins_url( '/assets/backend/img/ai-copilot.png', QLIGG_PLUGIN_FILE ) );
 		/**
 		 * Notice cross sell 2
@@ -31,7 +31,7 @@ if ( class_exists( 'QuadLayers\\WP_Notice_Plugin_Promote\\Load' ) ) {
 		define( 'QLIGG_PROMOTE_CROSS_INSTALL_2_SLUG', 'wp-whatsapp-chat' );
 		define( 'QLIGG_PROMOTE_CROSS_INSTALL_2_NAME', 'Social Chat' );
 		define( 'QLIGG_PROMOTE_CROSS_INSTALL_2_DESCRIPTION', esc_html__( 'Social Chat allows your users to start a conversation from your website directly to your WhatsApp phone number with one click.', 'insta-gallery' ) );
-		define( 'QLIGG_PROMOTE_CROSS_INSTALL_2_URL', 'https://quadlayers.com/products/whatsapp-chat/?utm_source=qligg_admin' );
+		define( 'QLIGG_PROMOTE_CROSS_INSTALL_2_URL', 'https://quadlayers.com/products/whatsapp-chat/?utm_source=qligg_plugin&utm_medium=dashboard_notice&utm_campaign=cross_sell&utm_content=social_chat_link' );
 		define( 'QLIGG_PROMOTE_CROSS_INSTALL_2_LOGO_SRC', plugins_url( '/assets/backend/img/wp-whatsapp-chat.jpeg', QLIGG_PLUGIN_FILE ) );
 
 		new \QuadLayers\WP_Notice_Plugin_Promote\Load(
@@ -48,7 +48,7 @@ if ( class_exists( 'QuadLayers\\WP_Notice_Plugin_Promote\\Load' ) ) {
 									'<br>'
 					),
 					'notice_link'        => QLIGG_PROMOTE_REVIEW_URL,
-					'notice_more_link'   => QLIGG_SUPPORT_URL,
+					'notice_more_link'   => 'https://quadlayers.com/account/support/?utm_source=qligg_plugin&utm_medium=dashboard_notice&utm_campaign=support&utm_content=report_bug_button',
 					'notice_more_label'  => esc_html__(
 						'Report a bug',
 						'insta-gallery'

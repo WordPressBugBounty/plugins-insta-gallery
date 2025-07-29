@@ -12,19 +12,19 @@ if ( class_exists( 'QuadLayers\\WP_Plugin_Table_Links\\Load' ) ) {
 				),
 				array(
 					'text' => esc_html__( 'Premium', 'insta-gallery' ),
-					'url'  => QLIGG_PREMIUM_SELL_URL,
+					'url'  => 'https://quadlayers.com/products/instagram-feed-gallery/?utm_source=qligg_plugin&utm_medium=plugin_table&utm_campaign=premium_upgrade&utm_content=premium_link',
 					'color' => 'green',
 					'target' => '_blank',
 				),
 				array(
 					'place' => 'row_meta',
 					'text'  => esc_html__( 'Support', 'insta-gallery' ),
-					'url'   => QLIGG_SUPPORT_URL,
+					'url'   => 'https://quadlayers.com/account/support/?utm_source=qligg_plugin&utm_medium=plugin_table&utm_campaign=support&utm_content=support_link',
 				),
 				array(
 					'place' => 'row_meta',
 					'text'  => esc_html__( 'Documentation', 'insta-gallery' ),
-					'url'   => QLIGG_DOCUMENTATION_URL,
+					'url'   => 'https://quadlayers.com/documentation/instagram-feed-gallery/?utm_source=qligg_plugin&utm_medium=plugin_table&utm_campaign=documentation&utm_content=documentation_link',
 				),
 			)
 		);

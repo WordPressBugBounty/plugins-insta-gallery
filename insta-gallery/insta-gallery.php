@@ -4,7 +4,7 @@
  * Plugin Name:             Social Feed Gallery
  * Plugin URI:              https://quadlayers.com/products/instagram-feed-gallery/
  * Description:             Display beautiful and responsive galleries on your website from your Instagram feed account.
- * Version:                 4.8.6
+ * Version:                 4.8.7
  * Text Domain:             insta-gallery
  * Author:                  QuadLayers
  * Author URI:              https://quadlayers.com
@@ -20,17 +20,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'QLIGG_PLUGIN_NAME', 'Social Feed Gallery' );
-define( 'QLIGG_PLUGIN_VERSION', '4.8.6' );
+define( 'QLIGG_PLUGIN_VERSION', '4.8.7' );
 define( 'QLIGG_PLUGIN_FILE', __FILE__ );
 define( 'QLIGG_PLUGIN_DIR', __DIR__ . DIRECTORY_SEPARATOR );
 define( 'QLIGG_DOMAIN', 'qligg' );
 define( 'QLIGG_PREFIX', QLIGG_DOMAIN );
 define( 'QLIGG_WORDPRESS_URL', 'https://wordpress.org/plugins/insta-gallery/' );
 define( 'QLIGG_REVIEW_URL', 'https://wordpress.org/support/plugin/insta-gallery/reviews/?filter=5#new-post' );
-define( 'QLIGG_DEMO_URL', 'https://quadlayers.com/demo/instagram-feed-gallery/?utm_source=qligg_admin' );
-define( 'QLIGG_PREMIUM_SELL_URL', 'https://quadlayers.com/products/instagram-feed-gallery/?utm_source=qligg_admin' );
-define( 'QLIGG_SUPPORT_URL', 'https://quadlayers.com/account/support/?utm_source=qligg_admin' );
-define( 'QLIGG_DOCUMENTATION_URL', 'https://quadlayers.com/documentation/instagram-feed-gallery/?utm_source=qligg_admin' );
 define( 'QLIGG_GROUP_URL', 'https://www.facebook.com/groups/quadlayers' );
 define( 'QLIGG_DEVELOPER', false );
 

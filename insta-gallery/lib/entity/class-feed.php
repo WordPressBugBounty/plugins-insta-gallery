@@ -33,6 +33,10 @@ class Feed extends CollectionEntity {
 			'mobile' => 480,
 		),
 	);
+	public $aspect_ratio      = array(
+		'width'  => 1,
+		'height' => 1,
+	);
 	public $highlight         = array(
 		'tag'      => '',
 		'id'       => '',

@@ -279,12 +279,10 @@ class Elementor_Widget extends Widget_Base {
 			'masonry'   => array(
 				'title' => esc_html__( 'Masonry', 'insta-gallery' ) . ( ! defined( 'QLIGG_PREMIUM' ) ? ' (' . esc_html__( 'Premium', 'insta-gallery' ) . ')' : '' ),
 				'icon'  => 'eicon-inner-section',
-				'class' => 'qligg-disabled',
 			),
 			'highlight' => array(
 				'title' => esc_html__( 'Highlight', 'insta-gallery' ) . ( ! defined( 'QLIGG_PREMIUM' ) ? ' (' . esc_html__( 'Premium', 'insta-gallery' ) . ')' : '' ),
 				'icon'  => 'eicon-posts-masonry',
-				'class' => 'qligg-disabled',
 			),
 		);
 
@@ -335,6 +333,44 @@ class Elementor_Widget extends Widget_Base {
 				'label'   => esc_html__( 'Hide feed copyright', 'insta-gallery' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'default' => $feed_defaults['copyright']['hide'] ? 'yes' : '',
+			)
+		);
+
+		$this->add_control(
+			'aspect_ratio_width',
+			array(
+				'label' => esc_html__(  'Aspect ratio - Width', 'insta-gallery' ) . ( ! defined( 'QLIGG_PREMIUM' ) ? ' (' . esc_html__( 'Premium', 'insta-gallery' ) . ')' : '' ),
+				'type'  => Controls_Manager::SLIDER,
+				'default' => array(
+					'size' => 1,	
+				),
+				'range'   => array(
+					'px' => array(
+						'min'  => 1,
+						'max'  => 100,
+						'step' => 1,
+					),
+				),
+				'classes' => 'qligg-premium-field',
+			)
+		);
+
+		$this->add_control(
+			'aspect_ratio_height',
+			array(
+				'label' => esc_html__(  'Aspect ratio - Height', 'insta-gallery' ) . ( ! defined( 'QLIGG_PREMIUM' ) ? ' (' . esc_html__( 'Premium', 'insta-gallery' ) . ')' : '' ),
+				'type'  => Controls_Manager::SLIDER,
+				'default' => array(
+					'size' => 1,	
+				),
+				'range'   => array(
+					'px' => array(
+						'min'  => 1,
+						'max'  => 100,
+						'step' => 1,
+					),
+				),
+				'classes' => 'qligg-premium-field',
 			)
 		);
 
@@ -1660,6 +1696,11 @@ class Elementor_Widget extends Widget_Base {
 		$feed['copyright'] = array(
 			'hide'        => ! empty( $settings['copyright_hide'] ),
 			'placeholder' => $settings['copyright_placeholder'] ?? '',
+		);
+
+		$feed['aspect_ratio'] = array(
+			'width'  => isset($settings['aspect_ratio_width']['size']) ? max(1, min(100, (int)$settings['aspect_ratio_width']['size'])) : 1,
+			'height' => isset($settings['aspect_ratio_height']['size']) ? max(1, min(100, (int)$settings['aspect_ratio_height']['size'])) : 1,
 		);
 
 		$feed['responsive'] = array(

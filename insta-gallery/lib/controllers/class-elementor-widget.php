@@ -339,10 +339,10 @@ class Elementor_Widget extends Widget_Base {
 		$this->add_control(
 			'aspect_ratio_width',
 			array(
-				'label' => esc_html__(  'Aspect ratio - Width', 'insta-gallery' ) . ( ! defined( 'QLIGG_PREMIUM' ) ? ' (' . esc_html__( 'Premium', 'insta-gallery' ) . ')' : '' ),
-				'type'  => Controls_Manager::SLIDER,
+				'label'   => esc_html__( 'Aspect ratio - Width', 'insta-gallery' ) . ( ! defined( 'QLIGG_PREMIUM' ) ? ' (' . esc_html__( 'Premium', 'insta-gallery' ) . ')' : '' ),
+				'type'    => Controls_Manager::SLIDER,
 				'default' => array(
-					'size' => 1,	
+					'size' => 1,
 				),
 				'range'   => array(
 					'px' => array(
@@ -358,10 +358,10 @@ class Elementor_Widget extends Widget_Base {
 		$this->add_control(
 			'aspect_ratio_height',
 			array(
-				'label' => esc_html__(  'Aspect ratio - Height', 'insta-gallery' ) . ( ! defined( 'QLIGG_PREMIUM' ) ? ' (' . esc_html__( 'Premium', 'insta-gallery' ) . ')' : '' ),
-				'type'  => Controls_Manager::SLIDER,
+				'label'   => esc_html__( 'Aspect ratio - Height', 'insta-gallery' ) . ( ! defined( 'QLIGG_PREMIUM' ) ? ' (' . esc_html__( 'Premium', 'insta-gallery' ) . ')' : '' ),
+				'type'    => Controls_Manager::SLIDER,
 				'default' => array(
-					'size' => 1,	
+					'size' => 1,
 				),
 				'range'   => array(
 					'px' => array(
@@ -1699,8 +1699,8 @@ class Elementor_Widget extends Widget_Base {
 		);
 
 		$feed['aspect_ratio'] = array(
-			'width'  => isset($settings['aspect_ratio_width']['size']) ? max(1, min(100, (int)$settings['aspect_ratio_width']['size'])) : 1,
-			'height' => isset($settings['aspect_ratio_height']['size']) ? max(1, min(100, (int)$settings['aspect_ratio_height']['size'])) : 1,
+			'width'  => isset( $settings['aspect_ratio_width']['size'] ) ? max( 1, min( 100, (int) $settings['aspect_ratio_width']['size'] ) ) : 1,
+			'height' => isset( $settings['aspect_ratio_height']['size'] ) ? max( 1, min( 100, (int) $settings['aspect_ratio_height']['size'] ) ) : 1,
 		);
 
 		$feed['responsive'] = array(

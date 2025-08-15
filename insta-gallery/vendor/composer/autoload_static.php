@@ -269,6 +269,8 @@ class ComposerStaticInit408d2a7def9db641f594278232936168
         'QuadLayers\\IGG\\Models\\Settings' => __DIR__ . '/../..' . '/lib/models/class-settings.php',
         'QuadLayers\\IGG\\Plugin' => __DIR__ . '/../..' . '/lib/class-plugin.php',
         'QuadLayers\\IGG\\Services\\Cache' => __DIR__ . '/../..' . '/lib/services/class-cache.php',
+        'QuadLayers\\IGG\\Services\\Email_Service' => __DIR__ . '/../..' . '/lib/services/class-email-service.php',
+        'QuadLayers\\IGG\\Services\\File_Logger' => __DIR__ . '/../..' . '/lib/services/class-file-logger.php',
         'QuadLayers\\IGG\\Services\\Hashtag_Tracker' => __DIR__ . '/../..' . '/lib/services/class-hashtag-tracker.php',
         'QuadLayers\\PluginFeedback\\AjaxHandler' => __DIR__ . '/..' . '/franmastromarino/wp-plugin-feedback/src/AjaxHandler.php',
         'QuadLayers\\PluginFeedback\\Client' => __DIR__ . '/..' . '/franmastromarino/wp-plugin-feedback/src/Client.php',

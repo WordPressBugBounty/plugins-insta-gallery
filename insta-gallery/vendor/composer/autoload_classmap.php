@@ -198,6 +198,8 @@ return array(
     'QuadLayers\\IGG\\Models\\Settings' => $baseDir . '/lib/models/class-settings.php',
     'QuadLayers\\IGG\\Plugin' => $baseDir . '/lib/class-plugin.php',
     'QuadLayers\\IGG\\Services\\Cache' => $baseDir . '/lib/services/class-cache.php',
+    'QuadLayers\\IGG\\Services\\Email_Service' => $baseDir . '/lib/services/class-email-service.php',
+    'QuadLayers\\IGG\\Services\\File_Logger' => $baseDir . '/lib/services/class-file-logger.php',
     'QuadLayers\\IGG\\Services\\Hashtag_Tracker' => $baseDir . '/lib/services/class-hashtag-tracker.php',
     'QuadLayers\\PluginFeedback\\AjaxHandler' => $vendorDir . '/franmastromarino/wp-plugin-feedback/src/AjaxHandler.php',
     'QuadLayers\\PluginFeedback\\Client' => $vendorDir . '/franmastromarino/wp-plugin-feedback/src/Client.php',

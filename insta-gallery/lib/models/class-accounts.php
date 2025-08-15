@@ -66,7 +66,7 @@ class Accounts {
 
 		wp_schedule_event(
 			time(),
-			'fifty_days',
+			'qligg_dynamic_token_check',
 			'qligg_cron_account',
 			$args
 		);
@@ -123,7 +123,7 @@ class Accounts {
 			if ( ! wp_next_scheduled( 'qligg_cron_account', $args ) ) {
 				wp_schedule_event(
 					time(),
-					'fifty_days',
+					'qligg_dynamic_token_check',
 					'qligg_cron_account',
 					$args
 				);
@@ -164,7 +164,7 @@ class Accounts {
 
 			wp_schedule_event(
 				time(),
-				'fifty_days',
+				'qligg_dynamic_token_check',
 				'qligg_cron_account',
 				$args
 			);

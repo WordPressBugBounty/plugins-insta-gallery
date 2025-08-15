@@ -154,21 +154,21 @@ class Backend {
 			'qligg-backend',
 			'qligg_backend',
 			array(
-				'plugin_url'              => plugins_url( '/', QLIGG_PLUGIN_FILE ),
-				'QLIGG_PLUGIN_NAME'       => QLIGG_PLUGIN_NAME,
-				'QLIGG_PLUGIN_VERSION'    => QLIGG_PLUGIN_VERSION,
-				'QLIGG_PLUGIN_FILE'       => QLIGG_PLUGIN_FILE,
-				'QLIGG_PLUGIN_DIR'        => QLIGG_PLUGIN_DIR,
-				'QLIGG_DOMAIN'            => QLIGG_DOMAIN,
-				'QLIGG_PREFIX'            => QLIGG_PREFIX,
-				'QLIGG_WORDPRESS_URL'     => QLIGG_WORDPRESS_URL,
-				'QLIGG_REVIEW_URL'        => QLIGG_REVIEW_URL,
-				'QLIGG_GROUP_URL'         => QLIGG_GROUP_URL,
-				'QLIGG_DEVELOPER'         => QLIGG_DEVELOPER,
-				'QLIGG_BUSSINESS_LINK'    => Helpers::get_business_access_token_link(),
-				'QLIGG_PERSONAL_LINK'     => Helpers::get_personal_access_token_link(),
-				'QLIGG_MODELS_FEED'       => Models_Feeds::instance()->get_args(),
-				'QLIGG_MODELS_SETTING'    => Models_Settings::instance()->get_args(),
+				'plugin_url'           => plugins_url( '/', QLIGG_PLUGIN_FILE ),
+				'QLIGG_PLUGIN_NAME'    => QLIGG_PLUGIN_NAME,
+				'QLIGG_PLUGIN_VERSION' => QLIGG_PLUGIN_VERSION,
+				'QLIGG_PLUGIN_FILE'    => QLIGG_PLUGIN_FILE,
+				'QLIGG_PLUGIN_DIR'     => QLIGG_PLUGIN_DIR,
+				'QLIGG_DOMAIN'         => QLIGG_DOMAIN,
+				'QLIGG_PREFIX'         => QLIGG_PREFIX,
+				'QLIGG_WORDPRESS_URL'  => QLIGG_WORDPRESS_URL,
+				'QLIGG_REVIEW_URL'     => QLIGG_REVIEW_URL,
+				'QLIGG_GROUP_URL'      => QLIGG_GROUP_URL,
+				'QLIGG_DEVELOPER'      => QLIGG_DEVELOPER,
+				'QLIGG_BUSSINESS_LINK' => Helpers::get_business_access_token_link(),
+				'QLIGG_PERSONAL_LINK'  => Helpers::get_personal_access_token_link(),
+				'QLIGG_MODELS_FEED'    => Models_Feeds::instance()->get_args(),
+				'QLIGG_MODELS_SETTING' => Models_Settings::instance()->get_args(),
 			)
 		);
 
@@ -244,7 +244,13 @@ class Backend {
 			 */
 		?>
 				<script type="text/javascript">
-					window.location.replace("<?php echo QLIGG_ACCOUNT_URL; ?>");
+					var url = "<?php echo QLIGG_ACCOUNT_URL; ?>";
+					// Remove #_=_ from URL if present
+					if (window.location.hash === "#_=_") {
+						window.location.replace(url);
+					} else {
+						window.location.replace(url + window.location.hash);
+					}
 				</script>
 			<?php
 	}

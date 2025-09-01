@@ -308,28 +308,28 @@
         },
         {
             "name": "franmastromarino/wp-plugin-feedback",
-            "version": "v1.0.9",
-            "version_normalized": "1.0.9.0",
+            "version": "dev-php7.2",
+            "version_normalized": "dev-php7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/franmastromarino/wp-plugin-feedback.git",
-                "reference": "a9d74330be65452c106dde40e7f940134af45909"
+                "reference": "8670f21dd80998350a4ab7c95b2fd67857becff8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/franmastromarino/wp-plugin-feedback/zipball/a9d74330be65452c106dde40e7f940134af45909",
-                "reference": "a9d74330be65452c106dde40e7f940134af45909",
+                "url": "https://api.github.com/repos/franmastromarino/wp-plugin-feedback/zipball/8670f21dd80998350a4ab7c95b2fd67857becff8",
+                "reference": "8670f21dd80998350a4ab7c95b2fd67857becff8",
                 "shasum": ""
             },
             "require": {
                 "monolog/monolog": "^2.0",
-                "php": ">=7.4"
+                "php": ">=7.2"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.6",
                 "squizlabs/php_codesniffer": "*"
             },
-            "time": "2025-05-05T10:08:53+00:00",
+            "time": "2025-09-01T15:03:55+00:00",
             "type": "project",
             "installation-source": "dist",
             "autoload": {
@@ -341,7 +341,7 @@
             "description": "Process plugin feedback client.",
             "support": {
                 "issues": "https://github.com/franmastromarino/wp-plugin-feedback/issues",
-                "source": "https://github.com/franmastromarino/wp-plugin-feedback/tree/v1.0.9"
+                "source": "https://github.com/franmastromarino/wp-plugin-feedback/tree/php7.2"
             },
             "install-path": "../franmastromarino/wp-plugin-feedback"
         },

@@ -1,7 +1,7 @@
 <?php
 namespace QuadLayers\IGG\Api\Rest\Endpoints\Frontend;
 
-use QuadLayers\IGG\Api\Rest\Endpoints\Base;
+use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\Base;
 use QuadLayers\IGG\Models\Accounts as Models_Accounts;
 use QuadLayers\IGG\Api\Fetch\Personal\User_Profile\Get as Api_Fetch_Personal_User_Profile;
 use QuadLayers\IGG\Api\Fetch\Business\User_Profile\Get as Api_Fetch_Business_User_Profile;
@@ -109,7 +109,23 @@ class User_Profile extends Base {
 		return \WP_REST_Server::READABLE;
 	}
 
+	/**
+	 * Permission callback for REST API endpoint
+	 *
+	 * Allows authenticated admin users with 'qligg_manage_feeds' capability
+	 * to access user profiles for any connected account (needed for backend feed management).
+	 * For non-admin requests, validates that the account is in at least one published feed.
+	 *
+	 * @return bool True if authorized, false otherwise
+	 */
 	public function get_rest_permission() {
-		return true;
+		// Allow admin users with proper capabilities to access any connected account
+		if ( current_user_can( 'qligg_manage_feeds' ) ) {
+			return true;
+		}
+
+		// For frontend/non-admin requests, use parent class validation
+		// which checks if account is in at least one published feed
+		return parent::get_rest_permission();
 	}
 }

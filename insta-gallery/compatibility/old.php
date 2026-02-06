@@ -128,18 +128,24 @@ add_action(
 		switch ( $_GET['page'] ) {
 			case 'qligg':
 				wp_safe_redirect( admin_url( 'admin.php?page=qligg_backend' ) );
-				// exit;
+				exit;
 			case 'qligg_account':
-				if ( ! isset( $_GET['accounts'] ) ) {
-					wp_safe_redirect( admin_url( 'admin.php?page=qligg_backend&tab=accounts' ) );
-					// exit;
+				// Preserve all query parameters when redirecting
+				$redirect_url = admin_url( 'admin.php?page=qligg_backend&tab=accounts' );
+				// Add existing query parameters except 'page'
+				$query_params = $_GET;
+				unset( $query_params['page'] );
+				if ( ! empty( $query_params ) ) {
+					$redirect_url = add_query_arg( $query_params, $redirect_url );
 				}
+				wp_safe_redirect( $redirect_url );
+				exit;
 			case 'qligg_feeds':
 				wp_safe_redirect( admin_url( 'admin.php?page=qligg_backend&tab=feeds' ) );
-				// exit;
+				exit;
 			case 'qligg_setting':
 				wp_safe_redirect( admin_url( 'admin.php?page=qligg_backend&tab=settings' ) );
-				// exit;
+				exit;
 		}
 	}
 );

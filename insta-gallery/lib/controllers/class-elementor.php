@@ -19,7 +19,7 @@ class Elementor {
 			return;
 		}
 
-		add_action( 'elementor/editor/after_enqueue_scripts', array( 'QuadLayers\IGG\Controllers\Backend', 'add_premium_css' ), 10 );
+		add_action( 'elementor/editor/after_enqueue_scripts', array( 'QuadLayers\IGG\Controllers\Backend', 'add_premium_styles' ), 10 );
 		add_action( 'elementor/editor/after_enqueue_scripts', array( 'QuadLayers\IGG\Controllers\Backend', 'register_scripts' ), 10 );
 		add_action( 'elementor/editor/after_enqueue_scripts', array( $this, 'register_scripts' ), 10 );
 		add_action( 'elementor/editor/footer', array( __CLASS__, 'add_premium_js' ), 10 );

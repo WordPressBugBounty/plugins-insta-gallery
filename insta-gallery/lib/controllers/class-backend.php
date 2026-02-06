@@ -34,7 +34,7 @@ class Backend {
 		add_action( 'admin_menu', array( $this, 'add_menu' ) );
 		add_action( 'admin_init', array( $this, 'add_capability' ) );
 		add_action( 'admin_head', array( __CLASS__, 'add_premium_js' ) );
-		add_action( 'admin_footer', array( __CLASS__, 'add_premium_css' ) );
+		add_action( 'admin_footer', array( __CLASS__, 'add_premium_styles' ) );
 	}
 
 	public static function get_menu_slug() {
@@ -196,6 +196,11 @@ class Backend {
 		}
 
 		/**
+		 * Enqueue WordPress REST API settings for authentication
+		 */
+		wp_enqueue_script( 'wp-api' );
+
+		/**
 		 * Load admin scripts
 		 */
 		wp_enqueue_media();
@@ -245,11 +250,18 @@ class Backend {
 		?>
 				<script type="text/javascript">
 					var url = "<?php echo QLIGG_ACCOUNT_URL; ?>";
-					// Remove #_=_ from URL if present
-					if (window.location.hash === "#_=_") {
-						window.location.replace(url);
-					} else {
-						window.location.replace(url + window.location.hash);
+					var currentHash = window.location.hash;
+					try {
+						// Remove #_=_, #_ or # from URL if present (Facebook OAuth artifacts)
+						if (currentHash === "#_=_" || currentHash === "#_" || currentHash === "#") {
+							window.location.replace(url);
+						} else {
+							window.location.replace(url + currentHash);
+						}
+					} catch (error) {
+						console.error('[QLIGG Redirect Debug] Error during redirect:', error);
+						console.error('[QLIGG Redirect Debug] Error message:', error.message);
+						console.error('[QLIGG Redirect Debug] Error stack:', error.stack);
 					}
 				</script>
 			<?php
@@ -263,7 +275,7 @@ class Backend {
 		<?php
 	}
 
-	public static function add_premium_css() {
+	public static function add_premium_styles() {
 		?>
 			<style>
 				.qligg-premium-field {

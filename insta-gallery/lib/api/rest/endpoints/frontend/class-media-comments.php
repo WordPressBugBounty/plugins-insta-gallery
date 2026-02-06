@@ -1,7 +1,7 @@
 <?php
 namespace QuadLayers\IGG\Api\Rest\Endpoints\Frontend;
 
-use QuadLayers\IGG\Api\Rest\Endpoints\Base;
+use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\Base;
 use QuadLayers\IGG\Models\Accounts as Models_Accounts;
 use QuadLayers\IGG\Api\Fetch\Business\Comments\Get as Api_Fetch_Business_Comments;
 use QuadLayers\IGG\Services\Cache;
@@ -131,9 +131,5 @@ class Media_Comments extends Base {
 
 	public static function get_rest_method() {
 		return \WP_REST_Server::READABLE;
-	}
-
-	public function get_rest_permission() {
-		return true;
 	}
 }

@@ -20,19 +20,47 @@ if ( class_exists( 'QuadLayers\\WP_Notice_Plugin_Promote\\Load' ) ) {
 		/**
 		 * Notice cross sell 1
 		 */
-		define( 'QLIGG_PROMOTE_CROSS_INSTALL_1_SLUG', 'ai-copilot' );
-		define( 'QLIGG_PROMOTE_CROSS_INSTALL_1_NAME', 'AI Copilot' );
-		define( 'QLIGG_PROMOTE_CROSS_INSTALL_1_DESCRIPTION', esc_html__( 'Boost your productivity in WordPress content creation with AI-driven tools, automated content generation, and enhanced editor utilities.', 'insta-gallery' ) );
-		define( 'QLIGG_PROMOTE_CROSS_INSTALL_1_URL', 'https://quadlayers.com/products/ai-copilot/?utm_source=qligg_plugin&utm_medium=dashboard_notice&utm_campaign=cross_sell&utm_content=ai_copilot_link' );
-		define( 'QLIGG_PROMOTE_CROSS_INSTALL_1_LOGO_SRC', plugins_url( '/assets/backend/img/ai-copilot.png', QLIGG_PLUGIN_FILE ) );
+		define( 'QLIGG_PROMOTE_CROSS_INSTALL_1_SLUG', 'wp-whatsapp-chat' );
+		define( 'QLIGG_PROMOTE_CROSS_INSTALL_1_NAME', 'Social Chat' );
+		define(
+			'QLIGG_PROMOTE_CROSS_INSTALL_1_TITLE',
+			wp_kses(
+				sprintf(
+					'<h3 style="margin:0">%s</h3>',
+					esc_html__( 'Turn more visitors into customers.', 'insta-gallery' )
+				),
+				array(
+					'h3' => array(
+						'style' => array()
+					)
+				)
+			)
+		);
+		define( 'QLIGG_PROMOTE_CROSS_INSTALL_1_DESCRIPTION', esc_html__( 'Social Chat allows your users to start a conversation from your website directly to your WhatsApp phone number with one click.', 'insta-gallery' ) );
+		define( 'QLIGG_PROMOTE_CROSS_INSTALL_1_URL', 'https://quadlayers.com/products/whatsapp-chat/?utm_source=qligg_plugin&utm_medium=dashboard_notice&utm_campaign=cross_sell&utm_content=social_chat_link' );
+		define( 'QLIGG_PROMOTE_CROSS_INSTALL_1_LOGO_SRC', plugins_url( '/assets/backend/img/wp-whatsapp-chat.jpeg', QLIGG_PLUGIN_FILE ) );
 		/**
 		 * Notice cross sell 2
 		 */
-		define( 'QLIGG_PROMOTE_CROSS_INSTALL_2_SLUG', 'wp-whatsapp-chat' );
-		define( 'QLIGG_PROMOTE_CROSS_INSTALL_2_NAME', 'Social Chat' );
-		define( 'QLIGG_PROMOTE_CROSS_INSTALL_2_DESCRIPTION', esc_html__( 'Social Chat allows your users to start a conversation from your website directly to your WhatsApp phone number with one click.', 'insta-gallery' ) );
-		define( 'QLIGG_PROMOTE_CROSS_INSTALL_2_URL', 'https://quadlayers.com/products/whatsapp-chat/?utm_source=qligg_plugin&utm_medium=dashboard_notice&utm_campaign=cross_sell&utm_content=social_chat_link' );
-		define( 'QLIGG_PROMOTE_CROSS_INSTALL_2_LOGO_SRC', plugins_url( '/assets/backend/img/wp-whatsapp-chat.jpeg', QLIGG_PLUGIN_FILE ) );
+		define( 'QLIGG_PROMOTE_CROSS_INSTALL_2_SLUG', 'wp-tiktok-feed' );
+		define( 'QLIGG_PROMOTE_CROSS_INSTALL_2_NAME', 'TikTok Feed' );
+		define(
+			'QLIGG_PROMOTE_CROSS_INSTALL_2_TITLE',
+			wp_kses(
+				sprintf(
+					'<h3 style="margin:0">%s</h3>',
+					esc_html__( 'Add TikTok videos in minutes.', 'insta-gallery' )
+				),
+				array(
+					'h3' => array(
+						'style' => array()
+					)
+				)
+			)
+		);
+		define( 'QLIGG_PROMOTE_CROSS_INSTALL_2_DESCRIPTION', esc_html__( 'Display TikTok videos on your WordPress site with responsive galleries, custom layouts, and an engaging lightbox popup.', 'insta-gallery' ) );
+		define( 'QLIGG_PROMOTE_CROSS_INSTALL_2_URL', 'https://quadlayers.com/products/tiktok-feed/?utm_source=qligg_plugin&utm_medium=dashboard_notice&utm_campaign=cross_sell&utm_content=tiktok_feed_link' );
+		define( 'QLIGG_PROMOTE_CROSS_INSTALL_2_LOGO_SRC', plugins_url( '/assets/backend/img/wp-tiktok-feed.jpg', QLIGG_PLUGIN_FILE ) );
 
 		new \QuadLayers\WP_Notice_Plugin_Promote\Load(
 			QLIGG_PLUGIN_FILE,
@@ -41,12 +69,18 @@ if ( class_exists( 'QuadLayers\\WP_Notice_Plugin_Promote\\Load' ) ) {
 					'type'               => 'ranking',
 					'notice_delay'       => 0,
 					'notice_logo'        => QLIGG_PROMOTE_LOGO_SRC,
-					'notice_description' => sprintf(
-									esc_html__( 'Hello! %2$s We\'ve spent countless hours developing this free plugin for you and would really appreciate it if you could drop us a quick rating. Your feedback is extremely valuable to us. %3$s It helps us to get better. Thanks for using %1$s.', 'insta-gallery' ),
-									'<b>'.QLIGG_PLUGIN_NAME.'</b>',
-									'<span style="font-size: 16px;">🙂</span>',
-									'<br>'
+					'notice_title'       => wp_kses(
+						sprintf(
+							'<h3 style="margin:0">%s</h3>',
+							esc_html__( 'Enjoying Social Feed Gallery?', 'insta-gallery' )
+						),
+						array(
+							'h3' => array(
+								'style' => array()
+							)
+						)
 					),
+					'notice_description' => esc_html__( 'A quick 5-star review helps us keep improving the plugin and supporting users like you. It only takes 2 seconds — thank you!', 'insta-gallery' ),
 					'notice_link'        => QLIGG_PROMOTE_REVIEW_URL,
 					'notice_more_link'   => 'https://quadlayers.com/account/support/?utm_source=qligg_plugin&utm_medium=dashboard_notice&utm_campaign=support&utm_content=report_bug_button',
 					'notice_more_label'  => esc_html__(
@@ -63,9 +97,16 @@ if ( class_exists( 'QuadLayers\\WP_Notice_Plugin_Promote\\Load' ) ) {
 					),
 					'notice_delay'       => WEEK_IN_SECONDS,
 					'notice_logo'        => QLIGG_PROMOTE_LOGO_SRC,
-					'notice_title'       => esc_html__(
-						'Hello! We have a special gift!',
-						'insta-gallery'
+					'notice_title'       => wp_kses(
+						sprintf(
+							'<h3 style="margin:0">%s</h3>',
+							esc_html__( 'Save 20% today!', 'insta-gallery' )
+						),
+						array(
+							'h3' => array(
+								'style' => array()
+							)
+						)
 					),
 					'notice_description' => sprintf(
 						esc_html__(
@@ -82,13 +123,7 @@ if ( class_exists( 'QuadLayers\\WP_Notice_Plugin_Promote\\Load' ) ) {
 					'plugin_slug'        => QLIGG_PROMOTE_CROSS_INSTALL_1_SLUG,
 					'notice_delay'       => MONTH_IN_SECONDS * 3,
 					'notice_logo'        => QLIGG_PROMOTE_CROSS_INSTALL_1_LOGO_SRC,
-					'notice_title'       => sprintf(
-						esc_html__(
-							'Hello! We want to invite you to try our %s plugin!',
-							'insta-gallery'
-						),
-						QLIGG_PROMOTE_CROSS_INSTALL_1_NAME
-					),
+					'notice_title'       => QLIGG_PROMOTE_CROSS_INSTALL_1_TITLE,
 					'notice_description' => QLIGG_PROMOTE_CROSS_INSTALL_1_DESCRIPTION,
 					'notice_more_link'   => QLIGG_PROMOTE_CROSS_INSTALL_1_URL
 				),
@@ -96,13 +131,7 @@ if ( class_exists( 'QuadLayers\\WP_Notice_Plugin_Promote\\Load' ) ) {
 					'plugin_slug'        => QLIGG_PROMOTE_CROSS_INSTALL_2_SLUG,
 					'notice_delay'       => MONTH_IN_SECONDS * 6,
 					'notice_logo'        => QLIGG_PROMOTE_CROSS_INSTALL_2_LOGO_SRC,
-					'notice_title'       => sprintf(
-						esc_html__(
-							'Hello! We want to invite you to try our %s plugin!',
-							'insta-gallery'
-						),
-						QLIGG_PROMOTE_CROSS_INSTALL_2_NAME
-					),
+					'notice_title'       => QLIGG_PROMOTE_CROSS_INSTALL_2_TITLE,
 					'notice_description' => QLIGG_PROMOTE_CROSS_INSTALL_2_DESCRIPTION,
 					'notice_more_link'   => QLIGG_PROMOTE_CROSS_INSTALL_2_URL
 				),

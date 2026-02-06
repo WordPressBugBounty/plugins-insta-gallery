@@ -3,7 +3,6 @@
 namespace QuadLayers\IGG\Controllers;
 
 use QuadLayers\IGG\Models\Feeds as Models_Feeds;
-use QuadLayers\IGG\Models\Settings as Models_Settings;
 
 use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\User_Profile as Api_Rest_User_Profile;
 use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\User_Media as Api_Rest_User_Media;
@@ -45,7 +44,6 @@ class Frontend {
 			'qligg-frontend',
 			'qligg_frontend',
 			array(
-				'settings'        => Models_Settings::instance()->get(),
 				'QLIGG_DEVELOPER' => defined( 'QLIGG_DEVELOPER' ) ? QLIGG_DEVELOPER : false,
 				'restRoutePaths'  => array(
 					'username'    => Api_Rest_User_Media::get_rest_url(),

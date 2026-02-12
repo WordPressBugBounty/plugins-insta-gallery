@@ -67,7 +67,7 @@ if ( class_exists( 'QuadLayers\\WP_Notice_Plugin_Promote\\Load' ) ) {
 			array(
 				array(
 					'type'               => 'ranking',
-					'notice_delay'       => 0,
+					'notice_delay'       => WEEK_IN_SECONDS,
 					'notice_logo'        => QLIGG_PROMOTE_LOGO_SRC,
 					'notice_title'       => wp_kses(
 						sprintf(
@@ -95,7 +95,7 @@ if ( class_exists( 'QuadLayers\\WP_Notice_Plugin_Promote\\Load' ) ) {
 						'Purchase Now',
 						'insta-gallery'
 					),
-					'notice_delay'       => WEEK_IN_SECONDS,
+					'notice_delay'       => MONTH_IN_SECONDS,
 					'notice_logo'        => QLIGG_PROMOTE_LOGO_SRC,
 					'notice_title'       => wp_kses(
 						sprintf(

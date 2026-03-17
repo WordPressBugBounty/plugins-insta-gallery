@@ -54,11 +54,9 @@ abstract class Base extends Endpoints {
 	 *
 	 * @return bool True if authorized, false otherwise
 	 */
-	public function get_rest_permission() {
-		// Get account_id from request
-		$account_id = isset( $_GET['account_id'] ) ? intval( $_GET['account_id'] ) : 0;
+	public function get_rest_permission( \WP_REST_Request $request = null ) {
+		$account_id = $request ? ( $request->get_param( 'account_id' ) ? intval( $request->get_param( 'account_id' ) ) : 0 ) : 0;
 
-		// Validate that the account is in at least one feed
 		if ( ! $this->validate_account_in_feeds( $account_id ) ) {
 			return false;
 		}

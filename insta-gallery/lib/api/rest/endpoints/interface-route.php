@@ -17,5 +17,5 @@ interface Route {
 
 	public static function get_rest_method();
 
-	public function get_rest_permission();
+	public function get_rest_permission( \WP_REST_Request $request = null );
 }

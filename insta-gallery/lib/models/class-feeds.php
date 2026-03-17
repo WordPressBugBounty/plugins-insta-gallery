@@ -198,6 +198,26 @@ class Feeds {
 	}
 
 	/**
+	 * Clears the account_id field on all feeds that reference a deleted account.
+	 *
+	 * @param string $account_id The account ID that was deleted.
+	 * @return void
+	 */
+	public function clear_account_references( string $account_id ) {
+		$feeds = $this->get_all();
+
+		if ( empty( $feeds ) ) {
+			return;
+		}
+
+		foreach ( $feeds as $feed ) {
+			if ( isset( $feed['account_id'] ) && (string) $feed['account_id'] === $account_id ) {
+				$this->repository->update( $feed['id'], array( 'account_id' => '' ) );
+			}
+		}
+	}
+
+	/**
 	 * Function to delete all feeds
 	 *
 	 * @return boolean

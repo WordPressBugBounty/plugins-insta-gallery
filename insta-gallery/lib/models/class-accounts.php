@@ -4,6 +4,7 @@ namespace QuadLayers\IGG\Models;
 
 use QuadLayers\WP_Orm\Builder\CollectionRepositoryBuilder;
 use QuadLayers\IGG\Entity\Account;
+use QuadLayers\IGG\Models\Feeds as Models_Feeds;
 use QuadLayers\IGG\Api\Fetch\Business\Access_Token\Refresh as Api_Fetch_Business_Refresh_Access_Token;
 use QuadLayers\IGG\Api\Fetch\Personal\Access_Token\Refresh as Api_Fetch_Personal_Refresh_Access_Token;
 
@@ -81,6 +82,7 @@ class Accounts {
 		if ( $status ) {
 			$args = array( $id );
 			wp_clear_scheduled_hook( 'qligg_cron_account', $args );
+			Models_Feeds::instance()->clear_account_references( $id );
 		}
 		return $status;
 	}

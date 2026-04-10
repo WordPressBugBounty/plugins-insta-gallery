@@ -19,7 +19,7 @@ final class Plugin {
 		/**
 		 * Load plugin textdomain.
 		 */
-		add_action( 'init', array( $this, 'load_textdomain' ) );
+		add_action( 'init', array( $this, 'load_textdomain' ), 1 );
 		/**
 		 * Load api classes.
 		 */
@@ -66,7 +66,7 @@ final class Plugin {
 	}
 
 	public function load_textdomain() {
-		load_plugin_textdomain( 'insta-gallery', false, QLIGG_PLUGIN_DIR . '/languages/' );
+		load_plugin_textdomain( 'insta-gallery', false, dirname( QLIGG_PLUGIN_BASENAME ) . '/languages' );
 	}
 
 	public function send_expiration_mail( $id ) {

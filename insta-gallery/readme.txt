@@ -4,8 +4,8 @@ Donate link: https://quadlayers.com/products/instagram-feed-gallery/
 Tags: Instagram, Instagram feed, Instagram gallery, Instagram Elementor, Instagram widget
 Requires at least: 4.7
 Requires PHP: 5.6
-Tested up to: 6.9
-Stable tag: 5.0.5
+Tested up to: 7.0
+Stable tag: 5.0.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -165,6 +165,9 @@ Instagram limits hashtag queries to 30 unique hashtags per 7 days for Profession
 Major update: Now includes native Elementor Instagram block/widget. Show likes, comments and descriptions in modal are now free features. Display user profile in Instagram item modal has been fixed.
 
 == Changelog ==
+
+= 5.0.6 =
+* WordPress 7.0 compatibility
 
 = 5.0.5 =
 * Fix: textdomain php error

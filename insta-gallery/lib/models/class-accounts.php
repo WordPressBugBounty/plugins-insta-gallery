@@ -37,44 +37,17 @@ class Accounts {
 	}
 
 	public function get( string $id ) {
+		// Pure read. Callers that need a renewal (e.g. the cron in class-plugin.php)
+		// must invoke is_access_token_renewed() explicitly — letting get() trigger
+		// renewals as a side effect bumps renew_attempts on every existence check
+		// and can push an account past the threshold into a permanent deadlock.
 		$entity = $this->repository->find( $id );
 
 		if ( ! $entity ) {
 			return;
 		}
 
-		$is_access_token_about_to_expire = $this->is_access_token_expired( $entity->getProperties() );
-
-		/**
-		 * Check if account is about to expire
-		 */
-		if ( ! $is_access_token_about_to_expire ) {
-			return $entity->getProperties();
-		}
-
-		if ( ! $this->is_access_token_renewed( $entity->getProperties() ) ) {
-			return $entity->getProperties();
-
-		}
-
-		$args = array(
-			$id,
-		);
-
-		if ( wp_next_scheduled( 'qligg_cron_account', $args ) ) {
-			wp_clear_scheduled_hook( 'qligg_cron_account', $args );
-		}
-
-		wp_schedule_event(
-			time(),
-			'qligg_dynamic_token_check',
-			'qligg_cron_account',
-			$args
-		);
-
-		$new_account = $this->repository->find( $id );
-
-		return $new_account->getProperties();
+		return $entity->getProperties();
 	}
 
 	public function delete( string $id ) {
@@ -88,15 +61,28 @@ class Accounts {
 	}
 
 	public function update( string $id, array $account ) {
-
 		$entity = $this->repository->update( $id, $account );
 
 		if ( $entity ) {
-			$args = array(
-				$id,
-			);
 			return $entity->getProperties();
 		}
+	}
+
+	/**
+	 * Persist an OAuth callback payload (proxy ships raw `expires_in` instead of
+	 * the precomputed `access_token_expiration_date`). Resets the renew counter
+	 * and runs clean_token so a reconnect cannot inherit the deadlock state from
+	 * a previous failed cron cycle.
+	 */
+	public function update_from_oauth_callback( string $id, array $account ) {
+		$account['access_token']                 = $this->clean_token( $account['access_token'] );
+		$account['access_token_type']            = $this->get_token_type( $account );
+		$account['access_token_expiration_date'] = $this->calculate_expiration_date( $account['expires_in'] );
+		$account['access_token_expires_in']      = $account['expires_in'];
+		$account['access_token_renew_attempts']  = 0;
+		unset( $account['expires_in'] );
+
+		return $this->update( $id, $account );
 	}
 
 	public function create( array $account_data ) {
@@ -210,6 +196,8 @@ class Accounts {
 	 * @return string
 	 */
 	protected function clean_token( $maybe_dirty ) {
+		$maybe_dirty = (string) $maybe_dirty;
+
 		if ( substr_count( $maybe_dirty, '.' ) < 3 ) {
 			return str_replace( '634hgdf83hjdj2', '', $maybe_dirty );
 		}
@@ -244,7 +232,9 @@ class Accounts {
 	 * @return void
 	 */
 	protected function access_token_renew_attemps_increase( $account ) {
-		$account['access_token_renew_attempts'] = intval( $account['access_token_renew_attempts'] ) + 1;
+		// max(0, ...) prevents the entity's -1 sentinel default (see Account)
+		// from collapsing the first failure into a stored 0 instead of 1.
+		$account['access_token_renew_attempts'] = max( 0, intval( $account['access_token_renew_attempts'] ) ) + 1;
 		$this->update( $account['id'], $account );
 	}
 
@@ -255,7 +245,7 @@ class Accounts {
 	 * @return int
 	 */
 	public function calculate_expiration_date( $expires_in ) {
-		return strtotime( current_time( 'mysql' ) ) + $expires_in - 1;
+		return time() + $expires_in - 1;
 	}
 
 	/**
@@ -285,7 +275,7 @@ class Accounts {
 		}
 
 		$account['access_token_renew_attempts']  = 0;
-		$account['access_token']                 = $response['access_token'];
+		$account['access_token']                 = $this->clean_token( $response['access_token'] );
 		$account['access_token_expiration_date'] = $this->calculate_expiration_date( $response['expires_in'] );
 		$account                                 = $this->update( $account['id'], $account );
 
@@ -304,7 +294,7 @@ class Accounts {
 	 */
 	protected function is_access_token_expired( $account ) {
 
-		if ( ( $account['access_token_expiration_date'] - strtotime( current_time( 'mysql' ) ) ) < DAY_IN_SECONDS * 5 ) {
+		if ( ( $account['access_token_expiration_date'] - time() ) < DAY_IN_SECONDS * 5 ) {
 			return true;
 		}
 

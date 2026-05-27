@@ -232,7 +232,7 @@ class Backend {
 		$account = Models_Accounts::instance()->get( $_REQUEST['accounts'][0]['id'] );
 
 		if ( $account ) {
-			$account = Models_Accounts::instance()->update( $_REQUEST['accounts'][0]['id'], $_REQUEST['accounts'][0] );
+			$account = Models_Accounts::instance()->update_from_oauth_callback( $_REQUEST['accounts'][0]['id'], $_REQUEST['accounts'][0] );
 		} else {
 			$account = Models_Accounts::instance()->create( $_REQUEST['accounts'][0] );
 		}

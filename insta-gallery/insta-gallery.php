@@ -4,7 +4,7 @@
  * Plugin Name:             Social Feed Gallery
  * Plugin URI:              https://quadlayers.com/products/instagram-feed-gallery/
  * Description:             Display beautiful and responsive galleries on your website from your Instagram feed account.
- * Version:                 5.0.9
+ * Version:                 5.0.10
  * Text Domain:             insta-gallery
  * Author:                  QuadLayers
  * Author URI:              https://quadlayers.com
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'QLIGG_PLUGIN_NAME', 'Social Feed Gallery' );
-define( 'QLIGG_PLUGIN_VERSION', '5.0.9' );
+define( 'QLIGG_PLUGIN_VERSION', '5.0.10' );
 define( 'QLIGG_PLUGIN_FILE', __FILE__ );
 define( 'QLIGG_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'QLIGG_PLUGIN_DIR', __DIR__ . DIRECTORY_SEPARATOR );
@@ -62,3 +62,15 @@ require_once __DIR__ . '/vendor_packages/wp-plugin-feedback.php';
 * Load plugin classes
 */
 require_once __DIR__ . '/lib/class-plugin.php';
+
+/**
+ * Declarate compatibility with WooCommerce Custom Order Tables
+ */
+add_action(
+	'before_woocommerce_init',
+	function () {
+		if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
+			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
+		}
+	}
+);

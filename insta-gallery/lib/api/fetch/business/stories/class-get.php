@@ -77,8 +77,10 @@ class Get extends Base {
 			function ( $carry, $key, $item ) {
 				list( $media_file_url, $media_file_type ) = $this->get_item_media( $item );
 
-				// If no valid media URL, skip this item
-				if ( ! $media_file_url ) {
+				$thumbnail_url = isset( $item['thumbnail_url'] ) ? $item['thumbnail_url'] : '';
+
+				// Instagram omits media_url for stories with copyrighted audio but keeps thumbnail_url. Skip only items without any displayable media.
+				if ( ! $media_file_url && ! $thumbnail_url ) {
 					return $carry;
 				}
 
@@ -86,7 +88,7 @@ class Get extends Base {
 					array(
 						'media'      => array(
 							'url'       => $media_file_url,
-							'thumbnail' => isset( $item['media_type'] ) && 'VIDEO' === $item['media_type'] ? $item['thumbnail_url'] : '',
+							'thumbnail' => $thumbnail_url,
 							'type'      => $media_file_type,
 						),
 						'user_type'  => 'BUSINESS',

@@ -33,6 +33,7 @@ class Backend {
 		add_action( 'init', array( __CLASS__, 'init_add_account' ) );
 		add_action( 'admin_menu', array( $this, 'add_menu' ) );
 		add_action( 'admin_init', array( $this, 'add_capability' ) );
+		add_action( 'admin_init', array( __CLASS__, 'maybe_redirect_to_reconnect' ), 20 );
 		add_action( 'admin_head', array( __CLASS__, 'add_premium_js' ) );
 		add_action( 'admin_footer', array( __CLASS__, 'add_premium_styles' ) );
 	}
@@ -95,6 +96,42 @@ class Backend {
 			"{$menu_slug}&tab=premium",
 			'__return_null'
 		);
+	}
+
+	/**
+	 * Reconnect link of the token notices: go straight to the OAuth dialog.
+	 */
+	public static function maybe_redirect_to_reconnect() {
+		$url = self::get_reconnect_redirect( $_GET ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+
+		if ( $url ) {
+			wp_redirect( $url ); // phpcs:ignore WordPress.Security.SafeRedirect.wp_redirect_wp_redirect
+			exit;
+		}
+	}
+
+	/**
+	 * OAuth dialog of a reconnect link, with a fresh nonce so the link of an
+	 * old email still works. The OAuth callback updates the account under the
+	 * same id, so the feeds keep it.
+	 *
+	 * @param array $request Request parameters.
+	 * @return string|null
+	 */
+	public static function get_reconnect_redirect( array $request ) {
+		if ( ! isset( $request['qligg_reconnect'] ) || ! current_user_can( 'qligg_manage_feeds' ) ) {
+			return null;
+		}
+
+		if ( 'business' === $request['qligg_reconnect'] ) {
+			return Helpers::get_business_access_token_link();
+		}
+
+		if ( 'personal' === $request['qligg_reconnect'] ) {
+			return Helpers::get_personal_access_token_link();
+		}
+
+		return null;
 	}
 
 	public function add_capability() {

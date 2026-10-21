@@ -135,6 +135,7 @@ class ComposerStaticInitcc7e60c56da76a9ead7c42d2a9bd8d68
         'QuadLayers\\IGG\\Services\\Email_Service' => __DIR__ . '/../..' . '/lib/services/class-email-service.php',
         'QuadLayers\\IGG\\Services\\File_Logger' => __DIR__ . '/../..' . '/lib/services/class-file-logger.php',
         'QuadLayers\\IGG\\Services\\Hashtag_Tracker' => __DIR__ . '/../..' . '/lib/services/class-hashtag-tracker.php',
+        'QuadLayers\\IGG\\Services\\Token_Notifier' => __DIR__ . '/../..' . '/lib/services/class-token-notifier.php',
         'QuadLayers\\IGG\\Services\\Token_Renewal' => __DIR__ . '/../..' . '/lib/services/class-token-renewal.php',
         'QuadLayers\\PluginFeedback\\AjaxHandler' => __DIR__ . '/..' . '/franmastromarino/wp-plugin-feedback/src/AjaxHandler.php',
         'QuadLayers\\PluginFeedback\\Client' => __DIR__ . '/..' . '/franmastromarino/wp-plugin-feedback/src/Client.php',

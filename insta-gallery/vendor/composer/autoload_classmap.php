@@ -80,6 +80,7 @@ return array(
     'QuadLayers\\IGG\\Services\\Email_Service' => $baseDir . '/lib/services/class-email-service.php',
     'QuadLayers\\IGG\\Services\\File_Logger' => $baseDir . '/lib/services/class-file-logger.php',
     'QuadLayers\\IGG\\Services\\Hashtag_Tracker' => $baseDir . '/lib/services/class-hashtag-tracker.php',
+    'QuadLayers\\IGG\\Services\\Token_Notifier' => $baseDir . '/lib/services/class-token-notifier.php',
     'QuadLayers\\IGG\\Services\\Token_Renewal' => $baseDir . '/lib/services/class-token-renewal.php',
     'QuadLayers\\PluginFeedback\\AjaxHandler' => $vendorDir . '/franmastromarino/wp-plugin-feedback/src/AjaxHandler.php',
     'QuadLayers\\PluginFeedback\\Client' => $vendorDir . '/franmastromarino/wp-plugin-feedback/src/Client.php',

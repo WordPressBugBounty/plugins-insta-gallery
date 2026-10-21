@@ -17,7 +17,21 @@ class Accounts {
 	protected $repository;
 
 	public function __construct() {
+		$this->build_repository();
+	}
 
+	/**
+	 * Drop the cached accounts, so the next write starts from the stored ones.
+	 * Long processes (the daily token check waits for the proxy) would
+	 * otherwise write back accounts changed meanwhile by another request.
+	 */
+	public function refresh() {
+		wp_cache_delete( 'insta_gallery_accounts', 'options' );
+		wp_cache_delete( 'alloptions', 'options' );
+		$this->build_repository();
+	}
+
+	private function build_repository() {
 		$builder = ( new CollectionRepositoryBuilder() )
 		->setTable( 'insta_gallery_accounts' )
 		->setEntity( Account::class )

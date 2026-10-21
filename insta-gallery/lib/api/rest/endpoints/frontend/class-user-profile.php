@@ -6,6 +6,7 @@ use QuadLayers\IGG\Models\Accounts as Models_Accounts;
 use QuadLayers\IGG\Api\Fetch\Personal\User_Profile\Get as Api_Fetch_Personal_User_Profile;
 use QuadLayers\IGG\Api\Fetch\Business\User_Profile\Get as Api_Fetch_Business_User_Profile;
 use QuadLayers\IGG\Services\Cache;
+use QuadLayers\IGG\Services\Account_Connection;
 
 class User_Profile extends Base {
 
@@ -29,6 +30,8 @@ class User_Profile extends Base {
 
 		// Check if $response has data, if it have return it.
 		if ( ! QLIGG_DEVELOPER && ! empty( $response['response'] ) ) {
+			// The token notices name the account.
+			Account_Connection::instance()->remember_username( $account_id, $response['response']['username'] ?? '' );
 			return $response['response'];
 		}
 
@@ -67,6 +70,9 @@ class User_Profile extends Base {
 				return $this->handle_response( $message );
 			}
 
+			// The token notices name the account.
+			Account_Connection::instance()->remember_username( $account_id, $response['username'] ?? '' );
+
 			// Update user profile data cache and return it.
 			if ( ! QLIGG_DEVELOPER ) {
 				$this->profile_cache_engine->update( $profile_complete_prefix, $response );
@@ -82,6 +88,9 @@ class User_Profile extends Base {
 		if ( isset( $response['message'], $response['code'] ) ) {
 			return $this->handle_response( $response );
 		}
+
+		// The token notices name the account.
+		Account_Connection::instance()->remember_username( $account_id, $response['username'] ?? '' );
 
 		// Update user profile data cache and return it.
 		if ( ! QLIGG_DEVELOPER ) {

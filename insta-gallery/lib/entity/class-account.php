@@ -19,4 +19,12 @@ class Account extends CollectionEntity {
 	// reads the option directly. Code paths always coerce the value through
 	// intval(), so the sentinel never reaches a real counter check.
 	public $access_token_renew_attempts  = -1;
+	// Consecutive answers saying the admin has to reconnect (code 190).
+	public $access_token_failures        = 0;
+	// Timestamp of the next renewal check, see Services\Token_Renewal.
+	public $access_token_next_check      = 0;
+	// Last token notice sent (expiring, final, stopped) for notice_deadline.
+	public $notice_stage                 = '';
+	public $notice_deadline              = 0;
+	public $notice_attempts              = 0;
 }

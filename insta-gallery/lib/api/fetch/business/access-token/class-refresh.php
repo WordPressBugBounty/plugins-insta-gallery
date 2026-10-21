@@ -22,8 +22,8 @@ class Refresh extends Base {
 	 * @param int    $renew_account Count of renew attemps.
 	 * @return array
 	 */
-	public function get_data( $access_token = null, $renew_account = null ) {
-		$response = $this->get_response( $access_token, $renew_account );
+	public function get_data( $access_token = null, $renew_account = null, $account_id = null ) {
+		$response = $this->get_response( $access_token, $renew_account, $account_id );
 		$data     = $this->response_to_data( $response );
 		return $data;
 	}
@@ -52,8 +52,8 @@ class Refresh extends Base {
 	 * @param int    $renew_account Count of renew attemps.
 	 * @return array
 	 */
-	public function get_response( $access_token = null, $renew_account = null ) {
-		$url      = $this->get_url( $access_token, $renew_account );
+	public function get_response( $access_token = null, $renew_account = null, $account_id = null ) {
+		$url      = $this->get_url( $access_token, $renew_account, $account_id );
 		$response = wp_remote_get(
 			$url,
 			array(
@@ -71,11 +71,13 @@ class Refresh extends Base {
 	 * @param int    $renew_account Count of renew attemps.
 	 * @return string
 	 */
-	public function get_url( $access_token = null, $renew_account = null ) {
+	public function get_url( $access_token = null, $renew_account = null, $account_id = null ) {
 		$url = add_query_arg(
 			array(
 				'access_token' => $access_token,
 				'renew_count'  => $renew_account,
+				// The proxy replaces the User token with the account's Page token.
+				'account_id'   => $account_id,
 			),
 			$this->api_url
 		);

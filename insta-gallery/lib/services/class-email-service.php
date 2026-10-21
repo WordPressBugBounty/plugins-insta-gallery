@@ -9,25 +9,23 @@ final class Email_Service {
 	protected static $instance;
 
 	/**
-	 * Send email with retry logic
+	 * Send an email with a single wp_mail call. A failure is retried by the
+	 * next daily token check, not here: retrying with sleep() blocked the cron
+	 * request.
 	 *
-	 * @param string      $email_type Type of email being sent
-	 * @param string      $recipient Email recipient
-	 * @param string      $subject Email subject
-	 * @param string      $message Email message
-	 * @param File_Logger $file_logger Logger instance
-	 * @param int         $max_retries Maximum number of retry attempts
-	 * @param int         $retry_delay Delay between retries in seconds
-	 * @return bool Final result of email sending
+	 * @param string          $email_type Type of email being sent.
+	 * @param string|string[] $recipient Email recipients.
+	 * @param string          $subject Email subject.
+	 * @param string          $message Email message.
+	 * @param File_Logger     $file_logger Logger instance.
+	 * @return bool Whether wp_mail accepted the email.
 	 */
-	public function send_email_with_retry( $email_type, $recipient, $subject, $message, $file_logger, $max_retries = 3, $retry_delay = 5 ) {
-		$attempt      = 1;
-		$email_result = false;
+	public function send( $email_type, $recipient, $subject, $message, $file_logger ) {
+		$email_result = (bool) wp_mail( $recipient, $subject, $message );
 
-		// Log initial attempt
 		$file_logger->log(
-			'INFO',
-			'Email sending attempt',
+			$email_result ? 'SUCCESS' : 'ERROR',
+			$email_result ? 'Email sent successfully' : 'Email sending failed',
 			array(
 				'type'      => $email_type,
 				'recipient' => $recipient,
@@ -36,101 +34,23 @@ final class Email_Service {
 			'email'
 		);
 
-		while ( $attempt <= $max_retries && ! $email_result ) {
-			// Log retry attempt if not the first attempt
-			if ( $attempt > 1 ) {
-				$file_logger->log(
-					'INFO',
-					'Email retry attempt',
-					array(
-						'type'        => $email_type,
-						'recipient'   => $recipient,
-						'attempt'     => $attempt,
-						'max_retries' => $max_retries,
-					),
-					'email'
-				);
-
-				// Wait before retry (except for first attempt)
-				sleep( $retry_delay );
-			}
-
-			// Attempt to send email
-			$email_result = wp_mail( $recipient, $subject, $message );
-
-			if ( $email_result ) {
-				// Success - log and break
-				$file_logger->log(
-					'SUCCESS',
-					'Email sent successfully',
-					array(
-						'type'      => $email_type,
-						'recipient' => $recipient,
-					),
-					'email'
-				);
-
-				if ( $attempt > 1 ) {
-					$file_logger->log(
-						'SUCCESS',
-						'Email sent successfully after retry',
-						array(
-							'type'               => $email_type,
-							'recipient'          => $recipient,
-							'successful_attempt' => $attempt,
-							'total_attempts'     => $attempt,
-						),
-						'email'
-					);
-				}
-
-				break;
-			} else {
-				// Failed attempt - log the failure
-				$file_logger->log(
-					'WARNING',
-					'Email sending attempt failed',
-					array(
-						'type'        => $email_type,
-						'recipient'   => $recipient,
-						'attempt'     => $attempt,
-						'max_retries' => $max_retries,
-						'will_retry'  => $attempt < $max_retries,
-					),
-					'email'
-				);
-
-				++$attempt;
-			}
-		}
-
-		// Log final result if all attempts failed
-		if ( ! $email_result ) {
-			$file_logger->log(
-				'ERROR',
-				'Email sending failed',
-				array(
-					'type'      => $email_type,
-					'recipient' => $recipient,
-					'error'     => sprintf( 'All %d email sending attempts failed', $max_retries ),
-				),
-				'email'
-			);
-
-			$file_logger->log(
-				'ERROR',
-				'Email sending completely failed after all retries',
-				array(
-					'type'           => $email_type,
-					'recipient'      => $recipient,
-					'total_attempts' => $max_retries,
-					'retry_delay'    => $retry_delay,
-				),
-				'email'
-			);
-		}
-
 		return $email_result;
+	}
+
+	/**
+	 * @deprecated 5.0.13 Use send(): it no longer retries.
+	 *
+	 * @param string      $email_type Type of email being sent.
+	 * @param string      $recipient Email recipient.
+	 * @param string      $subject Email subject.
+	 * @param string      $message Email message.
+	 * @param File_Logger $file_logger Logger instance.
+	 * @param int         $max_retries Ignored.
+	 * @param int         $retry_delay Ignored.
+	 * @return bool
+	 */
+	public function send_email_with_retry( $email_type, $recipient, $subject, $message, $file_logger, $max_retries = 3, $retry_delay = 5 ) {
+		return $this->send( $email_type, $recipient, $subject, $message, $file_logger );
 	}
 
 	public static function instance() {

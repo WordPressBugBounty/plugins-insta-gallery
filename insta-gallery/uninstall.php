@@ -14,8 +14,12 @@ if ( ! is_multisite() ) {
 		delete_option( 'insta_gallery_token' );
 		delete_option( 'insta_gallery_accounts' );
 		delete_option( 'insta_gallery_iac' );
+		delete_option( 'qligg_token_schema' );
+		delete_option( 'qligg_token_check_last_run' );
 	}
 }
+
+wp_clear_scheduled_hook( 'qligg_token_check' );
 
 $cron_jobs = get_option( 'cron' );
 

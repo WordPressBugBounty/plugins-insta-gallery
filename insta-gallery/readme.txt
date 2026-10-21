@@ -5,7 +5,7 @@ Tags: Instagram, Instagram feed, Instagram gallery, Instagram Elementor, Instagr
 Requires at least: 4.7
 Requires PHP: 5.6
 Tested up to: 7.1
-Stable tag: 5.0.11
+Stable tag: 5.0.12
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 WC requires at least: 4.0
@@ -167,6 +167,17 @@ Instagram limits hashtag queries to 30 unique hashtags per 7 days for Profession
 Major update: Now includes native Elementor Instagram block/widget. Show likes, comments and descriptions in modal are now free features. Display user profile in Instagram item modal has been fixed.
 
 == Changelog ==
+
+= 5.0.12 =
+* fix: token renewal is blocked after 3 failed attempts
+* fix: fatal error when the token check runs for a deleted account
+* fix: a response that doesn't extend the token is no longer reported as renewed
+* fix: no more expiration emails right after connecting an account
+* fix: the token check is rescheduled when an account is reconnected
+* fix: "connection lost" email when the account has no token
+* fix: email dates use the site timezone
+* refactor: account connection and token renewal moved to dedicated services
+* fix: Instagram Feed block styles and layouts in the block editor (iframe)
 
 = 5.0.11 =
 * fix: reels and posts with copyrighted audio show their thumbnail in the modal instead of a lock icon

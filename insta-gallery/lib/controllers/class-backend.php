@@ -4,7 +4,7 @@ namespace QuadLayers\IGG\Controllers;
 
 use QuadLayers\IGG\Helpers;
 use QuadLayers\IGG\Models\Feeds as Models_Feeds;
-use QuadLayers\IGG\Models\Accounts as Models_Accounts;
+use QuadLayers\IGG\Services\Account_Connection;
 use QuadLayers\IGG\Models\Settings as Models_Settings;
 use QuadLayers\IGG\Api\Rest\Endpoints\Backend\Accounts\Get as API_Rest_Accounts_Get;
 use QuadLayers\IGG\Api\Rest\Endpoints\Backend\Feeds\Get as API_Rest_Feeds_Get;
@@ -229,13 +229,7 @@ class Backend {
 			return;
 		}
 
-		$account = Models_Accounts::instance()->get( $_REQUEST['accounts'][0]['id'] );
-
-		if ( $account ) {
-			$account = Models_Accounts::instance()->update_from_oauth_callback( $_REQUEST['accounts'][0]['id'], $_REQUEST['accounts'][0] );
-		} else {
-			$account = Models_Accounts::instance()->create( $_REQUEST['accounts'][0] );
-		}
+		Account_Connection::instance()->connect( $_REQUEST['accounts'][0] );
 
 			/*
 			 * Redirect via php is not working because it preserve the hash in the url

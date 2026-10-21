@@ -2,7 +2,7 @@
 namespace QuadLayers\IGG\Api\Rest\Endpoints\Backend\Accounts;
 
 use QuadLayers\IGG\Api\Rest\Endpoints\Backend\Base;
-use QuadLayers\IGG\Models\Accounts as Models_Accounts;
+use QuadLayers\IGG\Services\Account_Connection;
 
 /**
  * Api_Rest_Accounts_Create Class
@@ -24,7 +24,7 @@ class Create extends Base {
 				throw new \Exception( esc_html__( 'id not set.', 'insta-gallery' ), 412 );
 			}
 
-			$response = Models_Accounts::instance()->create( $body );
+			$response = Account_Connection::instance()->connect( $body );
 
 			if ( ! isset( $response['access_token'] ) ) {
 				throw new \Exception( isset( $response['message'] ) ? $response['message'] : esc_html__( 'Unable to create account.', 'insta-gallery' ), 412 );

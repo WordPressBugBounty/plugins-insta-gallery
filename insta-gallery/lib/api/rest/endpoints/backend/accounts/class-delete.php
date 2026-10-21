@@ -2,7 +2,7 @@
 namespace QuadLayers\IGG\Api\Rest\Endpoints\Backend\Accounts;
 
 use QuadLayers\IGG\Api\Rest\Endpoints\Backend\Base;
-use QuadLayers\IGG\Models\Accounts as Models_Accounts;
+use QuadLayers\IGG\Services\Account_Connection;
 use QuadLayers\IGG\Services\Cache;
 
 /**
@@ -19,7 +19,7 @@ class Delete extends Base {
 		try {
 			$account_id = $request->get_param( 'id' ) ? trim( $request->get_param( 'id' ) ) : '';
 
-			$response = Models_Accounts::instance()->delete( $account_id );
+			$response = Account_Connection::instance()->disconnect( $account_id );
 
 			if ( ! $response ) {
 				throw new \Exception( sprintf( esc_html__( 'Can\'t delete account, account_id not found.', 'insta-gallery' ), $account_id ), 412 );

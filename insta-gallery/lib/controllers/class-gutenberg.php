@@ -18,8 +18,22 @@ class Gutenberg {
 	protected static $instance;
 
 	private function __construct() {
-		add_action( 'admin_enqueue_scripts', array( $this, 'register_scripts' ) );
 		add_action( 'init', array( $this, 'register_block' ) );
+		add_action( 'enqueue_block_assets', array( $this, 'enqueue_editor_iframe_scripts' ) );
+	}
+
+	/**
+	 * The layouts run inside the iframed block editor and need their own
+	 * Swiper (carousel) and Masonry (masonry, highlight) instances there.
+	 * Only in the editor: on the frontend the shortcode enqueues them when
+	 * the layout needs them.
+	 */
+	public function enqueue_editor_iframe_scripts() {
+		if ( ! is_admin() ) {
+			return;
+		}
+		wp_enqueue_script( 'qligg-swiper' );
+		wp_enqueue_script( 'masonry' );
 	}
 
 	public function register_scripts() {
@@ -66,6 +80,11 @@ class Gutenberg {
 	}
 
 	public function register_block() {
+		// The iframed block editor collects the editor_style handles before
+		// admin_enqueue_scripts fires: register them before the block. They
+		// are only enqueued where the block is used.
+		$this->register_scripts();
+
 		register_block_type(
 			'qligg/box',
 			array(

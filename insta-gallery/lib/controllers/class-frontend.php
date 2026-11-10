@@ -3,6 +3,7 @@
 namespace QuadLayers\IGG\Controllers;
 
 use QuadLayers\IGG\Models\Feeds as Models_Feeds;
+use QuadLayers\IGG\Services\Feed_Signature;
 
 use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\User_Profile as Api_Rest_User_Profile;
 use QuadLayers\IGG\Api\Rest\Endpoints\Frontend\User_Media as Api_Rest_User_Media;
@@ -66,6 +67,9 @@ class Frontend {
 		$id = isset( $id ) ? $id : $feed['id'];
 
 		$feed_layout = $feed['layout'];
+
+		// The frontend endpoints only serve the feeds the site renders.
+		$feed['signature'] = Feed_Signature::sign( $feed['account_id'] ?? '', $feed['source'] ?? '', $feed['tag'] ?? '' );
 
 		if ( in_array( $feed_layout, array( 'masonry', 'highlight', 'highlight-square' ) ) ) {
 			wp_dequeue_script( 'masonry' );

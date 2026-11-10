@@ -78,6 +78,7 @@ return array(
     'QuadLayers\\IGG\\Services\\Account_Connection' => $baseDir . '/lib/services/class-account-connection.php',
     'QuadLayers\\IGG\\Services\\Cache' => $baseDir . '/lib/services/class-cache.php',
     'QuadLayers\\IGG\\Services\\Email_Service' => $baseDir . '/lib/services/class-email-service.php',
+    'QuadLayers\\IGG\\Services\\Feed_Signature' => $baseDir . '/lib/services/class-feed-signature.php',
     'QuadLayers\\IGG\\Services\\File_Logger' => $baseDir . '/lib/services/class-file-logger.php',
     'QuadLayers\\IGG\\Services\\Hashtag_Tracker' => $baseDir . '/lib/services/class-hashtag-tracker.php',
     'QuadLayers\\IGG\\Services\\Token_Notifier' => $baseDir . '/lib/services/class-token-notifier.php',

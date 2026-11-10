@@ -11,6 +11,8 @@ class Hashtag_Media extends Base {
 
 	protected static $route_path = 'frontend/hashtag-media';
 
+	protected static $feed_source = 'tag';
+
 	protected $media_cache_engine;
 	protected $media_cache_key = 'feed';
 

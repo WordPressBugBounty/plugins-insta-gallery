@@ -133,6 +133,7 @@ class ComposerStaticInitcc7e60c56da76a9ead7c42d2a9bd8d68
         'QuadLayers\\IGG\\Services\\Account_Connection' => __DIR__ . '/../..' . '/lib/services/class-account-connection.php',
         'QuadLayers\\IGG\\Services\\Cache' => __DIR__ . '/../..' . '/lib/services/class-cache.php',
         'QuadLayers\\IGG\\Services\\Email_Service' => __DIR__ . '/../..' . '/lib/services/class-email-service.php',
+        'QuadLayers\\IGG\\Services\\Feed_Signature' => __DIR__ . '/../..' . '/lib/services/class-feed-signature.php',
         'QuadLayers\\IGG\\Services\\File_Logger' => __DIR__ . '/../..' . '/lib/services/class-file-logger.php',
         'QuadLayers\\IGG\\Services\\Hashtag_Tracker' => __DIR__ . '/../..' . '/lib/services/class-hashtag-tracker.php',
         'QuadLayers\\IGG\\Services\\Token_Notifier' => __DIR__ . '/../..' . '/lib/services/class-token-notifier.php',

@@ -10,6 +10,8 @@ class User_Stories extends Base {
 
 	protected static $route_path = 'frontend/user-stories';
 
+	protected static $feed_source = 'stories';
+
 	protected $media_cache_engine;
 	protected $media_cache_key = 'stories';
 

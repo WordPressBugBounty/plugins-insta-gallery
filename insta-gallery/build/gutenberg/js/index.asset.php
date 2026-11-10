@@ -1,1 +1,1 @@
-<?php return array('dependencies' => array('qligg-store', 'react', 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-compose', 'wp-element', 'wp-hooks', 'wp-i18n'), 'version' => '18715b58ab1dbb72759b');
+<?php return array('dependencies' => array('qligg-store', 'react', 'wp-block-editor', 'wp-blocks', 'wp-components', 'wp-compose', 'wp-element', 'wp-hooks', 'wp-i18n'), 'version' => '4d7d0951c95f855c8437');

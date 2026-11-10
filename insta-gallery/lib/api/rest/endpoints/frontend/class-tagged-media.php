@@ -10,6 +10,8 @@ class Tagged_Media extends Base {
 
 	protected static $route_path = 'frontend/tagged-media';
 
+	protected static $feed_source = 'tagged';
+
 	protected $media_cache_engine;
 	protected $media_cache_key = 'tagged';
 

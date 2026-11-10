@@ -117,27 +117,4 @@ class User_Profile extends Base {
 	public static function get_rest_method() {
 		return \WP_REST_Server::READABLE;
 	}
-
-	/**
-	 * Permission callback for REST API endpoint
-	 *
-	 * Allows authenticated admin users with 'qligg_manage_feeds' capability
-	 * to access user profiles for any connected account (needed for backend feed management).
-	 * For non-admin requests, validates that the account is in at least one published feed.
-	 *
-	 * @return bool True if authorized, false otherwise
-	 */
-	public function get_rest_permission( \WP_REST_Request $request = null ) {
-		// Allow admin users with proper capabilities to access any connected account.
-		// Fall back to 'manage_options' in case 'qligg_manage_feeds' has not been
-		// assigned yet (add_capability runs on admin_init which doesn't fire on
-		// REST API requests if no admin page has been visited since activation).
-		if ( current_user_can( 'qligg_manage_feeds' ) || current_user_can( 'manage_options' ) ) {
-			return true;
-		}
-
-		// For frontend/non-admin requests, use parent class validation
-		// which checks if account is in at least one published feed
-		return parent::get_rest_permission( $request );
-	}
 }

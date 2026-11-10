@@ -11,6 +11,8 @@ class User_Media extends Base {
 
 	protected static $route_path = 'frontend/user-media';
 
+	protected static $feed_source = 'username';
+
 	protected $media_cache_engine;
 	protected $media_cache_key = 'feed';
 

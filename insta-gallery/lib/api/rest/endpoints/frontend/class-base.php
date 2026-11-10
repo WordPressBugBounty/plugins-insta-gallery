@@ -4,6 +4,7 @@ namespace QuadLayers\IGG\Api\Rest\Endpoints\Frontend;
 
 use QuadLayers\IGG\Api\Rest\Endpoints\Base as Endpoints;
 use QuadLayers\IGG\Models\Feeds as Models_Feeds;
+use QuadLayers\IGG\Services\Feed_Signature;
 
 /**
  * Base Class for Frontend Endpoints
@@ -47,20 +48,44 @@ abstract class Base extends Endpoints {
 	}
 
 	/**
+	 * Source of the feeds the endpoint serves. Null for the account data
+	 * (profile, stories, comments): any feed of the account, named by the
+	 * source and tag params of the request.
+	 *
+	 * @var string|null
+	 */
+	protected static $feed_source = null;
+
+	/**
 	 * Permission callback for REST API endpoints
 	 *
-	 * Validates that the account_id parameter corresponds to an account
-	 * that is being used in at least one published feed.
+	 * Users who manage the feeds preview any feed (feeds tab, block editor).
+	 * Otherwise the account has to be used in at least one feed and the
+	 * request has to carry the signature of a feed the site rendered with
+	 * that account, source and hashtag (see Feed_Signature).
 	 *
 	 * @return bool True if authorized, false otherwise
 	 */
 	public function get_rest_permission( \WP_REST_Request $request = null ) {
-		$account_id = $request ? ( $request->get_param( 'account_id' ) ? intval( $request->get_param( 'account_id' ) ) : 0 ) : 0;
+		// Fall back to 'manage_options' in case 'qligg_manage_feeds' has not been
+		// assigned yet (add_capability runs on admin_init which doesn't fire on
+		// REST API requests if no admin page has been visited since activation).
+		if ( current_user_can( 'qligg_manage_feeds' ) || current_user_can( 'manage_options' ) ) {
+			return true;
+		}
+
+		if ( ! $request ) {
+			return false;
+		}
+
+		$account_id = $request->get_param( 'account_id' );
 
 		if ( ! $this->validate_account_in_feeds( $account_id ) ) {
 			return false;
 		}
 
-		return true;
+		$source = null === static::$feed_source ? $request->get_param( 'source' ) : static::$feed_source;
+
+		return Feed_Signature::verify( $request->get_param( 'signature' ), $account_id, $source, $request->get_param( 'tag' ) );
 	}
 }

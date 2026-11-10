@@ -42,7 +42,8 @@ class Gutenberg {
 		Frontend::instance()->register_scripts();
 
 		wp_register_style( 'qligg-gutenberg-editor', plugins_url( '/build/gutenberg/css/editor.css', QLIGG_PLUGIN_FILE ), array( 'qligg-frontend', 'qligg-swiper' ), QLIGG_PLUGIN_VERSION );
-		wp_register_script( 'qligg-gutenberg', plugins_url( '/build/gutenberg/js/index.js', QLIGG_PLUGIN_FILE ), array_merge( $gutenberg['dependencies'], array( 'qligg-frontend' ) ), $gutenberg['version'], true );
+		// wp-api-request: the REST nonce of the feed previews (not signed).
+		wp_register_script( 'qligg-gutenberg', plugins_url( '/build/gutenberg/js/index.js', QLIGG_PLUGIN_FILE ), array_merge( $gutenberg['dependencies'], array( 'qligg-frontend', 'wp-api-request' ) ), $gutenberg['version'], true );
 
 		wp_localize_script(
 			'qligg-gutenberg',

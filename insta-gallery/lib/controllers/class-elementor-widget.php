@@ -1821,7 +1821,9 @@ class Elementor_Widget extends Widget_Base {
 		$feed_settings       = $this->get_feed_settings( $settings );
 		$id                  = 'elementor-instagram-' . $this->get_id();
 		$feed_settings['id'] = $id;
-		echo Frontend::instance()->create_shortcode( $feed_settings, $id );
+		$document            = \Elementor\Plugin::instance()->documents->get_current();
+		$signed              = Frontend::can_sign_post_feeds( $document ? $document->get_post() : null );
+		echo Frontend::instance()->create_shortcode( $feed_settings, $id, $signed );
 
 		if ( \Elementor\Plugin::instance()->editor->is_edit_mode() ) {
 			echo '<script>if (typeof qliggFrontend !== "undefined") qliggFrontend.init();</script>';

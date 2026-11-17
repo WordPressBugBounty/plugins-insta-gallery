@@ -20,12 +20,19 @@ abstract class Base implements Route_Interface {
 			array(
 				'args'                => static::get_rest_args(),
 				'methods'             => static::get_rest_method(),
-				'callback'            => array( $this, 'callback' ),
+				'callback'            => array( $this, 'respond' ),
 				'permission_callback' => array( $this, 'get_rest_permission' ),
 			)
 		);
 
 		Routes_Library::instance()->register( $this );
+	}
+
+	/**
+	 * Response of the route.
+	 */
+	public function respond( \WP_REST_Request $request ) {
+		return $this->callback( $request );
 	}
 
 	public static function get_rest_route() {

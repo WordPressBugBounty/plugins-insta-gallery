@@ -5,7 +5,7 @@ Tags: Instagram, Instagram feed, Instagram gallery, Instagram Elementor, Instagr
 Requires at least: 4.7
 Requires PHP: 5.6
 Tested up to: 7.1
-Stable tag: 5.0.14
+Stable tag: 5.0.15
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 WC requires at least: 4.0
@@ -167,6 +167,12 @@ Instagram limits hashtag queries to 30 unique hashtags per 7 days for Profession
 Major update: Now includes native Elementor Instagram block/widget. Show likes, comments and descriptions in modal are now free features. Display user profile in Instagram item modal has been fixed.
 
 == Changelog ==
+
+= 5.0.15 =
+* fix: security, the feed modal shows the Instagram captions as text and the feed endpoints serve them without HTML tags (CVE-2026-107628)
+* fix: security, the feed profile only links http(s) URLs
+* fix: security, the block and Elementor feeds of posts by contributors and authors are not signed for the feed endpoints
+* fix: captions with HTML tags no longer end with "..." when they are not cut
 
 = 5.0.14 =
 * fix: security, the public feed endpoints only serve the account, source and hashtag of a feed the site renders (CVE-2026-114705). Purge the page cache after updating.

@@ -5,6 +5,7 @@ namespace QuadLayers\IGG\Api\Rest\Endpoints\Frontend;
 use QuadLayers\IGG\Api\Rest\Endpoints\Base as Endpoints;
 use QuadLayers\IGG\Models\Feeds as Models_Feeds;
 use QuadLayers\IGG\Services\Feed_Signature;
+use QuadLayers\IGG\Services\Caption;
 
 /**
  * Base Class for Frontend Endpoints
@@ -55,6 +56,20 @@ abstract class Base extends Endpoints {
 	 * @var string|null
 	 */
 	protected static $feed_source = null;
+
+	/**
+	 * Media with the captions without HTML tags, also when they come from
+	 * the cache.
+	 */
+	public function respond( \WP_REST_Request $request ) {
+		$response = parent::respond( $request );
+
+		if ( is_array( $response ) && isset( $response['data'] ) && is_array( $response['data'] ) ) {
+			$response['data'] = Caption::strip_media_tags( $response['data'] );
+		}
+
+		return $response;
+	}
 
 	/**
 	 * Permission callback for REST API endpoints

@@ -98,7 +98,12 @@ class Gutenberg {
 	}
 
 	public function render_callback( $attributes, $content, $block = array() ) {
-		return Frontend::instance()->create_shortcode( $attributes );
+		$post = get_post();
+
+		// Blocks out of the post content: widgets, templates.
+		$signed = ! $post || ! has_block( 'qligg/box', $post ) || Frontend::can_sign_post_feeds( $post );
+
+		return Frontend::instance()->create_shortcode( $attributes, null, $signed );
 	}
 
 	private function get_attributes() {

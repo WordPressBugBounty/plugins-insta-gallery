@@ -132,6 +132,7 @@ class ComposerStaticInitcc7e60c56da76a9ead7c42d2a9bd8d68
         'QuadLayers\\IGG\\Services\\Access_Token' => __DIR__ . '/../..' . '/lib/services/class-access-token.php',
         'QuadLayers\\IGG\\Services\\Account_Connection' => __DIR__ . '/../..' . '/lib/services/class-account-connection.php',
         'QuadLayers\\IGG\\Services\\Cache' => __DIR__ . '/../..' . '/lib/services/class-cache.php',
+        'QuadLayers\\IGG\\Services\\Caption' => __DIR__ . '/../..' . '/lib/services/class-caption.php',
         'QuadLayers\\IGG\\Services\\Email_Service' => __DIR__ . '/../..' . '/lib/services/class-email-service.php',
         'QuadLayers\\IGG\\Services\\Feed_Signature' => __DIR__ . '/../..' . '/lib/services/class-feed-signature.php',
         'QuadLayers\\IGG\\Services\\File_Logger' => __DIR__ . '/../..' . '/lib/services/class-file-logger.php',

@@ -58,7 +58,7 @@ class Frontend {
 		);
 	}
 
-	public function create_shortcode( $feed, $id = null ) {
+	public function create_shortcode( $feed, $id = null, $signed = true ) {
 
 		if ( ! isset( $feed['layout'] ) ) {
 			return;
@@ -68,8 +68,17 @@ class Frontend {
 
 		$feed_layout = $feed['layout'];
 
+		// The block and Elementor attributes are written by any user who edits posts.
+		if ( isset( $feed['profile'] ) && is_array( $feed['profile'] ) ) {
+			foreach ( array( 'link', 'website', 'avatar' ) as $key ) {
+				if ( isset( $feed['profile'][ $key ] ) ) {
+					$feed['profile'][ $key ] = is_string( $feed['profile'][ $key ] ) ? esc_url_raw( $feed['profile'][ $key ], array( 'http', 'https' ) ) : '';
+				}
+			}
+		}
+
 		// The frontend endpoints only serve the feeds the site renders.
-		$feed['signature'] = Feed_Signature::sign( $feed['account_id'] ?? '', $feed['source'] ?? '', $feed['tag'] ?? '' );
+		$feed['signature'] = $signed ? Feed_Signature::sign( $feed['account_id'] ?? '', $feed['source'] ?? '', $feed['tag'] ?? '' ) : '';
 
 		if ( in_array( $feed_layout, array( 'masonry', 'highlight', 'highlight-square' ) ) ) {
 			wp_dequeue_script( 'masonry' );
@@ -90,6 +99,19 @@ class Frontend {
 		</div>
 		<?php
 		return ob_get_clean();
+	}
+
+	/**
+	 * Whether the feeds of the blocks and widgets of a post are signed. Any
+	 * user who edits the post writes their attributes, a contributor in a
+	 * preview included, so only when its author can edit others' posts.
+	 * Feeds out of a post (widgets, templates) are signed.
+	 *
+	 * @param \WP_Post|object|null $post Post of the feed.
+	 * @return bool
+	 */
+	public static function can_sign_post_feeds( $post ) {
+		return ! $post || user_can( (int) $post->post_author, 'edit_others_posts' );
 	}
 
 	public function do_shortcode( $atts, $content = null ) {
